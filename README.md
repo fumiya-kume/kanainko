@@ -1,2 +1,3 @@
 # kanainko
-you can learning hiragana
+
+日本語をシュッと覚えれる日本語学習アプリ
