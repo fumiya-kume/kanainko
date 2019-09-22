@@ -16,6 +16,6 @@ jobs:
       - name: change permission
         run: sudo chmod 777 -R　./
       - name: Build with Gradle
-        run: sudo ./gradlew build
+        run: ./gradlew build
 
 
