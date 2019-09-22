@@ -13,7 +13,7 @@ jobs:
           java-version: 1.8
 
       - name: using docker
-        run: docker://docker.io/circleci/android:api-29-node
+        uses: docker://docker.io/circleci/android:api-29-node
 
       - name: setup android licenses
         run: echo "d56f5187479451eabf01fb78af6dfcb131a6481e" > sudo ${ANDROID_HOME}/licenses/android-sdk-license
