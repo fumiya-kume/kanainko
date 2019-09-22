@@ -25,9 +25,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@master
-          with:
-            name: android-folder
-            path: /
+        with:
+          name: android-folder
+          path: /
       - name: Build with Gradle
         run: ./gradlew build
   test:
@@ -35,9 +35,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@master
-          with:
-            name: android-folder
-            path: /
+        with:
+          name: android-folder
+          path: /
       - name: Test with Gradle
         run: ./gradlew test
   Lint:
@@ -45,9 +45,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@master
-        with:
-          name: android-folder
-          path: /
+      with:
+        name: android-folder
+        path: /
       - name: Lint with Gradle
         run: ./gradlew lint
 
