@@ -18,54 +18,36 @@ jobs:
       - uses: actions/upload-artifact@master
         with:
           name: android-folder
-          path: .
+          path: ./gradlew
 
   build:
     needs: setup_environment
     runs-on: ubuntu-latest
     steps:
-      - name: delete exists directory
-        run: sudo rm -rf .
       - uses: actions/download-artifact@master
         with:
           name: android-folder
-          path: .
-      - name: change permission
-        run: sudo chmod 777 -R ./
-      - name: set up Android SDk and Gradle Wrapper
-        run: sudo ./gradlew wrapper
+          path: ./gradlew
       - name: Build with Gradle
         run: ./gradlew build
   test:
     needs: setup_environment
     runs-on: ubuntu-latest
     steps:
-      - name: delete exists directory
-        run: sudo rm -rf .
       - uses: actions/download-artifact@master
-        with:
-          name: android-folder
-          path: .
-      - name: change permission
-        run: sudo chmod 777 -R .
-      - name: set up Android SDk and Gradle Wrapper
-        run: sudo ./gradlew wrapper
+          with:
+            name: android-folder
+            path: ./gradlew
       - name: Test with Gradle
         run: ./gradlew test
   Lint:
     needs: setup_environment
     runs-on: ubuntu-latest
     steps:
-      - name: delete exists directory
-        run: sudo rm -rf .
       - uses: actions/download-artifact@master
-        with:
-          name: android-folder
-          path: .
-      - name: change permission
-        run: sudo chmod 777 -R .
-      - name: set up Android SDk and Gradle Wrapper
-        run: sudo ./gradlew wrapper
+          with:
+            name: android-folder
+            path: ./gradlew
       - name: Lint with Gradle
         run: ./gradlew lint
 
