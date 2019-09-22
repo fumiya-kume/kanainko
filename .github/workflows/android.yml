@@ -14,4 +14,4 @@ jobs:
       - name: set up Android SDk and Gradle Wrapper
         run: sudo ./gradlew wrapper
       - name: Build with Gradle
-        run: ./gradlew build
+        run: ./gradlew assembleDebug
