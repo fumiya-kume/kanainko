@@ -1,0 +1,1 @@
+Warning: Task type 'SampleTask': property 'userName' is not annotated with an input or output annotation.

@@ -1,0 +1,1 @@
+/Users/kuxu/.ghq/github.com/fumiya-kume/kanainko/buildSrc/build/classes/kotlin/main/SampleTask.class
