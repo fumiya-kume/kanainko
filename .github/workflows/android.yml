@@ -29,7 +29,7 @@ jobs:
       - uses: actions/download-artifact@master
         with:
           name: android-folder
-          path: ./
+          path: .
       - name: change permission
         run: sudo chmod 777 -R ./
       - name: set up Android SDk and Gradle Wrapper
@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: delete exists directory
-        run: rm -rf ./
+        run: rm -rf .
       - uses: actions/download-artifact@master
         with:
           name: android-folder
@@ -57,7 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: delete exists directory
-        run: rm -rf ./
+        run: rm -rf .
       - uses: actions/download-artifact@master
         with:
           name: android-folder
