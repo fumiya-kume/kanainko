@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: delete exists directory
-        run: rm -rf .
+        run: sudo rm -rf .
       - uses: actions/download-artifact@master
         with:
           name: android-folder
@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: delete exists directory
-        run: rm -rf .
+        run: sudo rm -rf .
       - uses: actions/download-artifact@master
         with:
           name: android-folder
@@ -57,7 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: delete exists directory
-        run: rm -rf .
+        run: sudo rm -rf .
       - uses: actions/download-artifact@master
         with:
           name: android-folder
