@@ -48,10 +48,6 @@ jobs:
         with:
           name: android-folder
           path: ./gradlew
-      - name: change permission
-        run: sudo chmod 777 -R .
-      - name: set up Android SDk and Gradle Wrapper
-        run: sudo ./gradlew wrapper
       - name: Lint with Gradle
         run: ./gradlew lint
 
