@@ -11,8 +11,6 @@ import androidx.databinding.DataBindingUtil
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import jp.ac.daido.kanainko.databinding.ActivityMainBinding
 import jp.ac.daido.kanainko.record.RecordFragment
-import jp.ac.daido.kanainko.record.RecordViewModel
-import org.koin.android.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 
