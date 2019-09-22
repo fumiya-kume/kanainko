@@ -28,6 +28,8 @@ jobs:
         with:
           name: android-folder
           path: .
+      - name: sudo ./gradlew
+        run: sudo ./gradlew wrapper
       - name: Build with Gradle
         run: ./gradlew build
   test:
@@ -38,6 +40,8 @@ jobs:
         with:
           name: android-folder
           path: .
+      - name: sudo ./gradlew
+        run: sudo ./gradlew wrapper
       - name: Test with Gradle
         run: ./gradlew test
   Lint:
@@ -48,6 +52,8 @@ jobs:
         with:
           name: android-folder
           path: .
+      - name: sudo ./gradlew
+        run: sudo ./gradlew wrapper
       - name: Lint with Gradle
         run: ./gradlew lint
 
