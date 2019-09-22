@@ -35,9 +35,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@master
-          with:
-            name: android-folder
-            path: ./gradlew
+        with:
+          name: android-folder
+          path: ./gradlew
       - name: Test with Gradle
         run: ./gradlew test
   Lint:
@@ -45,9 +45,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@master
-          with:
-            name: android-folder
-            path: ./gradlew
+        with:
+          name: android-folder
+          path: ./gradlew
       - name: change permission
         run: sudo chmod 777 -R .
       - name: set up Android SDk and Gradle Wrapper
