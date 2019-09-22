@@ -8,9 +8,6 @@ jobs:
       JVM_OPTS: -Xmx3200m
     steps:
       - checkout
-      - run:
-          name: prepare_android_sdk_license
-          command: https://gist.githubusercontent.com/noamtamim/b04ef67239d2b43638aa5a9a024a1937/raw/56f1a38dd88a3774b71a063822444f3961d61873/android-sdk-license.sh | sh
       - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       #      - run:
