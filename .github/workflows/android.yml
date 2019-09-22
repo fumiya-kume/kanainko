@@ -12,6 +12,6 @@ jobs:
         with:
           java-version: 1.8
       - name: set up Android SDk and Gradle Wrapper
-        run: sudo gradlew wrapper
+        run: sudo ./gradlew wrapper
       - name: Build with Gradle
         run: ./gradlew build
