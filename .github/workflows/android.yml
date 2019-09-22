@@ -31,7 +31,7 @@ jobs:
       - name: change permission
         run: sudo chmod 777 -R ./
       - name: set up Android SDk and Gradle Wrapper
-          run: sudo ./gradlew wrapper
+        run: sudo ./gradlew wrapper
       - name: Build with Gradle
         run: ./gradlew build
   test:
@@ -45,7 +45,7 @@ jobs:
       - name: change permission
         run: sudo chmod 777 -R ./
       - name: set up Android SDk and Gradle Wrapper
-          run: sudo ./gradlew wrapper
+        run: sudo ./gradlew wrapper
       - name: Test with Gradle
         run: ./gradlew test
   Lint:
@@ -59,7 +59,7 @@ jobs:
       - name: change permission
         run: sudo chmod 777 -R ./
       - name: set up Android SDk and Gradle Wrapper
-          run: sudo ./gradlew wrapper
+        run: sudo ./gradlew wrapper
       - name: Lint with Gradle
         run: ./gradlew lint
 
