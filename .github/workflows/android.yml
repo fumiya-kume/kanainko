@@ -27,7 +27,7 @@ jobs:
       - uses: actions/download-artifact@master
         with:
           name: android-folder
-          path: ./gradlew
+          path: .
       - name: Build with Gradle
         run: ./gradlew build
   test:
@@ -37,7 +37,7 @@ jobs:
       - uses: actions/download-artifact@master
         with:
           name: android-folder
-          path: ./gradlew
+          path: .
       - name: Test with Gradle
         run: ./gradlew test
   Lint:
@@ -47,7 +47,7 @@ jobs:
       - uses: actions/download-artifact@master
         with:
           name: android-folder
-          path: ./gradlew
+          path: .
       - name: Lint with Gradle
         run: ./gradlew lint
 
