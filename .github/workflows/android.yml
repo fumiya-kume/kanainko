@@ -15,23 +15,35 @@ jobs:
       run: sudo ./gradlew wrapper
     - name: change permission
       run: sudo chmod 777 -R ./
+    - uses: actions/upload-artifact@master
+      name: android-folder
+      path: /
 
   build:
     needs: setup_environment
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/download-artifact@master
+          name: android-folder
+          path: /
       - name: Build with Gradle
         run: ./gradlew build
   test:
     needs: setup_environment
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/download-artifact@master
+          name: android-folder
+          path: /
       - name: Test with Gradle
         run: ./gradlew test
   Lint:
     needs: setup_environment
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/download-artifact@master
+          name: android-folder
+          path: /
       - name: Lint with Gradle
         run: ./gradlew lint
 
