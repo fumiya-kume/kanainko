@@ -18,6 +18,9 @@
 
         </activity>
         <activity android:name=".player.AudioPlayerActivity" >
+
+        </activity>
+        <activity android:name=".GraphActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
