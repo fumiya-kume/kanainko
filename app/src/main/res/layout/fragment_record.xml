@@ -12,20 +12,44 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
+
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/main_chart"
+            android:layout_width="0dp"
+            android:layout_height="400dp"
+            android:background="@color/cardview_dark_background"
+            android:padding="4dp"
+            android:layout_margin="8dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/spectrgram_chart"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:padding="4dp"
+            android:layout_margin="8dp"
+            app:layout_constraintTop_toBottomOf="@id/main_chart"
+            app:layout_constraintBottom_toTopOf="@id/recording_button"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
 
         <Button
+            tools:ignore="MissingConstraints"
             android:id="@+id/recording_button"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             android:padding="8dp"
-            android:text="録音する"
+            android:text="🎤"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="録音開始する" />
+            tools:text="🎤" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
