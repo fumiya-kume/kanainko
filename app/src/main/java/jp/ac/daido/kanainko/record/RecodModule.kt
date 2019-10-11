@@ -1,9 +1,12 @@
 package jp.ac.daido.kanainko.record
 
+import jp.ac.daido.kanainko.record.domain.AudioService
+import jp.ac.daido.kanainko.record.domain.service.AudioServiceImpl
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val recordModule = module {
-    viewModel { (presenter: RecordPresenter) -> RecordViewModel(presenter) }
+    factory { AudioServiceImpl() as AudioService }
+    viewModel { (presenter: RecordPresenter) -> RecordViewModel(presenter, get()) }
 
 }
