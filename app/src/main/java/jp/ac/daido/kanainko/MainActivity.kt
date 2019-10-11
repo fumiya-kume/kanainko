@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import jp.ac.daido.kanainko.databinding.ActivityMainBinding
-import jp.ac.daido.kanainko.record.RecordFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -92,9 +91,6 @@ class MainActivity : AppCompatActivity() {
             })
         }
 
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.add(R.id.activity_main_bottom_sheet_fragment_container, RecordFragment())
-        transaction.commit()
     }
 
     override fun onCreateView(
