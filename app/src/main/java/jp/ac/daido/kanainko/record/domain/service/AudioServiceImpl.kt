@@ -5,7 +5,6 @@ import android.media.AudioRecord
 import android.media.MediaRecorder
 import android.util.Log
 import jp.ac.daido.kanainko.record.domain.AudioService
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -38,26 +37,25 @@ internal class AudioServiceImpl : AudioService {
 
     override suspend fun load(): Flow<List<Float>> =
         flow {
-        this
 
-        val period = frameBufferSize / 10000
-        audioRecord.positionNotificationPeriod = period
+            val period = frameBufferSize / 10000
+            audioRecord.positionNotificationPeriod = period
 
-        val bufferList = ShortArray(frameBufferSize)
-        audioRecord.setRecordPositionUpdateListener(object :
-            AudioRecord.OnRecordPositionUpdateListener {
-            override fun onMarkerReached(record: AudioRecord?) {
-                Log.d("audio_record", "maker attached")
-            }
+            val bufferList = ShortArray(frameBufferSize)
+            audioRecord.setRecordPositionUpdateListener(object :
+                AudioRecord.OnRecordPositionUpdateListener {
+                override fun onMarkerReached(record: AudioRecord?) {
+                    Log.d("audio_record", "maker attached")
+                }
 
-            override fun onPeriodicNotification(record: AudioRecord?) {
-                Log.d("audio_record", "period attached")
+                override fun onPeriodicNotification(record: AudioRecord?) {
+                    Log.d("audio_record", "period attached")
 
-                record?.read(bufferList, 0, frameBufferSize / 100000)
-                GlobalScope.launch { emit(bufferList.map { it.toFloat() }) }
-            }
-        })
+                    record?.read(bufferList, 0, frameBufferSize / 100000)
+                    GlobalScope.launch { emit(bufferList.map { it.toFloat() }) }
+                }
+            })
 
-        audioRecord.startRecording()
-    }
+            audioRecord.startRecording()
+        }
 }

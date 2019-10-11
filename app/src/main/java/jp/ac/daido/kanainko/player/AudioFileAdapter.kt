@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 
 internal class AudioFileAdapter(
     private val context: Context
-    ) :
+) :
     ListAdapter<AudioFileViewEntity, AudioFileViewHolder>(object :
         ItemCallback<AudioFileViewEntity>() {
         override fun areItemsTheSame(
