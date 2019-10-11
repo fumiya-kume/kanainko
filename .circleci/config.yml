@@ -11,16 +11,16 @@ jobs:
       - restore_cashe:
           - key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       - run:
-          name: Download Dependencies
-          command: ./gradlew androidDependencies
+        name: Download Dependencies
+        command: ./gradlew androidDependencies
       - save_cache:
-          paths:
-            - ~/.gradle
-          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+        paths:
+          - ~/.gradle
+        key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       - persist_to_workspace:
-          root: /tmp/workspace
-          paths:
-            - '*'
+        root: /tmp/workspace
+        paths:
+          - '*'
   build:
     working_directory: ~/code
     docker:
