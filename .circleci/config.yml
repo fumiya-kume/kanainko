@@ -21,7 +21,7 @@ jobs:
           root: .
           paths:
             - '*'
-  build:
+  DebugBuild:
     working_directory: ~/code
     docker:
       - image: circleci/android:api-29-node
@@ -32,7 +32,25 @@ jobs:
           at: .
       - run:
           name: Run Build
-          command: ./gradlew build
+          command: ./gradlew assembleDebug
+      - store_artifacts: # for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
+          path: app/build/reports
+          destination: reports
+      - store_test_results: # for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
+          path: app/build/test-results
+
+  ReleaseBuild:
+    working_directory: ~/code
+    docker:
+      - image: circleci/android:api-29-node
+    environment:
+      JVM_OPTS: -Xmx3200m
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Run Build
+          command: ./gradlew assembleRelease
       - store_artifacts: # for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
           path: app/build/reports
           destination: reports
@@ -77,12 +95,15 @@ workflows:
   main:
     jobs:
       - prepare_ci
-      - build:
+      - Debugbuild:
+          requires:
+            - prepare_ci
+      - Releasebuild:
           requires:
             - prepare_ci
       - test:
           requires:
-            - build
+            - Debugbuild
       - lint:
           requires:
-            - build
+            - Debugbuild
