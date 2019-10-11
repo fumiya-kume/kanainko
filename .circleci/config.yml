@@ -79,10 +79,10 @@ workflows:
       - prepare_ci
       - build:
           requires:
-            - prepare_ci
+          - prepare_ci
       - test:
           requires:
-            - build
+          - build
       - lint:
           requires:
-            - build
+          - build
