@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="this is a debug activity"
+            />
+
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            class="jp.ac.daido.kanainko.record.RecordFragment"
+            android:id="@+id/main_fragment">
+
+        </fragment>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

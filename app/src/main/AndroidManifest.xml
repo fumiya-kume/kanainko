@@ -17,7 +17,7 @@
         <activity android:name=".MainActivity">
 
         </activity>
-        <activity android:name=".player.AudioPlayerActivity" >
+        <activity android:name=".player.AudioPlayerActivity">
 
         </activity>
         <activity android:name=".GraphActivity">
@@ -26,6 +26,9 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".DebugActivity">
+
         </activity>
     </application>
 

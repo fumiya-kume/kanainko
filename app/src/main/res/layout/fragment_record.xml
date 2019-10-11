@@ -12,43 +12,44 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/grayColor800">
 
 
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/main_chart"
             android:layout_width="0dp"
             android:layout_height="400dp"
-            android:background="@color/cardview_dark_background"
-            android:padding="4dp"
             android:layout_margin="8dp"
-            app:layout_constraintTop_toTopOf="parent"
+            android:padding="4dp"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/spectrgram_chart"
             android:layout_width="0dp"
             android:layout_height="150dp"
-            android:padding="4dp"
             android:layout_margin="8dp"
-            app:layout_constraintTop_toBottomOf="@id/main_chart"
+            android:padding="4dp"
             app:layout_constraintBottom_toTopOf="@id/recording_button"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@id/main_chart" />
 
 
         <Button
-            tools:ignore="MissingConstraints"
             android:id="@+id/recording_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             android:padding="8dp"
             android:text="🎤"
+            android:background="@color/primaryColor"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints"
             tools:text="🎤" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
