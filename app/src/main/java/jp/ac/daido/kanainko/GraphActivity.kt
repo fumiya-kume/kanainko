@@ -3,7 +3,6 @@ package jp.ac.daido.kanainko
 import android.media.AudioFormat
 import android.media.AudioRecord
 import android.media.MediaRecorder
-import android.media.audiofx.Visualizer
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.FragmentActivity
@@ -11,8 +10,6 @@ import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 internal class GraphActivity : FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,8 +56,7 @@ internal class GraphActivity : FragmentActivity() {
             AudioFormat.ENCODING_PCM_8BIT,
             frameBufferSize
         )
-
-
+        
         val period = frameBufferSize
         audioRecord.positionNotificationPeriod = period
 
@@ -76,42 +72,9 @@ internal class GraphActivity : FragmentActivity() {
 
                 record?.read(bufferList, 0, frameBufferSize)
 //                GlobalScope.launch { updateGraph(. map { it.toFloat() }) }
-
+                Log.d("tag", bufferList.toString())
             }
         })
-
         audioRecord.startRecording()
-
-        val visualizer = Visualizer(audioRecord.audioSessionId)
-        val captureSize = Visualizer.getCaptureSizeRange()[1]
-        visualizer.setCaptureSize(captureSize)
-
-
-        visualizer.setDataCaptureListener(
-            object : Visualizer.OnDataCaptureListener {
-                override fun onFftDataCapture(
-                    visualizer: Visualizer?,
-                    fft: ByteArray?,
-                    samplingRate: Int
-                ) {
-                    updateGraph(fft?.map { it.toFloat() } ?: emptyList())
-                }
-
-                // Wave のデータ
-                override fun onWaveFormDataCapture(
-                    visualizer: Visualizer?,
-                    waveform: ByteArray?,
-                    samplingRate: Int
-                ) {
-
-                }
-
-            },
-            captureSize,
-            true,
-            true
-        )
-
-
     }
 }
