@@ -45,11 +45,10 @@ internal class RecordFragment : Fragment(), RecordPresenter {
                 false
             )
 
-        recordViewModel.isRecordingLivedata.observeForever {
-            binding.recordingButton.text = if (it) "録音停止する" else "録音する"
+        recordViewModel.volumeLiveData.observeForever {
         }
 
-        binding.recordingButton.setOnClickListener { recordViewModel.changeRecordState() }
+        recordViewModel.start()
 
         return binding.root
     }
