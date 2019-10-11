@@ -66,11 +66,11 @@ dependencies {
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 
     // for FFT
-    implementation("com.github.rwl:jtransforms:2.4.0")
+    implementation("edu.emory.mathcs:JTransforms:2.4")
 
     testImplementation "org.koin:koin-test:2.0.1"
 
-    testImplementation 'junit:junit:4.8.2'
+    testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
