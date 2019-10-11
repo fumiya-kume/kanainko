@@ -56,7 +56,7 @@ internal class GraphActivity : FragmentActivity() {
             AudioFormat.ENCODING_PCM_8BIT,
             frameBufferSize
         )
-        
+
         val period = frameBufferSize
         audioRecord.positionNotificationPeriod = period
 

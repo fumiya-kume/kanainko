@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import jp.ac.daido.kanainko.R
 import kotlinx.android.synthetic.main.activity_audio_player.*
@@ -18,7 +18,8 @@ internal class AudioPlayerActivity : FragmentActivity() {
 
         setContentView(R.layout.activity_audio_player)
 
-        audioPlayerViewModel = ViewModelProviders.of(this).get(AudioPlayerViewModel::class.java)
+        audioPlayerViewModel = ViewModelProvider.AndroidViewModelFactory(application)
+            .create(AudioPlayerViewModel::class.java)
 
         audioPlayerViewModel.refreshAudioFileList()
 
@@ -40,7 +41,7 @@ internal class AudioPlayerActivity : FragmentActivity() {
 
 
         audioPlayerViewModel.audioPositionUpdateLiveData.observe(this, Observer {
-            Toast.makeText(applicationContext,"Notify", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "Notify", Toast.LENGTH_SHORT).show()
         })
     }
 }

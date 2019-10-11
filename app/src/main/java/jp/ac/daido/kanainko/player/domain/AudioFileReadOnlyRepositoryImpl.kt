@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import java.io.File
 
-internal class AudioFileReadOnlyRepositoryImpl: AudioFileReadOnlyRepository {
+internal class AudioFileReadOnlyRepositoryImpl : AudioFileReadOnlyRepository {
     override fun loadAudioFileList(): Flow<List<AudioFileModel>?> {
         return flow {
             val path = "sdcard" + "/kanainko"

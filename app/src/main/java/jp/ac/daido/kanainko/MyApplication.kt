@@ -5,7 +5,6 @@ import jp.ac.daido.kanainko.record.recordModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import org.koin.core.module.Module
-import org.koin.dsl.module
 
 internal class MyApplication : Application() {
     override fun onCreate() {
