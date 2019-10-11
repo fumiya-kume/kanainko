@@ -77,6 +77,3 @@ workflows:
   main:
     jobs:
       - prepare_ci
-      - build:
-          requires:
-          - prepare_ci
