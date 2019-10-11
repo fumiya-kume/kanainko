@@ -80,9 +80,3 @@ workflows:
       - build:
           requires:
           - prepare_ci
-      - test:
-          requires:
-          - build
-      - lint:
-          requires:
-          - build
