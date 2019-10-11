@@ -29,7 +29,7 @@ jobs:
       JVM_OPTS: -Xmx3200m
     steps:
       - attach_workspace:
-          at: /tmp/workspace
+          at: .
       - run:
           name: Run Build
           command: ./gradlew build
@@ -46,7 +46,7 @@ jobs:
       JVM_OPTS: -Xmx3200m
     steps:
       - attach_workspace:
-          at: /tmp/workspace
+          at: .
       - run:
           name: Run Build
           command: ./gradlew test
@@ -63,7 +63,7 @@ jobs:
       JVM_OPTS: -Xmx3200m
     steps:
       - attach_workspace:
-          at: /tmp/workspace
+          at: .
       - run:
           name: Run Build
           command: ./gradlew lint
