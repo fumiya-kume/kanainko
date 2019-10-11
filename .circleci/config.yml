@@ -95,15 +95,15 @@ workflows:
   main:
     jobs:
       - prepare_ci
-      - Debugbuild:
+      - DebugBuild:
           requires:
             - prepare_ci
-      - Releasebuild:
+      - ReleaseBuild:
           requires:
-            - prepare_ci
+            - DebugBuild
       - test:
           requires:
-            - Debugbuild
+            - DebugBuild
       - lint:
           requires:
-            - Debugbuild
+            - DebugBuild
