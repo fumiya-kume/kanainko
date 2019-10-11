@@ -71,7 +71,7 @@ jobs:
   workflows:
     version: 2
     main:
-      steps:
+      jobs:
         - prepare_ci:
         - build:
           requires:
