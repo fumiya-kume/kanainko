@@ -6,21 +6,20 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="this is a debug activity"
-            />
+            android:text="this is a debug activity" />
 
         <fragment
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:id="@+id/main_fragment"
             class="jp.ac.daido.kanainko.record.RecordFragment"
-            android:id="@+id/main_fragment">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
         </fragment>
 

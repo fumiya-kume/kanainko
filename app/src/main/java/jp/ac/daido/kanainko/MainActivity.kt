@@ -81,9 +81,6 @@ class MainActivity : AppCompatActivity() {
 
                         binding.activityMainRecordFloatingActionButton.layoutParams =
                             binding.activityMainRecordFloatingActionButton.layoutParams.apply {
-                                val hoge = 28.toDp(this@MainActivity)
-                                val app = 154 / applicationContext.resources.displayMetrics.density
-                                val activity = this@MainActivity.resources.displayMetrics.density
                                 height = 56.toDp(this@MainActivity)
                                 width = 56.toDp(this@MainActivity)
                             }
