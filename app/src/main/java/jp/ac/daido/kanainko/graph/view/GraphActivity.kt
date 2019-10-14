@@ -2,14 +2,19 @@ package jp.ac.daido.kanainko.graph.view
 
 import android.os.Bundle
 import androidx.fragment.app.FragmentActivity
-import androidx.lifecycle.ViewModelProvider
-import com.github.mikephil.charting.data.*
+import com.github.mikephil.charting.data.BarData
+import com.github.mikephil.charting.data.BarDataSet
+import com.github.mikephil.charting.data.BarEntry
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
 import jp.ac.daido.kanainko.R
 import kotlinx.android.synthetic.main.activity_graph.*
+import org.koin.android.viewmodel.ext.android.viewModel
 
 internal class GraphActivity : FragmentActivity() {
 
-    private val graphViewModel = ViewModelProvider.NewInstanceFactory().create(GraphViewModel::class.java)
+    private val graphViewModel: GraphViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
