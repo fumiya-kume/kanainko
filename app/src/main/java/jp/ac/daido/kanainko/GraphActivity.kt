@@ -7,9 +7,8 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.FragmentActivity
 import com.github.mikephil.charting.charts.LineChart
-import com.github.mikephil.charting.data.Entry
-import com.github.mikephil.charting.data.LineData
-import com.github.mikephil.charting.data.LineDataSet
+import com.github.mikephil.charting.data.*
+import kotlinx.android.synthetic.main.activity_graph.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -34,6 +33,27 @@ internal class GraphActivity : FragmentActivity() {
 
             chart.data = lineDataSet
             chart.invalidate()
+        }
+
+        fun updateSoundVolumeGraph(list: List<Float>) {
+            val barDataSet = BarData(
+                listOf(
+                    BarDataSet(
+                        listOf(
+                            BarEntry(
+                                1F,
+                                list.average().toFloat() ?: 0.0F
+                            )
+                        ),
+                        "音量"
+                    )
+                )
+            )
+
+            Log.d("sound_volume", list.average().toString())
+
+            sound_volume_bar_chart.data = barDataSet
+            sound_volume_bar_chart.invalidate()
         }
 
 
@@ -73,7 +93,8 @@ internal class GraphActivity : FragmentActivity() {
                 Log.d("audio_record", "period attached")
 
                 record?.read(bufferList, 0, frameBufferSize)
-                GlobalScope.launch { updateGraph( bufferList.map { it.toFloat() }) }
+                GlobalScope.launch { updateGraph(bufferList.map { it.toFloat() }) }
+                GlobalScope.launch { updateSoundVolumeGraph(bufferList.map { it.toFloat() }) }
             }
         })
         audioRecord.startRecording()
