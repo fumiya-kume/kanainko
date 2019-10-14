@@ -10,6 +10,8 @@ import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 internal class GraphActivity : FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -71,8 +73,7 @@ internal class GraphActivity : FragmentActivity() {
                 Log.d("audio_record", "period attached")
 
                 record?.read(bufferList, 0, frameBufferSize)
-//                GlobalScope.launch { updateGraph(. map { it.toFloat() }) }
-                Log.d("tag", bufferList.toString())
+                GlobalScope.launch { updateGraph( bufferList.map { it.toFloat() }) }
             }
         })
         audioRecord.startRecording()
