@@ -1,4 +1,4 @@
-package jp.ac.daido.kanainko.graph
+package jp.ac.daido.kanainko.graph.view
 
 import android.media.AudioFormat
 import android.media.AudioRecord
@@ -8,6 +8,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import jp.ac.daido.kanainko.graph.view.viewentity.SoundRawDataViewEntity
+import jp.ac.daido.kanainko.graph.view.viewentity.SoundVolumeViewEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -49,8 +51,14 @@ internal class GraphViewModel : ViewModel() {
                     record?.read(bufferList, 0, frameBufferSize)
 
                     this.launch(Dispatchers.Main) {
-                        _soundVolumeLiveData.value = bufferList.map { it.toFloat() }
-                        _soundRawFileLiveData.value = bufferList.map { it.toFloat() }
+                        _soundVolumeLiveData.value = SoundVolumeViewEntity(
+                            0,
+                            bufferList.map { it.toFloat() }.average().toFloat()
+                        )
+                        _soundRawFileLiveData.value = SoundRawDataViewEntity(
+                            0,
+                            bufferList.map { it.toFloat() }
+                        )
                     }
                 }
             }
@@ -61,11 +69,11 @@ internal class GraphViewModel : ViewModel() {
         audioRecord.startRecording()
     }
 
-    private val _soundVolumeLiveData: MutableLiveData<List<Float>> = MutableLiveData()
-    val soundVolumeLiveData: LiveData<List<Float>>
+    private val _soundVolumeLiveData: MutableLiveData<SoundVolumeViewEntity> = MutableLiveData()
+    val soundVolumeLiveData: LiveData<SoundVolumeViewEntity>
         get() = _soundVolumeLiveData
 
-    private val _soundRawFileLiveData: MutableLiveData<List<Float>> = MutableLiveData()
-    val soundRawLiveData: LiveData<List<Float>>
+    private val _soundRawFileLiveData: MutableLiveData<SoundRawDataViewEntity> = MutableLiveData()
+    val soundRawLiveData: LiveData<SoundRawDataViewEntity>
         get() = _soundRawFileLiveData
 }

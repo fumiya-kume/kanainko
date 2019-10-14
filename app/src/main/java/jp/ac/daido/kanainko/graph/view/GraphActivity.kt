@@ -1,4 +1,4 @@
-package jp.ac.daido.kanainko.graph
+package jp.ac.daido.kanainko.graph.view
 
 import android.os.Bundle
 import androidx.fragment.app.FragmentActivity
@@ -24,7 +24,7 @@ internal class GraphActivity : FragmentActivity() {
                         listOf(
                             BarEntry(
                                 1F,
-                                it.average().toFloat() ?: 0.0F
+                                it.volume
                             )
                         ),
                         "音量"
@@ -41,10 +41,10 @@ internal class GraphActivity : FragmentActivity() {
             val lineDataSet = LineData(
                 listOf(
                     LineDataSet(
-                        it.mapIndexed { index, item ->
+                        it.rawData.mapIndexed { index, item ->
                             Entry(index.toFloat(), item)
                         },
-                        "Hello"
+                        "生の音声データ"
                     )
                 )
             )
