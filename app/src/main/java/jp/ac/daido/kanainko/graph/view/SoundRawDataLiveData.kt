@@ -16,7 +16,7 @@ internal class SoundRawDataLiveData(
     init {
         coroutineScope.launch {
             soundRawDataUsecase
-                .loadSoundRawData()
+                .execute()
                 .collect {
                     postValue(
                         it.convert()

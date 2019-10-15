@@ -3,70 +3,25 @@ package jp.ac.daido.kanainko.graph.view
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import jp.ac.daido.kanainko.graph.domain.usecase.StartAudioRecordingUsecase
 import jp.ac.daido.kanainko.graph.view.viewentity.SoundRawDataViewEntity
 import jp.ac.daido.kanainko.graph.view.viewentity.SoundVolumeViewEntity
+import kotlinx.coroutines.launch
 
 internal class GraphViewModel(
     private val soundVolumeLiveDataFactory: SoundVolumeLiveDataFactory,
-    private val soundRawDataLiveDataFactory: SoundRawDataLiveDataFactory
+    private val soundRawDataLiveDataFactory: SoundRawDataLiveDataFactory,
+    private val startAudioRecordingUsecase: StartAudioRecordingUsecase
 ) : ViewModel() {
-
-//    private val samplingRate: Int = 44100
-//    private val channelConfig: Int = 1
-//    private val oneFrameDataSize = samplingRate / 2 * 50
-//    private val frameBufferSize = Math.max(
-//        oneFrameDataSize,
-//        AudioRecord.getMinBufferSize(
-//            samplingRate,
-//            channelConfig,
-//            AudioFormat.ENCODING_PCM_8BIT
-//        )
-//    ) / 50
-//
-//    private val audioRecord: AudioRecord = AudioRecord(
-//        MediaRecorder.AudioSource.MIC,
-//        samplingRate,
-//        channelConfig,
-//        AudioFormat.ENCODING_PCM_8BIT,
-//        frameBufferSize
-//    ).apply {
-//        this.positionNotificationPeriod = frameBufferSize
-//
-//        this.setRecordPositionUpdateListener(object :
-//            AudioRecord.OnRecordPositionUpdateListener {
-//            override fun onMarkerReached(record: AudioRecord?) {
-//                Log.d("audio_record", "maker attached")
-//            }
-//
-//            override fun onPeriodicNotification(record: AudioRecord?) {
-//                Log.d("audio_record", "period attached")
-//
-//                viewModelScope.launch(Dispatchers.IO) {
-//                    val bufferList = ShortArray(frameBufferSize)
-//
-//                    record?.read(bufferList, 0, frameBufferSize)
-//
-//                    this.launch(Dispatchers.Main) {
-//                        _soundVolumeLiveData.value = SoundVolumeViewEntity(
-//                            0,
-//                            bufferList.map { it.toFloat() }.average().toFloat()
-//                        )
-//                        _soundRawFileLiveData.value = SoundRawDataViewEntity(
-//                            0,
-//                            bufferList.map { it.toFloat() }
-//                        )
-//                    }
-//                }
-//            }
-//        })
-//    }
 
     init {
 
     }
 
     fun startRecording() {
-//        audioRecord.startRecording()
+        viewModelScope.launch {
+            startAudioRecordingUsecase.execute()
+        }
         _soundVolumeLiveData = soundVolumeLiveDataFactory.create(viewModelScope)
         _soundRawFileLiveData = soundRawDataLiveDataFactory.create(viewModelScope)
     }

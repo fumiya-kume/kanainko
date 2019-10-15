@@ -35,13 +35,13 @@ internal class GraphViewModelTest {
 
         val loadRawSoundDataUsecase = Mockito.mock(LoadSoundRawDataUsecase::class.java)
             .apply {
-                `when`(this.loadSoundRawData()).thenReturn(rawSoundDataChannel.consumeAsFlow())
+                `when`(this.execute()).thenReturn(rawSoundDataChannel.consumeAsFlow())
             }
         val soundRawDataLiveDataFactory = SoundRawDataLiveDataFactory(loadRawSoundDataUsecase)
 
         val soundVolumeUsecaseFlow: Flow<SoundVolumeModel> = flowOf()
         val loadSoundVolumeUsecase = Mockito.mock(LoadSoundVolumeUsecase::class.java).apply {
-            `when`(this.loadSoundVolume()).thenReturn(soundVolumeUsecaseFlow)
+            `when`(this.execute()).thenReturn(soundVolumeUsecaseFlow)
         }
         val soundVolumeLiveDataFactory = SoundVolumeLiveDataFactory(loadSoundVolumeUsecase)
 
@@ -65,8 +65,8 @@ internal class GraphViewModelTest {
         val result = subject.soundRawLiveData.lazyget()
         assert(result.rawData.count() == 2)
 
-        verify(loadRawSoundDataUsecase, Times(1)).loadSoundRawData()
-        verify(loadSoundVolumeUsecase, Times(1)).loadSoundVolume()
+        verify(loadRawSoundDataUsecase, Times(1)).execute()
+        verify(loadSoundVolumeUsecase, Times(1)).execute()
     }
 
     @Test
@@ -75,13 +75,13 @@ internal class GraphViewModelTest {
 
         val loadRawSoundDataUsecase = Mockito.mock(LoadSoundRawDataUsecase::class.java)
             .apply {
-                `when`(this.loadSoundRawData()).thenReturn(rawSoundDataChannel.consumeAsFlow())
+                `when`(this.execute()).thenReturn(rawSoundDataChannel.consumeAsFlow())
             }
         val soundRawDataLiveDataFactory = SoundRawDataLiveDataFactory(loadRawSoundDataUsecase)
 
         val soundVolumeChannel: Channel<SoundVolumeModel> = Channel(1)
         val loadSoundVolumeUsecase = Mockito.mock(LoadSoundVolumeUsecase::class.java).apply {
-            `when`(this.loadSoundVolume()).thenReturn(soundVolumeChannel.consumeAsFlow())
+            `when`(this.execute()).thenReturn(soundVolumeChannel.consumeAsFlow())
         }
         val soundVolumeLiveDataFactory = SoundVolumeLiveDataFactory(loadSoundVolumeUsecase)
 
@@ -102,7 +102,7 @@ internal class GraphViewModelTest {
         val result = subject.soundVolumeLiveData.lazyget()
         assert(result.volume == 0.1F)
 
-        verify(loadRawSoundDataUsecase, Times(1)).loadSoundRawData()
-        verify(loadSoundVolumeUsecase, Times(1)).loadSoundVolume()
+        verify(loadRawSoundDataUsecase, Times(1)).execute()
+        verify(loadSoundVolumeUsecase, Times(1)).execute()
     }
 }

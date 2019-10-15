@@ -4,5 +4,5 @@ import jp.ac.daido.kanainko.graph.domain.model.SoundVolumeModel
 import kotlinx.coroutines.flow.Flow
 
 internal interface LoadSoundVolumeUsecase {
-    suspend fun loadSoundVolume(): Flow<SoundVolumeModel>
+    suspend fun execute(): Flow<SoundVolumeModel>
 }

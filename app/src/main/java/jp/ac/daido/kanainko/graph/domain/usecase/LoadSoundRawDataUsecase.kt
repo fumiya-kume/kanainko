@@ -4,5 +4,5 @@ import jp.ac.daido.kanainko.graph.domain.model.SoundRawDataModel
 import kotlinx.coroutines.flow.Flow
 
 internal interface LoadSoundRawDataUsecase {
-    suspend fun loadSoundRawData(): Flow<SoundRawDataModel>
+    suspend fun execute(): Flow<SoundRawDataModel>
 }

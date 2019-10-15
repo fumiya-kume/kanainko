@@ -17,7 +17,7 @@ internal class SoundVolumeLiveData(
         coroutineScope.launch {
             coroutineScope.launch {
                 loadSoundVolumeUsecase
-                    .loadSoundVolume()
+                    .execute()
                     .collect {
                         postValue(it.convert())
                     }
