@@ -6,5 +6,5 @@ import org.koin.dsl.module
 val viewModule = module {
     factory { SoundRawDataLiveDataFactory(get()) }
     factory { SoundVolumeLiveDataFactory(get()) }
-    viewModel { GraphViewModel(get(), get()) }
+    viewModel { GraphViewModel(get(), get(), get()) }
 }
