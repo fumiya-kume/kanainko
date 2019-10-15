@@ -79,7 +79,7 @@ internal class GraphViewModelTest {
             }
         val soundRawDataLiveDataFactory = SoundRawDataLiveDataFactory(loadRawSoundDataUsecase)
 
-        val soundVolumeChannel = Channel<SoundVolumeModel>()
+        val soundVolumeChannel: Channel<SoundVolumeModel> = Channel(1)
         val loadSoundVolumeUsecase = Mockito.mock(LoadSoundVolumeUsecase::class.java).apply {
             `when`(this.loadSoundVolume()).thenReturn(soundVolumeChannel.consumeAsFlow())
         }
