@@ -6,6 +6,7 @@ import jp.ac.daido.kanainko.graph.domain.model.SoundRawDataModel
 import jp.ac.daido.kanainko.graph.domain.model.SoundVolumeModel
 import jp.ac.daido.kanainko.graph.domain.usecase.LoadSoundRawDataUsecase
 import jp.ac.daido.kanainko.graph.domain.usecase.LoadSoundVolumeUsecase
+import jp.ac.daido.kanainko.graph.domain.usecase.StartAudioRecordingUsecase
 import jp.ac.daido.kanainko.lazyget
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
@@ -17,6 +18,7 @@ import org.junit.Test
 import org.junit.rules.TestRule
 import org.mockito.Mockito
 import org.mockito.Mockito.`when`
+import org.mockito.Mockito.mock
 import org.mockito.Mockito.verify
 import org.mockito.internal.verification.Times
 
@@ -45,9 +47,14 @@ internal class GraphViewModelTest {
         }
         val soundVolumeLiveDataFactory = SoundVolumeLiveDataFactory(loadSoundVolumeUsecase)
 
+        val startAudioRecordingUsecase = mock(StartAudioRecordingUsecase::class.java).apply {
+            `when`(this.execute()).thenReturn(Unit)
+        }
+
         val subject = GraphViewModel(
             soundVolumeLiveDataFactory,
-            soundRawDataLiveDataFactory
+            soundRawDataLiveDataFactory,
+            startAudioRecordingUsecase
         )
 
         rawSoundDataChannel.send(
@@ -67,6 +74,7 @@ internal class GraphViewModelTest {
 
         verify(loadRawSoundDataUsecase, Times(1)).execute()
         verify(loadSoundVolumeUsecase, Times(1)).execute()
+        verify(startAudioRecordingUsecase,Times(1)).execute()
     }
 
     @Test
@@ -85,9 +93,14 @@ internal class GraphViewModelTest {
         }
         val soundVolumeLiveDataFactory = SoundVolumeLiveDataFactory(loadSoundVolumeUsecase)
 
+        val startAudioRecordingUsecase = mock(StartAudioRecordingUsecase::class.java).apply {
+            `when`(this.execute()).thenReturn(Unit)
+        }
+
         val subject = GraphViewModel(
             soundVolumeLiveDataFactory,
-            soundRawDataLiveDataFactory
+            soundRawDataLiveDataFactory,
+            startAudioRecordingUsecase
         )
 
         soundVolumeChannel.send(
@@ -104,5 +117,6 @@ internal class GraphViewModelTest {
 
         verify(loadRawSoundDataUsecase, Times(1)).execute()
         verify(loadSoundVolumeUsecase, Times(1)).execute()
+        verify(startAudioRecordingUsecase,Times(1)).execute()
     }
 }
