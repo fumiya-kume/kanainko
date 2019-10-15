@@ -4,9 +4,9 @@ import android.media.AudioFormat
 import android.media.AudioRecord
 import android.media.MediaRecorder
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.channels.ConflatedBroadcastChannel
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.consumeAsFlow
+import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.launch
 
 
@@ -16,10 +16,10 @@ internal class AudioRepositoryImpl(
         audioRecord.startRecording()
     }
 
-    private val audioDataChannel = Channel<List<Float>>()
+    private val audioDataChannel = ConflatedBroadcastChannel<List<Float>>()
 
     override suspend fun loadAudioData(): Flow<List<Float>> {
-        return audioDataChannel.consumeAsFlow()
+        return audioDataChannel.asFlow()
     }
 
     private val samplingRate: Int = 44100
@@ -32,7 +32,7 @@ internal class AudioRepositoryImpl(
             channelConfig,
             AudioFormat.ENCODING_PCM_8BIT
         )
-    ) / 50
+    ) / 5000
 
     private val audioRecord: AudioRecord = AudioRecord(
         MediaRecorder.AudioSource.MIC,
@@ -42,8 +42,10 @@ internal class AudioRepositoryImpl(
         frameBufferSize
     ).apply {
         this.positionNotificationPeriod = frameBufferSize
+    }
 
-        this.setRecordPositionUpdateListener(object :
+    init {
+        audioRecord.setRecordPositionUpdateListener(object :
             AudioRecord.OnRecordPositionUpdateListener {
             override fun onMarkerReached(record: AudioRecord?) {
 
@@ -62,5 +64,4 @@ internal class AudioRepositoryImpl(
             }
         })
     }
-
 }

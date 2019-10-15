@@ -14,24 +14,15 @@ internal class GraphViewModel(
     private val startAudioRecordingUsecase: StartAudioRecordingUsecase
 ) : ViewModel() {
 
-    init {
-
-    }
-
     fun startRecording() {
         viewModelScope.launch {
             startAudioRecordingUsecase.execute()
         }
-        _soundVolumeLiveData = soundVolumeLiveDataFactory.create(viewModelScope)
-        _soundRawFileLiveData = soundRawDataLiveDataFactory.create(viewModelScope)
     }
 
+    var soundVolumeLiveData: LiveData<SoundVolumeViewEntity> =
+        soundVolumeLiveDataFactory.create(viewModelScope)
 
-    private lateinit var _soundVolumeLiveData: SoundVolumeLiveData
-    val soundVolumeLiveData: LiveData<SoundVolumeViewEntity>
-        get() = _soundVolumeLiveData
-
-    private lateinit var _soundRawFileLiveData: SoundRawDataLiveData
-    val soundRawLiveData: LiveData<SoundRawDataViewEntity>
-        get() = _soundRawFileLiveData
+    val soundRawLiveData: LiveData<SoundRawDataViewEntity> =
+        soundRawDataLiveDataFactory.create(viewModelScope)
 }

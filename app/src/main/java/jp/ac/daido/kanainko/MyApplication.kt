@@ -11,11 +11,10 @@ internal class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        val module = listOf<Module>(
+        val module = listOf(
             recordModule
-        ).plus(
-            graphModuleList
-        )
+        ) + graphModuleList
+
 
         startKoin {
             androidContext(this@MyApplication)

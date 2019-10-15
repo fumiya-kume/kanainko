@@ -5,6 +5,7 @@ import jp.ac.daido.kanainko.graph.domain.usecase.LoadSoundVolumeUsecase
 import jp.ac.daido.kanainko.graph.view.viewentity.SoundVolumeViewEntity
 import jp.ac.daido.kanainko.graph.view.viewentity.convert
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
@@ -14,7 +15,7 @@ internal class SoundVolumeLiveData(
 ) : LiveData<SoundVolumeViewEntity>() {
 
     init {
-        coroutineScope.launch {
+        coroutineScope.launch(Dispatchers.IO) {
             coroutineScope.launch {
                 loadSoundVolumeUsecase
                     .execute()

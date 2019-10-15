@@ -1,6 +1,7 @@
 package jp.ac.daido.kanainko.graph.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.FragmentActivity
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
@@ -36,6 +37,7 @@ internal class GraphActivity : FragmentActivity() {
                     )
                 )
             )
+            Log.d("tag", "get")
 
             soundVolumeChart.data = barDataSet
             soundVolumeChart.invalidate()
@@ -58,6 +60,6 @@ internal class GraphActivity : FragmentActivity() {
             chart.invalidate()
         }
 
-
+        graphViewModel.startRecording()
     }
 }
