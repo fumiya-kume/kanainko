@@ -9,9 +9,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.launch
 
-
-internal class AudioRepositoryImpl(
-) : AudioRepository {
+internal class AudioRepositoryImpl() : AudioRepository {
     override suspend fun startAudioRecord() {
         audioRecord.startRecording()
     }
@@ -48,7 +46,6 @@ internal class AudioRepositoryImpl(
         audioRecord.setRecordPositionUpdateListener(object :
             AudioRecord.OnRecordPositionUpdateListener {
             override fun onMarkerReached(record: AudioRecord?) {
-
             }
 
             override fun onPeriodicNotification(record: AudioRecord?) {

@@ -22,7 +22,6 @@ import org.mockito.Mockito.mock
 import org.mockito.Mockito.verify
 import org.mockito.internal.verification.Times
 
-
 internal class GraphViewModelTest {
 
     @get:Rule
@@ -74,7 +73,7 @@ internal class GraphViewModelTest {
 
         verify(loadRawSoundDataUsecase, Times(1)).execute()
         verify(loadSoundVolumeUsecase, Times(1)).execute()
-        verify(startAudioRecordingUsecase,Times(1)).execute()
+        verify(startAudioRecordingUsecase, Times(1)).execute()
     }
 
     @Test
@@ -117,6 +116,6 @@ internal class GraphViewModelTest {
 
         verify(loadRawSoundDataUsecase, Times(1)).execute()
         verify(loadSoundVolumeUsecase, Times(1)).execute()
-        verify(startAudioRecordingUsecase,Times(1)).execute()
+        verify(startAudioRecordingUsecase, Times(1)).execute()
     }
 }
