@@ -61,7 +61,6 @@ class MainActivity : AppCompatActivity() {
             widthValueAnimator.interpolator = AccelerateInterpolator()
             widthValueAnimator.start()
 
-
             val bottomSheetBehavior =
                 BottomSheetBehavior.from(binding.activityMainRecordBottomSheet)
             bottomSheetBehavior.setPeekHeight(400)
@@ -70,7 +69,6 @@ class MainActivity : AppCompatActivity() {
             bottomSheetBehavior.setBottomSheetCallback(object :
                 BottomSheetBehavior.BottomSheetCallback() {
                 override fun onSlide(bottomSheet: View, slideOffset: Float) {
-
                 }
 
                 override fun onStateChanged(bottomSheet: View, newState: Int) {

@@ -16,6 +16,5 @@ internal class DebugActivity : FragmentActivity() {
         val fragment = RecordFragment()
         transaction.add(R.id.main_fragment, fragment)
         transaction.commit()
-
     }
 }

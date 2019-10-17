@@ -9,12 +9,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import java.io.FileInputStream
 import jp.ac.daido.kanainko.player.domain.AudioFileReadOnlyRepository
 import jp.ac.daido.kanainko.player.domain.AudioFileReadOnlyRepositoryImpl
 import kotlinx.coroutines.flow.single
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.io.FileInputStream
 
 internal class AudioPlayerViewModel(
     private val audioFileReadonlyRepository: AudioFileReadOnlyRepository = AudioFileReadOnlyRepositoryImpl()
@@ -23,7 +23,6 @@ internal class AudioPlayerViewModel(
     private val _audioFileListLiveData: MutableLiveData<List<AudioFileViewEntity>> =
         MutableLiveData()
     val audioFileListLiveData: LiveData<List<AudioFileViewEntity>> = _audioFileListLiveData
-
 
     private val _audioPositionUpdateLiveData: MutableLiveData<String> = MutableLiveData()
     val audioPositionUpdateLiveData: LiveData<String> = _audioPositionUpdateLiveData
@@ -50,7 +49,6 @@ internal class AudioPlayerViewModel(
                 ?.elementAt(audioId)
                 ?.convert()
         }
-
 
         val samplingRate = 44100
         val audioAttributes = AudioAttributes
@@ -89,13 +87,11 @@ internal class AudioPlayerViewModel(
             AudioTrack.OnPlaybackPositionUpdateListener {
             @RequiresApi(Build.VERSION_CODES.N)
             override fun onMarkerReached(p0: AudioTrack?) {
-
             }
 
             override fun onPeriodicNotification(p0: AudioTrack?) {
                 _audioPositionUpdateLiveData.postValue(p0?.underrunCount.toString())
             }
-
         })
 
         do {

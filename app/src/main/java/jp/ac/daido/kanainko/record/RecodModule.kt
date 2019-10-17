@@ -8,5 +8,4 @@ import org.koin.dsl.module
 val recordModule = module {
     factory { AudioServiceImpl() as AudioService }
     viewModel { (presenter: RecordPresenter) -> RecordViewModel(presenter, get()) }
-
 }

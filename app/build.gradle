@@ -1,9 +1,4 @@
-apply plugin: 'com.android.application'
-
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
-
-apply plugin: 'kotlin-android-extensions'
+import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 
 android {
     compileSdkVersion 29
@@ -82,4 +77,20 @@ dependencies {
 
     // mokito
     testImplementation("org.mockito:mockito-core:2.+")
+
+    ktlint {
+        version.set("0.34.2")
+        android.set(true)
+        outputToConsole.set(true)
+        ignoreFailures.set(true)
+        disabledRules.set(["final-newline", "max-line-length"])
+        reporters {
+            reporter(ReporterType.CHECKSTYLE)
+        }
+
+        filter {
+            exclude("**/generated/**")
+            exclude("**/build/**")
+        }
+    }
 }

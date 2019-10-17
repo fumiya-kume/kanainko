@@ -39,7 +39,6 @@ internal class AudioPlayerActivity : FragmentActivity() {
             audioFileAdapter.submitList(it)
         })
 
-
         audioPlayerViewModel.audioPositionUpdateLiveData.observe(this, Observer {
             Toast.makeText(applicationContext, "Notify", Toast.LENGTH_SHORT).show()
         })
