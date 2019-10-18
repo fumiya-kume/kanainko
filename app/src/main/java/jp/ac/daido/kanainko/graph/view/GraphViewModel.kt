@@ -22,12 +22,12 @@ internal class GraphViewModel(
         }
     }
 
-    var soundVolumeLiveData: LiveData<SoundVolumeViewEntity> =
+    val soundVolumeLiveData: LiveData<SoundVolumeViewEntity> =
         soundVolumeLiveDataFactory.create(viewModelScope)
 
     val soundRawLiveData: LiveData<SoundRawDataViewEntity> =
         soundRawDataLiveDataFactory.create(viewModelScope)
 
     val fourrierSoundDataLiveData: LiveData<FourierSoundDataViewEntity> =
-    fourierSoundDataLiveDataFactory.create(viewModelScope)
+        fourierSoundDataLiveDataFactory.create(viewModelScope)
 }

@@ -20,7 +20,6 @@ import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
-import org.mockito.Mockito
 import org.mockito.Mockito.`when`
 import org.mockito.Mockito.mock
 import org.mockito.Mockito.verify
@@ -46,7 +45,7 @@ internal class GraphViewModelTest {
         val soundRawDataLiveDataFactory = SoundRawDataLiveDataFactory(loadRawSoundDataUsecase)
 
         val soundVolumeUsecaseFlow: Flow<SoundVolumeModel> = flowOf()
-        val loadSoundVolumeUsecase = Mockito.mock(LoadSoundVolumeUsecase::class.java).apply {
+        val loadSoundVolumeUsecase = mock(LoadSoundVolumeUsecase::class.java).apply {
             `when`(this.execute()).thenReturn(soundVolumeUsecaseFlow)
         }
         val soundVolumeLiveDataFactory = SoundVolumeLiveDataFactory(loadSoundVolumeUsecase)
@@ -108,7 +107,7 @@ internal class GraphViewModelTest {
         val soundRawDataLiveDataFactory = SoundRawDataLiveDataFactory(loadRawSoundDataUsecase)
 
         val soundVolumeChannel: Channel<SoundVolumeModel> = Channel(1)
-        val loadSoundVolumeUsecase = Mockito.mock(LoadSoundVolumeUsecase::class.java).apply {
+        val loadSoundVolumeUsecase = mock(LoadSoundVolumeUsecase::class.java).apply {
             `when`(this.execute()).thenReturn(soundVolumeChannel.consumeAsFlow())
         }
         val soundVolumeLiveDataFactory = SoundVolumeLiveDataFactory(loadSoundVolumeUsecase)
@@ -173,10 +172,8 @@ internal class GraphViewModelTest {
         val soundRawDataLiveDataFactory = SoundRawDataLiveDataFactory(loadRawSoundDataUsecase)
 
         val soundVolumeChannel: Channel<SoundVolumeModel> = Channel(1)
-        val soundVolumeFlow = soundVolumeChannel.consumeAsFlow()
-
-        val loadSoundVolumeUsecase = Mockito.mock(LoadSoundVolumeUsecase::class.java).apply {
-            `when`(this.execute()).thenReturn(soundVolumeFlow)
+        val loadSoundVolumeUsecase = mock(LoadSoundVolumeUsecase::class.java).apply {
+            `when`(this.execute()).thenReturn(soundVolumeChannel.consumeAsFlow())
         }
         val soundVolumeLiveDataFactory = SoundVolumeLiveDataFactory(loadSoundVolumeUsecase)
 
