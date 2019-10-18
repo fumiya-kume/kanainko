@@ -9,12 +9,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import java.io.FileInputStream
 import jp.ac.daido.kanainko.player.domain.AudioFileReadOnlyRepository
 import jp.ac.daido.kanainko.player.domain.AudioFileReadOnlyRepositoryImpl
 import kotlinx.coroutines.flow.single
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.io.FileInputStream
 
 internal class AudioPlayerViewModel(
     private val audioFileReadonlyRepository: AudioFileReadOnlyRepository = AudioFileReadOnlyRepositoryImpl()
