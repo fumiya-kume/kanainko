@@ -7,7 +7,7 @@ val viewModule = listOf(
     module {
         factory { SoundRawDataLiveDataFactory(get()) }
         factory { SoundVolumeLiveDataFactory(get()) }
-        factory { FourierSoundDataLiveDataFactory(get(),get()) }
+        factory { FourierSoundDataLiveDataFactory(get(), get()) }
         viewModel { GraphViewModel(get(), get(), get(), get()) }
     }
 )

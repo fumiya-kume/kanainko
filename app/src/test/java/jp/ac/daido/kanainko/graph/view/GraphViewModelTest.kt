@@ -70,7 +70,6 @@ internal class GraphViewModelTest {
                 `when`(this.execute(soundRawDataModel)).thenReturn(fourierTransformationModel)
             }
 
-
         val fourierSoundDataLiveDataFactory = FourierSoundDataLiveDataFactory(
             loadRawSoundDataUsecase,
             fourierTransformUsecase
@@ -193,7 +192,6 @@ internal class GraphViewModelTest {
                     0.2F
                 )
             )
-
 
         val fourierTransformationModel = FourierTransformationModel(listOf(0.1F, 0.2F))
 
