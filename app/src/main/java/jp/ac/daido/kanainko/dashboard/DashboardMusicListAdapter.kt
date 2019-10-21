@@ -20,7 +20,6 @@ internal class DashboardMusicListAdapter(
                 newItem: MusicListViewEntity
             ): Boolean {
                 return oldItem.id == newItem.id
-
             }
 
             override fun areContentsTheSame(
