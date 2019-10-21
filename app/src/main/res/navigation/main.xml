@@ -25,6 +25,20 @@
     <fragment
         android:id="@+id/recordFragment"
         android:name="jp.ac.daido.kanainko.record.RecordFragment"
+        android:label="RecordFragment" >
+        <action
+            android:id="@+id/action_recordFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="jp.ac.daido.kanainko.result.ResultFragment"
+        android:label="ResultFragment" >
+        <action
+            android:id="@+id/action_resultFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+    </fragment>
+    android:label="DashboardFragment" />
         android:label="RecordFragment" />
         android:label="DashboardFragment" />
         tools:layout="jp.ac.daido.kanainko.MainFragment" />

@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import jp.ac.daido.kanainko.R
 import jp.ac.daido.kanainko.databinding.FragmentRecordBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
@@ -45,10 +47,9 @@ internal class RecordFragment : Fragment(), RecordPresenter {
                 false
             )
 
-//        recordViewModel.volumeLiveData.observeForever {
-//        }
-
-//        recordViewModel.start()
+        binding.fragmentRecordFisnishRecordButton.setOnClickListener {
+            findNavController().navigate(R.id.action_recordFragment_to_resultFragment)
+        }
 
         return binding.root
     }
