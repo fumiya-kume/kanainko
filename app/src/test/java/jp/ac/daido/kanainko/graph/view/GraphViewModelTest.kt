@@ -2,8 +2,27 @@ package jp.ac.daido.kanainko.graph.view
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import jp.ac.daido.kanainko.CoroutinesTestRule
+import jp.ac.daido.kanainko.graph.domain.model.FourierTransformationModel
+import jp.ac.daido.kanainko.graph.domain.model.SoundRawDataModel
+import jp.ac.daido.kanainko.graph.domain.model.SoundVolumeModel
+import jp.ac.daido.kanainko.graph.domain.usecase.FourierTransformUsecase
+import jp.ac.daido.kanainko.graph.domain.usecase.LoadSoundRawDataUsecase
+import jp.ac.daido.kanainko.graph.domain.usecase.LoadSoundVolumeUsecase
+import jp.ac.daido.kanainko.graph.domain.usecase.StartAudioRecordingUsecase
+import jp.ac.daido.kanainko.lazyget
+import kotlinx.coroutines.channels.BroadcastChannel
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.consumeAsFlow
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Rule
 import org.junit.rules.TestRule
+import org.mockito.Mockito.`when`
+import org.mockito.Mockito.mock
+import org.mockito.Mockito.verify
+import org.mockito.internal.verification.Times
 
 internal class GraphViewModelTest {
 
