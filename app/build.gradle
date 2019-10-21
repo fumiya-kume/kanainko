@@ -78,6 +78,10 @@ dependencies {
     // mokito
     testImplementation("org.mockito:mockito-core:2.+")
 
+    // Naviigation library
+    implementation "android.arch.navigation:navigation-fragment-ktx:1.0.0"
+    implementation "android.arch.navigation:navigation-ui-ktx:1.0.0"
+
     ktlint {
         version.set("0.34.2")
         android.set(true)

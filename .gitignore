@@ -29,3 +29,4 @@ app/build/
 **/build/**
 build/
 vendor/bundle
+.idea/caches/build_file_checksums.ser
