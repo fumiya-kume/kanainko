@@ -18,4 +18,5 @@
         android:id="@+id/dashboardFragment"
         android:name="jp.ac.daido.kanainko.dashboard.DashboardFragment"
         android:label="DashboardFragment" />
+        tools:layout="jp.ac.daido.kanainko.MainFragment" />
 </navigation>

@@ -23,7 +23,6 @@ internal class MainFragment : Fragment() {
         binding.fragmentMainNavigateDashboardFragmentButton.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_dashboardFragment)
         }
-
         return binding.root
     }
 }
