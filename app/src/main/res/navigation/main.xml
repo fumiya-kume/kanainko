@@ -39,5 +39,7 @@
             app:destination="@id/dashboardFragment" />
     </fragment>
     android:label="DashboardFragment" />
+        android:label="RecordFragment" />
+        android:label="DashboardFragment" />
         tools:layout="jp.ac.daido.kanainko.MainFragment" />
 </navigation>

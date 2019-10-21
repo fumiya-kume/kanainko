@@ -47,11 +47,6 @@ internal class RecordFragment : Fragment(), RecordPresenter {
                 false
             )
 
-//        recordViewModel.volumeLiveData.observeForever {
-//        }
-
-//        recordViewModel.start()
-
         binding.fragmentRecordFisnishRecordButton.setOnClickListener {
             findNavController().navigate(R.id.action_recordFragment_to_resultFragment)
         }

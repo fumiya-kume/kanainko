@@ -36,11 +36,9 @@ internal class DashboardFragment : Fragment() {
         }
         musicListAdapter.submitList(dummyData)
         binding.fragmentDashboardMusicListRecyclerView.adapter = musicListAdapter
-
         binding.fragmentDashboardEditFloatingActionButton.setOnClickListener {
             findNavController().navigate(R.id.action_dashboardFragment_to_recordFragment)
         }
-
         return binding.root
     }
 }
