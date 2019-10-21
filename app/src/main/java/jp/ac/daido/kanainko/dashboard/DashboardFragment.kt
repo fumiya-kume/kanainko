@@ -22,13 +22,12 @@ internal class DashboardFragment : Fragment() {
 
         val musicListAdapter = DashboardMusicListAdapter(requireContext())
 
-
         val dummyData = mutableListOf<MusicListViewEntity>().apply {
             for (i in 1..10) {
                 this.add(
                     MusicListViewEntity(
                         i,
-                        "Title ${i}"
+                        "Title $i"
                     )
                 )
             }
