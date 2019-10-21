@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import jp.ac.daido.kanainko.databinding.FragmentMainBinding
 
 internal class MainFragment : Fragment() {
@@ -18,6 +19,10 @@ internal class MainFragment : Fragment() {
             container,
             false
         )
+
+        binding.fragmentMainNavigateDashboardFragmentButton.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_dashboardFragment)
+        }
 
         return binding.root
     }
