@@ -17,6 +17,15 @@
     <fragment
         android:id="@+id/dashboardFragment"
         android:name="jp.ac.daido.kanainko.dashboard.DashboardFragment"
+        android:label="DashboardFragment" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_recordFragment"
+            app:destination="@id/recordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recordFragment"
+        android:name="jp.ac.daido.kanainko.record.RecordFragment"
+        android:label="RecordFragment" />
         android:label="DashboardFragment" />
         tools:layout="jp.ac.daido.kanainko.MainFragment" />
 </navigation>

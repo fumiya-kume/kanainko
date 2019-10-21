@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import jp.ac.daido.kanainko.R
 import jp.ac.daido.kanainko.databinding.FragmentDashboardBinding
 
 internal class DashboardFragment : Fragment() {
@@ -34,6 +36,9 @@ internal class DashboardFragment : Fragment() {
         }
         musicListAdapter.submitList(dummyData)
         binding.fragmentDashboardMusicListRecyclerView.adapter = musicListAdapter
+        binding.fragmentDashboardEditFloatingActionButton.setOnClickListener {
+            findNavController().navigate(R.id.action_dashboardFragment_to_recordFragment)
+        }
         return binding.root
     }
 }

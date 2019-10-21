@@ -45,10 +45,10 @@ internal class RecordFragment : Fragment(), RecordPresenter {
                 false
             )
 
-        recordViewModel.volumeLiveData.observeForever {
-        }
+//        recordViewModel.volumeLiveData.observeForever {
+//        }
 
-        recordViewModel.start()
+//        recordViewModel.start()
 
         return binding.root
     }
