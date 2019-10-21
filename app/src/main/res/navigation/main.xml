@@ -26,4 +26,6 @@
         android:id="@+id/recordFragment"
         android:name="jp.ac.daido.kanainko.record.RecordFragment"
         android:label="RecordFragment" />
+        android:label="DashboardFragment" />
+        tools:layout="jp.ac.daido.kanainko.MainFragment" />
 </navigation>

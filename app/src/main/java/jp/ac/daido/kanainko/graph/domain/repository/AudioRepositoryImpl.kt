@@ -4,9 +4,8 @@ import android.media.AudioFormat
 import android.media.AudioRecord
 import android.media.MediaRecorder
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.channels.ConflatedBroadcastChannel
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.channelFlow
 import kotlinx.coroutines.launch
 
 internal class AudioRepositoryImpl() : AudioRepository {
@@ -14,11 +13,30 @@ internal class AudioRepositoryImpl() : AudioRepository {
         audioRecord.startRecording()
     }
 
-    private val audioDataChannel = ConflatedBroadcastChannel<List<Float>>()
+    private val audioFlow = channelFlow {
+        val producerScode = this
+        val recordPositionUpdateListener = object :
+            AudioRecord.OnRecordPositionUpdateListener {
+            override fun onMarkerReached(record: AudioRecord?) {
+            }
 
-    override suspend fun loadAudioData(): Flow<List<Float>> {
-        return audioDataChannel.asFlow()
+            override fun onPeriodicNotification(record: AudioRecord?) {
+                val bufferList = ShortArray(frameBufferSize)
+
+                record?.read(bufferList, 0, frameBufferSize)
+
+                GlobalScope.launch {
+                    producerScode.send(
+                        bufferList.map { it.toFloat() }.toList()
+                    )
+                }
+            }
+        }
+
+        audioRecord.setRecordPositionUpdateListener(recordPositionUpdateListener)
     }
+
+    override suspend fun loadAudioData(): Flow<List<Float>> = audioFlow
 
     private val samplingRate: Int = 44100
     private val channelConfig: Int = 1
@@ -40,25 +58,5 @@ internal class AudioRepositoryImpl() : AudioRepository {
         frameBufferSize
     ).apply {
         this.positionNotificationPeriod = frameBufferSize
-    }
-
-    init {
-        audioRecord.setRecordPositionUpdateListener(object :
-            AudioRecord.OnRecordPositionUpdateListener {
-            override fun onMarkerReached(record: AudioRecord?) {
-            }
-
-            override fun onPeriodicNotification(record: AudioRecord?) {
-                val bufferList = ShortArray(frameBufferSize)
-
-                record?.read(bufferList, 0, frameBufferSize)
-
-                GlobalScope.launch {
-                    audioDataChannel.send(
-                        bufferList.map { it.toFloat() }.toList()
-                    )
-                }
-            }
-        })
     }
 }

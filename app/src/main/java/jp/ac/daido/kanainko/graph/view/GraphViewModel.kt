@@ -4,13 +4,15 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import jp.ac.daido.kanainko.graph.domain.usecase.StartAudioRecordingUsecase
+import jp.ac.daido.kanainko.graph.view.viewentity.FourierSoundDataViewEntity
 import jp.ac.daido.kanainko.graph.view.viewentity.SoundRawDataViewEntity
 import jp.ac.daido.kanainko.graph.view.viewentity.SoundVolumeViewEntity
 import kotlinx.coroutines.launch
 
 internal class GraphViewModel(
-    private val soundVolumeLiveDataFactory: SoundVolumeLiveDataFactory,
-    private val soundRawDataLiveDataFactory: SoundRawDataLiveDataFactory,
+    soundVolumeLiveDataFactory: SoundVolumeLiveDataFactory,
+    soundRawDataLiveDataFactory: SoundRawDataLiveDataFactory,
+    fourierSoundDataLiveDataFactory: FourierSoundDataLiveDataFactory,
     private val startAudioRecordingUsecase: StartAudioRecordingUsecase
 ) : ViewModel() {
 
@@ -20,9 +22,12 @@ internal class GraphViewModel(
         }
     }
 
-    var soundVolumeLiveData: LiveData<SoundVolumeViewEntity> =
+    val soundVolumeLiveData: LiveData<SoundVolumeViewEntity> =
         soundVolumeLiveDataFactory.create(viewModelScope)
 
     val soundRawLiveData: LiveData<SoundRawDataViewEntity> =
         soundRawDataLiveDataFactory.create(viewModelScope)
+
+    val fourrierSoundDataLiveData: LiveData<FourierSoundDataViewEntity> =
+        fourierSoundDataLiveDataFactory.create(viewModelScope)
 }
