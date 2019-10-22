@@ -1,10 +1,10 @@
 package jp.ac.daido.kanainko.graph.view
 
 import androidx.lifecycle.LiveData
-import jp.ac.daido.kanainko.graph.domain.usecase.FourierTransformUsecase
-import jp.ac.daido.kanainko.graph.domain.usecase.LoadSoundRawDataUsecase
 import jp.ac.daido.kanainko.graph.view.viewentity.FourierSoundDataViewEntity
 import jp.ac.daido.kanainko.graph.view.viewentity.convert
+import jp.ac.daido.kanainko.record.domain.usecase.FourierTransformUsecase
+import jp.ac.daido.kanainko.record.domain.usecase.LoadSoundRawDataUsecase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect

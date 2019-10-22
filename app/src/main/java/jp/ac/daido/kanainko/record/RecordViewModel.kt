@@ -8,7 +8,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import jp.ac.daido.kanainko.record.domain.AudioService
 import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -20,8 +19,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 
 internal class RecordViewModel(
-    private val recordPresenter: RecordPresenter,
-    private val audioService: AudioService
+    private val recordPresenter: RecordPresenter
 ) : ViewModel(), CoroutineScope {
 
     private val audioDataBuffer = emptyList<Float>()
@@ -79,27 +77,6 @@ internal class RecordViewModel(
 
             audioRecord.startRecording()
         }
-
-    init {
-//        viewModelScope.launch(Dispatchers.IO) {
-//            audioService.load()
-//                .collect {
-//                    //                    (audioDataBuffer as MutableList).add(it)
-// //                    if (audioDataBuffer.size > 10000) {
-// //                        viewModelScope.launch(Dispatchers.Main) {
-// //                            _volumeLiveData.postValue(audioDataBuffer.max())
-// //                        }
-// //                        audioDataBuffer.clear()
-// //                    }
-//
-// //                    viewModelScope.launch(Dispatchers.IO) {
-// //                        _volumeLiveData.postValue(it)
-// //                    }
-//
-//                    GlobalScope.launch { _volumeLiveData.postValue(it.max()) }
-//                }
-//        }
-    }
 
     fun start() {
 

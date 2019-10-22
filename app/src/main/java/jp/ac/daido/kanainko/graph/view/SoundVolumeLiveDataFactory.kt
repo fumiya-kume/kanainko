@@ -1,6 +1,6 @@
 package jp.ac.daido.kanainko.graph.view
 
-import jp.ac.daido.kanainko.graph.domain.usecase.LoadSoundVolumeUsecase
+import jp.ac.daido.kanainko.record.domain.usecase.LoadSoundVolumeUsecase
 import kotlinx.coroutines.CoroutineScope
 
 internal class SoundVolumeLiveDataFactory(

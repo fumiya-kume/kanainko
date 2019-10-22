@@ -3,6 +3,7 @@ package jp.ac.daido.kanainko.graph.domain.repository
 import android.media.AudioFormat
 import android.media.AudioRecord
 import android.media.MediaRecorder
+import jp.ac.daido.kanainko.record.domain.repository.AudioRepository
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.channelFlow

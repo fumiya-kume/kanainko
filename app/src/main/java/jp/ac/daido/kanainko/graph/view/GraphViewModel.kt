@@ -3,10 +3,10 @@ package jp.ac.daido.kanainko.graph.view
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import jp.ac.daido.kanainko.graph.domain.usecase.StartAudioRecordingUsecase
 import jp.ac.daido.kanainko.graph.view.viewentity.FourierSoundDataViewEntity
 import jp.ac.daido.kanainko.graph.view.viewentity.SoundRawDataViewEntity
 import jp.ac.daido.kanainko.graph.view.viewentity.SoundVolumeViewEntity
+import jp.ac.daido.kanainko.record.domain.usecase.StartAudioRecordingUsecase
 import kotlinx.coroutines.launch
 
 internal class GraphViewModel(
