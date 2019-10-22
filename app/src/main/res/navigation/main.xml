@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/recordFragment"
-        android:name="jp.ac.daido.kanainko.record.RecordFragment"
+        android:name="jp.ac.daido.kanainko.record.view.RecordFragment"
         android:label="RecordFragment" >
         <action
             android:id="@+id/action_recordFragment_to_resultFragment"

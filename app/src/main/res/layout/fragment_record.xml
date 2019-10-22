@@ -7,7 +7,7 @@
 
         <variable
             name="bindingModel"
-            type="jp.ac.daido.kanainko.record.bindingmodel.RecordBindingModel" />
+            type="jp.ac.daido.kanainko.record.view.bindingmodel.RecordBindingModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,7 +17,7 @@
 
 
         <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/main_chart"
+            android:id="@+id/fragment_record_fourier_graph_line_chart"
             android:layout_width="0dp"
             android:layout_height="400dp"
             android:layout_margin="8dp"
@@ -35,7 +35,7 @@
             app:layout_constraintBottom_toTopOf="@id/recording_button"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/main_chart" />
+            app:layout_constraintTop_toBottomOf="@id/fragment_record_fourier_graph_line_chart" />
 
 
         <com.google.android.material.button.MaterialButton

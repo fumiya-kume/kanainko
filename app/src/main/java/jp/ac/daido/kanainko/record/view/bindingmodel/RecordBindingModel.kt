@@ -1,4 +1,4 @@
-package jp.ac.daido.kanainko.record.bindingmodel
+package jp.ac.daido.kanainko.record.view.bindingmodel
 
 internal data class RecordBindingModel(
     val recordButtonText: String
