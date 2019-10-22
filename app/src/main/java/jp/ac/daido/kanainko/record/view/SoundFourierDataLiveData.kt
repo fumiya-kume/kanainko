@@ -23,9 +23,10 @@ internal class SoundFourierDataLiveData(
                     withContext(Dispatchers.Unconfined) {
                         frourierTransformUsecase.execute(it).data
                     }
+
                 }
                 .collect {
-                    postValue(it)
+                    coroutineScope.launch(Dispatchers.Main) { value = it }
                 }
         }
     }
