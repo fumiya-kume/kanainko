@@ -24,7 +24,7 @@ internal class AudioRepositoryImpl : AudioRepository {
             channelConfig,
             AudioFormat.ENCODING_PCM_8BIT
         )
-    ) / 50
+    ) / 100
 
     private val audioRecord: AudioRecord = AudioRecord(
         MediaRecorder.AudioSource.MIC,

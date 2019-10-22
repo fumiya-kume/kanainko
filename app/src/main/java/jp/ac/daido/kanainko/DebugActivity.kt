@@ -19,6 +19,5 @@ internal class DebugActivity : FragmentActivity() {
                 this.add(R.id.main_fragment, fragment)
                 this.commit()
             }
-
     }
 }
