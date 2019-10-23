@@ -3,7 +3,6 @@ package jp.ac.daido.kanainko.record.view
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,9 +10,6 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.github.mikephil.charting.data.Entry
-import com.github.mikephil.charting.data.LineData
-import com.github.mikephil.charting.data.LineDataSet
 import jp.ac.daido.kanainko.R
 import jp.ac.daido.kanainko.databinding.FragmentRecordBinding
 import jp.ac.daido.kanainko.record.domain.repository.AudioRepository
@@ -65,44 +61,31 @@ internal class RecordFragment : Fragment(), RecordPresenter {
         recordViewModel
             .soundFrourierTransformLiveData
             .observeForever {
-                val displayData = mutableListOf<Float>()
-                val displayElementCount = 10
-                val oneWindowCount = it.size / displayElementCount
+                GlobalScope.launch(Dispatchers.IO) {
+                    val displayData = mutableListOf<Float>()
+                    val displayElementCount = 50
+                    val oneWindowCount = it.size / displayElementCount
 
 
-                Log.d("kanainko", "window Before")
-
-                for (i in 0..displayElementCount) {
-                    if ((i + 1) * oneWindowCount > it.size) {
-                        break
+                    for (i in 0..displayElementCount) {
+                        if ((i + 1) * oneWindowCount > it.size) {
+                            break
+                        }
+                        displayData.add(
+                            it.subList(
+                                i * oneWindowCount,
+                                (i + 1) * oneWindowCount
+                            ).average().toFloat()
+                        )
                     }
-                    displayData.add(
-                        it.subList(
-                            i * oneWindowCount,
-                            (i + 1) * oneWindowCount
-                        ).average().toFloat()
-                    )
-                }
-                Log.d("kanainko", "window After")
 
-                val lineDataSet = LineDataSet(
-                    displayData.mapIndexed { index, item -> Entry(index.toFloat(), item) },
-                    "音量"
-                ).apply {
-                    this.setDrawCircles(false)
-                    this.setDrawValues(false)
-                }
-                val lineData = LineData(
-                    lineDataSet
-                )
-
-
-                GlobalScope.launch(Dispatchers.Main) {
-                    binding.fragmentRecordFourierGraphLineChart.data = lineData
-//                    binding.fragmentRecordFourierGraphLineChart.notifyDataSetChanged()
-                    binding.fragmentRecordFourierGraphLineChart.invalidate()
+                    GlobalScope.launch(Dispatchers.Main) {
+                        binding.fragmentRecordFourierGraphLineChart.setData(displayData)
+                    }
                 }
             }
+
+//        binding.fragmentRecordFourierGraphLineChart.setData(listOf(1.0F, 100.0F, 300.0F))
 
         return binding.root
     }

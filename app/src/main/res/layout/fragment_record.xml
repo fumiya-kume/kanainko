@@ -14,9 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/grayColor800">
-
-
-        <com.github.mikephil.charting.charts.LineChart
+        
+        <jp.ac.daido.kanainko.record.view.custom.LineChart
             android:id="@+id/fragment_record_fourier_graph_line_chart"
             android:layout_width="0dp"
             android:layout_height="400dp"
@@ -57,12 +56,12 @@
             android:id="@+id/fragment_record_fisnish_record_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/primaryDarkColor"
-            android:textColor="@color/secondaryLightColor"
             android:layout_margin="12dp"
+            android:backgroundTint="@color/primaryDarkColor"
             android:padding="8dp"
             android:text="finish record"
             android:textAlignment="center"
+            android:textColor="@color/secondaryLightColor"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
