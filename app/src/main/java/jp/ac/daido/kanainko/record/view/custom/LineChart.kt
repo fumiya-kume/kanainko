@@ -8,7 +8,9 @@ import android.view.View
 import jp.ac.daido.kanainko.R
 
 internal class LineChart @JvmOverloads constructor(
-    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
 
     private var data: List<Float> = emptyList()

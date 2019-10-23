@@ -23,7 +23,6 @@ internal class SoundFourierDataLiveData(
                     withContext(Dispatchers.Unconfined) {
                         frourierTransformUsecase.execute(it).data
                     }
-
                 }
                 .collect {
                     coroutineScope.launch(Dispatchers.Main) { value = it }

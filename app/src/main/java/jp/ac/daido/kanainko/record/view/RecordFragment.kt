@@ -66,7 +66,6 @@ internal class RecordFragment : Fragment(), RecordPresenter {
                     val displayElementCount = 50
                     val oneWindowCount = it.size / displayElementCount
 
-
                     for (i in 0..displayElementCount) {
                         if ((i + 1) * oneWindowCount > it.size) {
                             break
