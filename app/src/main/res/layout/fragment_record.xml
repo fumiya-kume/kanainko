@@ -7,7 +7,7 @@
 
         <variable
             name="bindingModel"
-            type="jp.ac.daido.kanainko.record.bindingmodel.RecordBindingModel" />
+            type="jp.ac.daido.kanainko.record.view.bindingmodel.RecordBindingModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,9 +15,8 @@
         android:layout_height="match_parent"
         android:background="@color/grayColor800">
 
-
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/main_chart"
+        <jp.ac.daido.kanainko.record.view.custom.LineChart
+            android:id="@+id/fragment_record_fourier_graph_line_chart"
             android:layout_width="0dp"
             android:layout_height="400dp"
             android:layout_margin="8dp"
@@ -35,7 +34,7 @@
             app:layout_constraintBottom_toTopOf="@id/recording_button"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/main_chart" />
+            app:layout_constraintTop_toBottomOf="@id/fragment_record_fourier_graph_line_chart" />
 
 
         <com.google.android.material.button.MaterialButton
@@ -57,12 +56,12 @@
             android:id="@+id/fragment_record_fisnish_record_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/primaryDarkColor"
-            android:textColor="@color/secondaryLightColor"
             android:layout_margin="12dp"
+            android:backgroundTint="@color/primaryDarkColor"
             android:padding="8dp"
             android:text="finish record"
             android:textAlignment="center"
+            android:textColor="@color/secondaryLightColor"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

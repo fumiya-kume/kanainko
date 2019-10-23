@@ -9,9 +9,7 @@ internal class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        val module = listOf(
-            recordModule
-        )
+        val module = recordModule
 
         startKoin {
             androidContext(this@MyApplication)

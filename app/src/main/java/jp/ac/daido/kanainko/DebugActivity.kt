@@ -3,7 +3,7 @@ package jp.ac.daido.kanainko
 import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.fragment.app.FragmentActivity
-import jp.ac.daido.kanainko.record.RecordFragment
+import jp.ac.daido.kanainko.record.view.RecordFragment
 
 internal class DebugActivity : FragmentActivity() {
 
@@ -12,9 +12,12 @@ internal class DebugActivity : FragmentActivity() {
 
         setContentView(R.layout.activity_debug)
 
-        val transaction = supportFragmentManager.beginTransaction()
-        val fragment = RecordFragment()
-        transaction.add(R.id.main_fragment, fragment)
-        transaction.commit()
+        supportFragmentManager
+            .beginTransaction()
+            .apply {
+                val fragment = RecordFragment()
+                this.add(R.id.main_fragment, fragment)
+                this.commit()
+            }
     }
 }
