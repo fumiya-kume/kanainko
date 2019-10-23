@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/grayColor800">
-        
+
         <jp.ac.daido.kanainko.record.view.custom.LineChart
             android:id="@+id/fragment_record_fourier_graph_line_chart"
             android:layout_width="0dp"
