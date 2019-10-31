@@ -31,5 +31,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fragment_main_sample_text_view" />
+
+        <Button
+            android:id="@+id/fragment_main_navigate_word_choose_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:padding="16dp"
+            android:text="単語選択画面を開く"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_main_navigate_dashboard_fragment_button" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
