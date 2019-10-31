@@ -42,7 +42,6 @@ internal class ChooseWordFragment : Fragment() {
                 dialog.show(parentFragmentManager, "tag")
                 dialog.onWordChooseDoneListener = object : OnWordChooseDoneListener {
                     override fun chooseDone(wordViewEntity: WordViewEntity) {
-
                     }
                 }
             }
@@ -52,6 +51,4 @@ internal class ChooseWordFragment : Fragment() {
 
         return binding.root
     }
-
-
 }
