@@ -32,7 +32,6 @@ internal class RecordFragment : Fragment() {
 
         val wordViewEntity = recordFragmentArgs.recordWordEntity
 
-
         binding.fragmentRecordAudioVolumeTextView.text = "16000"
 
         binding

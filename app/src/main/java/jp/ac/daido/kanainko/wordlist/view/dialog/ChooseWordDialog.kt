@@ -62,7 +62,6 @@ internal class ChooseWordDialog private constructor(
                     ?: return@setOnClickListener)
         }
 
-
         binding.dialogWordChooseWordListRecyclerView.adapter = chooseWordListAdapter
 
         return binding.root

@@ -60,6 +60,4 @@ internal class ChooseWordFragment : Fragment() {
 
         return binding.root
     }
-
-
 }

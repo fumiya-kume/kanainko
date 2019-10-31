@@ -3,7 +3,6 @@ package jp.ac.daido.kanainko.entity
 import android.os.Parcel
 import android.os.Parcelable
 
-
 data class RecordWordEntity(
     val name: String
 ) : Parcelable {
