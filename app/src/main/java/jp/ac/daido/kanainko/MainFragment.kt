@@ -23,6 +23,10 @@ internal class MainFragment : Fragment() {
         binding.fragmentMainNavigateDashboardFragmentButton.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_dashboardFragment)
         }
+        binding.fragmentMainNavigateWordChooseButton.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_chooseWordFragment)
+        }
+
         return binding.root
     }
 }
