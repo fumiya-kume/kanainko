@@ -8,7 +8,7 @@ internal class WordListLiveDataFactory(
 ) {
     fun create(
         coroutineScope: CoroutineScope
-    ): WordListLiveData{
+    ): WordListLiveData {
         return WordListLiveData(
             coroutineScope,
             wordListReadonlyRepository

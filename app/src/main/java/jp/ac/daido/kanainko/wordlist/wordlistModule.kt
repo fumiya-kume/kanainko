@@ -7,7 +7,6 @@ import jp.ac.daido.kanainko.wordlist.view.WordListLiveDataFactory
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
-
 val wordListModule =
     module {
         factory { WordListReadonlyRepositoryImpl() as WordListReadonlyRepository }
