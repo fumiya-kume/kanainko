@@ -4,10 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
-        <variable
-            name="bindingModel"
-            type="jp.ac.daido.kanainko.record.view.bindingmodel.RecordBindingModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
