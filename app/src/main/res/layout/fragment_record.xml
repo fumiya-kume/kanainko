@@ -4,10 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
-        <variable
-            name="bindingModel"
-            type="jp.ac.daido.kanainko.record.view.bindingmodel.RecordBindingModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,56 +11,29 @@
         android:layout_height="match_parent"
         android:background="@color/grayColor800">
 
-        <jp.ac.daido.kanainko.record.view.custom.LineChart
-            android:id="@+id/fragment_record_fourier_graph_line_chart"
-            android:layout_width="0dp"
-            android:layout_height="400dp"
-            android:layout_margin="8dp"
-            android:padding="4dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/spectrgram_chart"
-            android:layout_width="0dp"
-            android:layout_height="150dp"
-            android:layout_margin="8dp"
-            android:padding="4dp"
-            app:layout_constraintBottom_toTopOf="@id/recording_button"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fragment_record_fourier_graph_line_chart" />
-
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/recording_button"
+        <TextView
+            android:id="@+id/fragment_record_audio_volume_text_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="12dp"
-            android:background="@color/primaryColor"
-            android:padding="8dp"
-            android:text="🎤"
             android:textAlignment="center"
-            app:layout_constraintBottom_toTopOf="@id/fragment_record_fisnish_record_button"
+            android:textColor="@color/white"
+            android:textSize="120sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints"
-            tools:text="🎤" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="12000" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/fragment_record_fisnish_record_button"
+            android:id="@+id/fragment_record_record_material_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="12dp"
-            android:backgroundTint="@color/primaryDarkColor"
-            android:padding="8dp"
-            android:text="finish record"
+            android:layout_margin="16dp"
+            android:padding="16dp"
+            android:text="録音する"
             android:textAlignment="center"
-            android:textColor="@color/secondaryLightColor"
+            android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

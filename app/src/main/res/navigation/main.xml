@@ -9,7 +9,7 @@
         android:id="@+id/mainFragment"
         android:name="jp.ac.daido.kanainko.MainFragment"
         android:label="MainFragment"
-        tools:layout="jp.ac.daido.kanainko.MainFragment" >
+        tools:layout="jp.ac.daido.kanainko.MainFragment">
         <action
             android:id="@+id/action_mainFragment_to_dashboardFragment"
             app:destination="@id/dashboardFragment" />
@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/dashboardFragment"
         android:name="jp.ac.daido.kanainko.dashboard.DashboardFragment"
-        android:label="DashboardFragment" >
+        android:label="DashboardFragment">
         <action
             android:id="@+id/action_dashboardFragment_to_recordFragment"
             app:destination="@id/recordFragment" />
@@ -28,7 +28,10 @@
     <fragment
         android:id="@+id/recordFragment"
         android:name="jp.ac.daido.kanainko.record.view.RecordFragment"
-        android:label="RecordFragment" >
+        android:label="RecordFragment">
+        <argument
+            android:name="recordWordEntity"
+            app:argType="jp.ac.daido.kanainko.entity.RecordWordEntity" />
         <action
             android:id="@+id/action_recordFragment_to_resultFragment"
             app:destination="@id/resultFragment" />
@@ -36,7 +39,7 @@
     <fragment
         android:id="@+id/resultFragment"
         android:name="jp.ac.daido.kanainko.result.ResultFragment"
-        android:label="ResultFragment" >
+        android:label="ResultFragment">
         <action
             android:id="@+id/action_resultFragment_to_dashboardFragment"
             app:destination="@id/dashboardFragment" />
@@ -44,9 +47,10 @@
     <fragment
         android:id="@+id/chooseWordFragment"
         android:name="jp.ac.daido.kanainko.wordlist.view.ChooseWordFragment"
-        android:label="ChooseWordFragment" />
-    android:label="DashboardFragment" />
-        android:label="RecordFragment" />
-        android:label="DashboardFragment" />
-        tools:layout="jp.ac.daido.kanainko.MainFragment" />
+        android:label="ChooseWordFragment">
+        <action
+            android:id="@+id/action_chooseWordFragment_to_recordFragment"
+            app:destination="@id/recordFragment">
+        </action>
+    </fragment>
 </navigation>

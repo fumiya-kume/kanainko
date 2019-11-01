@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import jp.ac.daido.kanainko.databinding.FragmentChooseWordBinding
+import jp.ac.daido.kanainko.entity.RecordWordEntity
 import jp.ac.daido.kanainko.wordlist.view.dialog.ChooseWordDialog
 import jp.ac.daido.kanainko.wordlist.view.dialog.OnWordChooseDoneListener
 import jp.ac.daido.kanainko.wordlist.viewentity.WordGroupViewEntity
@@ -42,6 +44,12 @@ internal class ChooseWordFragment : Fragment() {
                 dialog.show(parentFragmentManager, "tag")
                 dialog.onWordChooseDoneListener = object : OnWordChooseDoneListener {
                     override fun chooseDone(wordViewEntity: WordViewEntity) {
+                        dialog.dismiss()
+                        findNavController().navigate(
+                            ChooseWordFragmentDirections.actionChooseWordFragmentToRecordFragment(
+                                RecordWordEntity(wordGroupViewEntity.name)
+                            )
+                        )
                     }
                 }
             }
