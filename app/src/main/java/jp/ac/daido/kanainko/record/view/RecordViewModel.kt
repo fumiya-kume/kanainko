@@ -5,5 +5,4 @@ import jp.ac.daido.kanainko.record.domain.repository.AudioRepository
 
 internal class RecordViewModel(
     private val audioRepository: AudioRepository
-) : ViewModel() {
-}
+) : ViewModel()
