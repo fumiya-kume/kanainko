@@ -14,7 +14,7 @@ internal class RecordFragment : Fragment() {
 
     private val recordViewModel: RecordViewModel by viewModel { parametersOf(this) }
     private lateinit var binding: FragmentRecordBinding
-    
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
