@@ -38,7 +38,6 @@ internal class RecordFragment : Fragment() {
                 } else {
                     recorder.startReocrding()
                 }
-
             }
 
         recorder.onRecorderStatusUpdateListener = object : OnRecorderStatusUpdateListener {
@@ -63,11 +62,9 @@ internal class RecordFragment : Fragment() {
                     else -> {
                     }
                 }
-
             }
         }
         recorder.forceRecorderStusUpdate()
         return binding.root
     }
-
 }

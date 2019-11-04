@@ -45,7 +45,7 @@ internal class Recorder(
         initRecorder()
     }
 
-    fun initRecorder(){
+    fun initRecorder() {
         updateRecorderStatus(RecorderStatus.starting)
 
         mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC)

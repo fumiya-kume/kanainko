@@ -10,9 +10,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.ConflatedBroadcastChannel
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.launch
-import java.util.*
+import java.util.Timer
 import kotlin.concurrent.schedule
-
 
 internal class RecordViewModel(
     private val audioRepository: AudioRepository
@@ -32,8 +31,6 @@ internal class RecordViewModel(
 
         val flow = MutableLiveData<AudioVolumeViewEntity>()
 
-
-
         viewModelScope.launch(Dispatchers.IO) {
             var counter = 0
             Timer().schedule(0, 1000 / 60) {
@@ -48,7 +45,6 @@ internal class RecordViewModel(
         }
 
         return flow
-
     }
 
     fun flowData(): kotlinx.coroutines.flow.Flow<Double> {
@@ -62,6 +58,4 @@ internal class RecordViewModel(
     fun loadData(): Double {
         return Math.random()
     }
-
-
 }

@@ -41,6 +41,5 @@ internal class AudioVolumeGraph @JvmOverloads constructor(
         postInvalidateDelayed(70)
 
 //        super.onDraw(canvas)
-
     }
 }
