@@ -6,11 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import jp.ac.daido.kanainko.databinding.FragmentRecordBinding
-import kotlinx.coroutines.InternalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
-
 
 internal class RecordFragment : Fragment() {
 
@@ -30,7 +29,6 @@ internal class RecordFragment : Fragment() {
                 container,
                 false
             )
-
         val recorder = Recorder(requireContext())
 
         binding.fragmentRecordAudioVolumeAudioVolmeGraph.setMediaRecorder(recorder)
@@ -68,13 +66,10 @@ internal class RecordFragment : Fragment() {
                     else -> {
                     }
                 }
+
             }
         }
-
-
-
         recorder.forceRecorderStusUpdate()
-
         return binding.root
     }
 
