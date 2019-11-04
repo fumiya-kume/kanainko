@@ -6,18 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.navArgs
 import jp.ac.daido.kanainko.databinding.FragmentRecordBinding
+import kotlinx.coroutines.InternalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
+
 
 internal class RecordFragment : Fragment() {
 
     private val recordViewModel: RecordViewModel by viewModel { parametersOf(this) }
     private lateinit var binding: FragmentRecordBinding
-    private val recordFragmentArgs: RecordFragmentArgs by navArgs()
 
     private val audioPermissionRequestCode: Int = 4223
+    @InternalCoroutinesApi
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -30,16 +31,51 @@ internal class RecordFragment : Fragment() {
                 false
             )
 
-        val wordViewEntity = recordFragmentArgs.recordWordEntity
+        val recorder = Recorder(requireContext())
 
-        binding.fragmentRecordAudioVolumeTextView.text = "16000"
+        binding.fragmentRecordAudioVolumeAudioVolmeGraph.setMediaRecorder(recorder)
 
         binding
             .fragmentRecordRecordMaterialButton
             .setOnClickListener {
-                Toast.makeText(requireContext(), "録音開始します", Toast.LENGTH_SHORT).show()
+                if (recorder.recorderStatus == RecorderStatus.recording) {
+                    recorder.stopRecording()
+                } else {
+                    recorder.startReocrding()
+                }
+
             }
+
+        recorder.onRecorderStatusUpdateListener = object : OnRecorderStatusUpdateListener {
+            override fun onStatusUpdated(status: RecorderStatus) {
+                when (status) {
+                    is RecorderStatus.ready -> {
+                        binding.fragmentRecordInitializationProgressBar.visibility = View.GONE
+                    }
+                    is RecorderStatus.recording -> {
+                        binding.fragmentRecordRecordMaterialButton.text = "録音しています"
+                    }
+                    is RecorderStatus.stopping -> {
+                        binding.fragmentRecordRecordMaterialButton.text = "録音する"
+                    }
+                    is RecorderStatus.error -> {
+                        Toast.makeText(
+                            requireContext(),
+                            status.exception.message,
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                    else -> {
+                    }
+                }
+            }
+        }
+
+
+
+        recorder.forceRecorderStusUpdate()
 
         return binding.root
     }
+
 }

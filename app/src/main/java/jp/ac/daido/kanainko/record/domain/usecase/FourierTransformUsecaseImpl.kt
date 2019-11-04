@@ -20,6 +20,7 @@ internal class FourierTransformUsecaseImpl : FourierTransformUsecase {
                 Math.sqrt(Math.pow(data.elementAt(it), 2.0) + Math.pow(data.elementAt(it + 1), 2.0))
             }
             .map { it / data.size }
-        return FourierTransformationModel(power.map { it.toFloat() })
+            .map { it.toFloat() }
+        return FourierTransformationModel(power)
     }
 }
