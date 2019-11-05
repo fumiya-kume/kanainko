@@ -28,12 +28,12 @@ internal class RecordFragment : Fragment() {
                 container,
                 false
             )
+        val recorder = Recorder(requireContext())
 
         val file = context?.externalMediaDirs?.first()
         val filePath = "${file?.path}/output.aac"
 
         val recorder = Recorder(requireContext(), filePath)
-
         binding.fragmentRecordAudioVolumeAudioVolmeGraph.setMediaRecorder(recorder)
 
         binding
