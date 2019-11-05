@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/dashboardFragment"
-        android:name="kuu.nagoya.dashboard.DashboardFragment"
+        android:name="kuu.nagoya.dashboard.view.DashboardFragment"
         android:label="DashboardFragment">
         <action
             android:id="@+id/action_dashboardFragment_to_recordFragment"

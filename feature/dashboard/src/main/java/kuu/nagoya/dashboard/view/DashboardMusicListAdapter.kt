@@ -1,30 +1,31 @@
-package kuu.nagoya.dashboard
+package kuu.nagoya.dashboard.view
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
+import kuu.nagoya.dashboard.viewentity.RecordViewEntity
 
 internal class DashboardMusicListAdapter(
     private val context: Context
 ) :
-    ListAdapter<MusicListViewEntity, DashboardMusicListViewHolder>(
+    ListAdapter<RecordViewEntity, DashboardMusicListViewHolder>(
         DIFF_UTIL
     ) {
 
     companion object {
-        private val DIFF_UTIL = object : DiffUtil.ItemCallback<MusicListViewEntity>() {
+        private val DIFF_UTIL = object : DiffUtil.ItemCallback<RecordViewEntity>() {
             override fun areItemsTheSame(
-                oldItem: MusicListViewEntity,
-                newItem: MusicListViewEntity
+                oldItem: RecordViewEntity,
+                newItem: RecordViewEntity
             ): Boolean {
                 return oldItem.id == newItem.id
             }
 
             override fun areContentsTheSame(
-                oldItem: MusicListViewEntity,
-                newItem: MusicListViewEntity
+                oldItem: RecordViewEntity,
+                newItem: RecordViewEntity
             ): Boolean {
                 return oldItem == newItem
             }

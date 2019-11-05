@@ -73,4 +73,8 @@ dependencies {
     implementation "org.koin:koin-androidx-ext:2.0.1"
     implementation "org.koin:koin-androidx-viewmodel:2.0.1"
     implementation "org.koin:koin-androidx-scope:2.0.1"
+
+    // Gson
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation project(path: ':util')
 }

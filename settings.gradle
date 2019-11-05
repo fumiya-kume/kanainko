@@ -1,4 +1,4 @@
-include ':app', ':navigation'
+include ':app', ':navigation', ':util'
 
 ['domain', 'infra', 'entity', 'usecase', 'feature']
         .asList()
