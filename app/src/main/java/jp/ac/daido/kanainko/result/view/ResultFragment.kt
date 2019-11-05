@@ -1,4 +1,4 @@
-package jp.ac.daido.kanainko.result
+package jp.ac.daido.kanainko.result.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -22,9 +22,10 @@ internal class ResultFragment : Fragment() {
                 false
             )
 
-        binding.fragmentResultFinishMaterialButton.setOnClickListener {
-            findNavController().navigate(R.id.action_resultFragment_to_dashboardFragment)
-        }
+        binding.fragmentResultNavigateDashboardButton
+            .setOnClickListener {
+                findNavController().navigate(R.id.action_resultFragment_to_dashboardFragment)
+            }
 
         return binding.root
     }

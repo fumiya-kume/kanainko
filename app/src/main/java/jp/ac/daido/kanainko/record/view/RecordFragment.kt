@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import jp.ac.daido.kanainko.databinding.FragmentRecordBinding
+import jp.ac.daido.kanainko.result.view.navigation.AudioRecordResultNavigationModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
@@ -26,8 +28,11 @@ internal class RecordFragment : Fragment() {
                 container,
                 false
             )
-        val recorder = Recorder(requireContext())
 
+        val file = context?.externalMediaDirs?.first()
+        val filePath = "${file?.path}/output.aac"
+
+        val recorder = Recorder(requireContext(), filePath)
         binding.fragmentRecordAudioVolumeAudioVolmeGraph.setMediaRecorder(recorder)
 
         binding
@@ -51,6 +56,14 @@ internal class RecordFragment : Fragment() {
                     }
                     is RecorderStatus.stopping -> {
                         binding.fragmentRecordRecordMaterialButton.text = "録音する"
+                        findNavController()
+                            .navigate(
+                                RecordFragmentDirections.actionRecordFragmentToResultFragment(
+                                    AudioRecordResultNavigationModel(
+                                        filePath
+                                    )
+                                )
+                            )
                     }
                     is RecorderStatus.error -> {
                         Toast.makeText(

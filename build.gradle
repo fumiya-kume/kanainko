@@ -10,7 +10,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.0'
+        classpath 'com.android.tools.build:gradle:3.5.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.1.0"
         classpath("org.jlleitschuh.gradle:ktlint-gradle:9.0.0")
@@ -26,15 +26,6 @@ allprojects {
         jcenter()
         maven { url 'https://jitpack.io' }
     }
-}
-
-subprojects {
-    apply plugin: 'com.android.application'
-    apply plugin: 'kotlin-android'
-    apply plugin: 'kotlin-kapt'
-    apply plugin: 'kotlin-android-extensions'
-    apply plugin: 'org.jlleitschuh.gradle.ktlint'
-    apply plugin: "androidx.navigation.safeargs.kotlin"
 }
 
 task clean(type: Delete) {
