@@ -38,8 +38,11 @@
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
-        android:name="jp.ac.daido.kanainko.result.ResultFragment"
+        android:name="jp.ac.daido.kanainko.result.view.ResultFragment"
         android:label="ResultFragment">
+        <argument
+            android:name="audioRecordNavigationModel"
+            app:argType="jp.ac.daido.kanainko.result.view.navigation.AudioRecordResultNavigationModel" />
         <action
             android:id="@+id/action_resultFragment_to_dashboardFragment"
             app:destination="@id/dashboardFragment" />
@@ -50,7 +53,6 @@
         android:label="ChooseWordFragment">
         <action
             android:id="@+id/action_chooseWordFragment_to_recordFragment"
-            app:destination="@id/recordFragment">
-        </action>
+            app:destination="@id/recordFragment"></action>
     </fragment>
 </navigation>
