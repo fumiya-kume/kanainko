@@ -1,6 +1,6 @@
-package kuu.nagoya.dashboard.entity
+package kuu.nagoya.entity.recordentity
 
-internal fun String.toFilePath(): FilePath {
+fun String.toFilePath(): FilePath {
     if (this.isEmpty()) {
         throw IllegalArgumentException("invalid file path")
     }
