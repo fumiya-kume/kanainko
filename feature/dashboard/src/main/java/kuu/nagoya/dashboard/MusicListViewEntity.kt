@@ -1,4 +1,4 @@
-package jp.ac.daido.kanainko.dashboard
+package kuu.nagoya.dashboard
 
 internal data class MusicListViewEntity(
     val id: Int,
