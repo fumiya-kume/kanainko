@@ -28,10 +28,13 @@ internal class AudioVolumeGraph @JvmOverloads constructor(
             strokeWidth = 10F
         }
 
+        val barPosition =
+            (height.toFloat() - (recorder?.maxAmplitude() ?: 0 * height).toFloat()) - 100
+
         canvas?.let {
             it.drawRect(
                 0F,
-                (height.toFloat() - (recorder?.maxAmplitude() ?: 0 * height).toFloat()),
+                barPosition,
                 width.toFloat(),
                 height.toFloat(),
                 paint
@@ -39,7 +42,5 @@ internal class AudioVolumeGraph @JvmOverloads constructor(
         }
 
         postInvalidateDelayed(70)
-
-//        super.onDraw(canvas)
     }
 }
