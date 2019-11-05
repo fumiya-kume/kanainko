@@ -1,15 +1,19 @@
-package jp.ac.daido.kanainko.dashboard
+package kuu.nagoya.dashboard
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import jp.ac.daido.kanainko.R
-import jp.ac.daido.kanainko.databinding.FragmentDashboardBinding
+import kuu.nagoya.dashboard.databinding.FragmentDashboardBinding
+import kuu.nagoya.navigation.DashboardNavigation
+import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 
-internal class DashboardFragment : Fragment() {
+class DashboardFragment : Fragment() {
+
+    val dashboardNavigation: DashboardNavigation by inject(parameters = { parametersOf(this) })
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -37,7 +41,7 @@ internal class DashboardFragment : Fragment() {
         musicListAdapter.submitList(dummyData)
         binding.fragmentDashboardMusicListRecyclerView.adapter = musicListAdapter
         binding.fragmentDashboardEditFloatingActionButton.setOnClickListener {
-            findNavController().navigate(R.id.action_dashboardFragment_to_recordFragment)
+            dashboardNavigation.navigateAnalyzer()
         }
         return binding.root
     }

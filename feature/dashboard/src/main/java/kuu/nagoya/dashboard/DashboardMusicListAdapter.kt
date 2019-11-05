@@ -1,4 +1,4 @@
-package jp.ac.daido.kanainko.dashboard
+package kuu.nagoya.dashboard
 
 import android.content.Context
 import android.view.LayoutInflater

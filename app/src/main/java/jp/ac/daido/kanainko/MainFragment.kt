@@ -5,10 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import jp.ac.daido.kanainko.databinding.FragmentMainBinding
+import kuu.nagoya.navigation.AppNavigation
+import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 
-internal class MainFragment : Fragment() {
+class MainFragment : Fragment() {
+
+    val appNavigation: AppNavigation by inject(parameters = { parametersOf(this) })
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -21,10 +26,10 @@ internal class MainFragment : Fragment() {
         )
 
         binding.fragmentMainNavigateDashboardFragmentButton.setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_dashboardFragment)
+            appNavigation.navigateToDashboard()
         }
         binding.fragmentMainNavigateWordChooseButton.setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_chooseWordFragment)
+            appNavigation.navigateToWordChoose()
         }
 
         return binding.root

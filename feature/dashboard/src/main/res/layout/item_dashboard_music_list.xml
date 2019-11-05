@@ -7,7 +7,7 @@
 
         <variable
             name="viewEntity"
-            type="jp.ac.daido.kanainko.dashboard.MusicListViewEntity" />
+            type="kuu.nagoya.dashboard.MusicListViewEntity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -1,9 +1,9 @@
-package jp.ac.daido.kanainko.dashboard
+package kuu.nagoya.dashboard
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import jp.ac.daido.kanainko.databinding.ItemDashboardMusicListBinding
+import kuu.nagoya.dashboard.databinding.ItemDashboardMusicListBinding
 
 internal class DashboardMusicListViewHolder private constructor(
     private val binding: ItemDashboardMusicListBinding
