@@ -3,9 +3,9 @@ package kuu.nagoya.dashboard.infra
 import android.content.Context
 import androidx.core.content.edit
 import com.google.gson.Gson
-import kuu.nagoya.dashboard.entity.Record
 import kuu.nagoya.dashboard.usecase.RecordListReadonlyRepository
 import kuu.nagoya.dashboard.usecase.RecordListRepository
+import kuu.nagoya.entity.recordentity.Record
 import kuu.nagoya.util.fromJson
 
 internal class RecordListRepositoryImpl(
