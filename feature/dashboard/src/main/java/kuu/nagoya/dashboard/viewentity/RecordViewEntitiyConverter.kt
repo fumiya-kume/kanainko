@@ -1,8 +1,7 @@
 package kuu.nagoya.dashboard.viewentity
+import kuu.nagoya.dashboard.entity.Record
 
-import kuu.nagoya.entity.recordentity.Record
-
-private fun kuu.nagoya.entity.recordentity.Record.convert(): RecordViewEntity {
+private fun Record.convert(): RecordViewEntity {
     return RecordViewEntity(
         this.id,
         this.recordName.name,
@@ -10,6 +9,6 @@ private fun kuu.nagoya.entity.recordentity.Record.convert(): RecordViewEntity {
     )
 }
 
-internal fun List<kuu.nagoya.entity.recordentity.Record>.convert(): List<RecordViewEntity> {
+internal fun List<Record>.convert(): List<RecordViewEntity> {
     return this.map { it.convert() }
 }

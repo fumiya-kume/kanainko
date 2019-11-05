@@ -1,9 +1,5 @@
 package kuu.nagoya.dashboard.usecase.impl
 
-import kuu.nagoya.dashboard.usecase.RecordListRepository
-import kuu.nagoya.dashboard.usecase.ResetRecordListUsecase
-import kuu.nagoya.entity.recordentity.toFilePath
-import kuu.nagoya.entity.recordentity.toRecordName
 
 internal class ResetRecordListUsecaseImpl(
     private val recordListRepository: RecordListRepository
@@ -11,12 +7,12 @@ internal class ResetRecordListUsecaseImpl(
     override suspend fun execite() {
         recordListRepository.storeRecordList(
             listOf(
-                kuu.nagoya.entity.recordentity.Record(
+                Record(
                     0,
                     "aaa".toFilePath(),
                     "名前".toRecordName()
                 ),
-                kuu.nagoya.entity.recordentity.Record(
+Record(
                     1,
                     "aaa".toFilePath(),
                     "名前".toRecordName()

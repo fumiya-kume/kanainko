@@ -1,3 +1,4 @@
+
 include ':app', ':navigation', ':util', ':recordentity'
 
 ['domain', 'infra', 'entity', 'usecase', 'feature']

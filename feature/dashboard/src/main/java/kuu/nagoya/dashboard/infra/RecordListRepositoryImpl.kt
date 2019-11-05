@@ -3,6 +3,7 @@ package kuu.nagoya.dashboard.infra
 import android.content.Context
 import androidx.core.content.edit
 import com.google.gson.Gson
+import kuu.nagoya.dashboard.entity.Record
 import kuu.nagoya.dashboard.usecase.RecordListReadonlyRepository
 import kuu.nagoya.dashboard.usecase.RecordListRepository
 import kuu.nagoya.util.fromJson
@@ -21,7 +22,7 @@ internal class RecordListRepositoryImpl(
     private val preferenceKey = "record"
 
     override suspend fun loadRecordList():
-            List<kuu.nagoya.entity.recordentity.Record> {
+            List<Record> {
         val json = sharedPreferences
             .getString(
                 preferenceKey,
@@ -37,7 +38,7 @@ internal class RecordListRepositoryImpl(
         )
     }
 
-    override suspend fun storeRecordList(recordList: List<kuu.nagoya.entity.recordentity.Record>) {
+    override suspend fun storeRecordList(recordList: List<Record>) {
         val json = gson.toJson(recordList)
         sharedPreferences.edit {
             this.putString(preferenceKey, json)
