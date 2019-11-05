@@ -24,6 +24,11 @@ android {
     testOptions {
         unitTests.returnDefaultValues = true
     }
+
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
 }
 
 dependencies {
@@ -47,6 +52,7 @@ dependencies {
 
     // ktx
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0"
+    implementation "androidx.core:core-ktx:1.1.0"
 
     // lifecycle
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0-beta01"
@@ -82,6 +88,18 @@ dependencies {
     // Naviigation library
     implementation "android.arch.navigation:navigation-fragment-ktx:1.0.0"
     implementation "android.arch.navigation:navigation-ui-ktx:1.0.0"
+
+    implementation("androidx.core:core-ktx:1.1.0")
+    implementation("androidx.palette:palette-ktx:1.0.0")
+    implementation("androidx.sqlite:sqlite-ktx:2.0.1")
+    implementation("androidx.collection:collection-ktx:1.1.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0")
+    implementation("androidx.lifecycle:lifecycle-reactivestreams-ktx:2.1.0")
+
+    implementation("androidx.work:work-runtime-ktx:2.2.0")
+
+    testImplementation("androidx.benchmark:benchmark-junit4:1.0.0-beta01")
+
 
     ktlint {
         version.set("0.34.2")
