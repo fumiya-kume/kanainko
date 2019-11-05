@@ -1,9 +1,10 @@
-package kuu.nagoya.dashboard
+package kuu.nagoya.dashboard.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kuu.nagoya.dashboard.databinding.ItemDashboardMusicListBinding
+import kuu.nagoya.dashboard.viewentity.RecordViewEntity
 
 internal class DashboardMusicListViewHolder private constructor(
     private val binding: ItemDashboardMusicListBinding
@@ -23,7 +24,7 @@ internal class DashboardMusicListViewHolder private constructor(
         }
     }
 
-    fun bindTo(viewEntity: MusicListViewEntity) {
+    fun bindTo(viewEntity: RecordViewEntity) {
         binding.viewEntity = viewEntity
     }
 }
