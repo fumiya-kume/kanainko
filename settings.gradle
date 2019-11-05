@@ -1,6 +1,13 @@
 include ':app', ':record'
-file('domain').eachDir { dir ->
-    include dir.name
-    project(":${dir.name}").projectDir = dir
-}
+
+['domain', 'infra', 'entity', 'usecase', 'feature']
+        .asList()
+        .each { folderName ->
+            file(folderName)
+                    .eachDir { dir ->
+                        include dir.name
+                        project(":${dir.name}").projectDir = dir
+                    }
+        }
+
 rootProject.name = 'kanainko'
