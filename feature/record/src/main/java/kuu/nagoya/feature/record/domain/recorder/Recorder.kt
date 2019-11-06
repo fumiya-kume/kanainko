@@ -1,20 +1,8 @@
-package kuu.nagoya.feature.record.view
+package kuu.nagoya.feature.record.domain.recorder
 
 import android.content.Context
 import android.media.MediaRecorder
 
-sealed class RecorderStatus {
-    object starting : RecorderStatus()
-    object ready : RecorderStatus()
-    object recording : RecorderStatus()
-    object stopping : RecorderStatus()
-
-    data class error(val exception: java.lang.Exception) : RecorderStatus()
-}
-
-internal interface OnRecorderStatusUpdateListener {
-    fun onStatusUpdated(status: RecorderStatus): Unit
-}
 
 internal class Recorder(
     private val context: Context,
@@ -38,7 +26,11 @@ internal class Recorder(
     }
 
     private fun recorderErrorHappend(exception: Exception) {
-        updateRecorderStatus(RecorderStatus.error(exception))
+        updateRecorderStatus(
+            RecorderStatus.error(
+                exception
+            )
+        )
         mediaRecorder.release()
     }
 
@@ -88,10 +80,10 @@ internal class Recorder(
     }
 
     fun maxAmplitude(): Int {
-        try {
-            return mediaRecorder.maxAmplitude
+        return try {
+            mediaRecorder.maxAmplitude
         } catch (e: java.lang.Exception) {
-            return 0
+            0
         }
     }
 }
