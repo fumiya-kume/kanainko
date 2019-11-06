@@ -42,7 +42,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation project(path: ':dashboard')
-    implementation project(path: ':record')
     implementation project(path: ':navigation')
     implementation project(path: ':recorddata')
 
