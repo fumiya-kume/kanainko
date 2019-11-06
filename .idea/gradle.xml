@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/data/recorddata" />
             <option value="$PROJECT_DIR$/feature/dashboard" />
+            <option value="$PROJECT_DIR$/feature/record" />
             <option value="$PROJECT_DIR$/navigation" />
             <option value="$PROJECT_DIR$/util" />
           </set>
