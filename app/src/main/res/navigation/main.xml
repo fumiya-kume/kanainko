@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/recordFragment"
-        android:name="kuu.nagoya.feature.record.RecordFragment"
+        android:name="kuu.nagoya.feature.record.view.RecordFragment"
         android:label="RecordFragment">
         <argument
             android:name="recordWordEntity"
@@ -53,6 +53,6 @@
         android:label="ChooseWordFragment">
         <action
             android:id="@+id/action_chooseWordFragment_to_recordFragment"
-            app:destination="@id/recordFragment"></action>
+            app:destination="@id/recordFragment" />
     </fragment>
 </navigation>
