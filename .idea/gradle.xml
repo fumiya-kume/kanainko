@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/domain/record" />
+            <option value="$PROJECT_DIR$/entity/recordentity" />
             <option value="$PROJECT_DIR$/feature/dashboard" />
             <option value="$PROJECT_DIR$/navigation" />
             <option value="$PROJECT_DIR$/util" />

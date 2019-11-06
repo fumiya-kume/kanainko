@@ -1,6 +1,7 @@
 package kuu.nagoya.dashboard.viewentity
 
-import kuu.nagoya.dashboard.entity.Record
+import kuu.nagoya.entity.recordentity.Record
+
 
 private fun Record.convert(): RecordViewEntity {
     return RecordViewEntity(
