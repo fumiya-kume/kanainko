@@ -30,5 +30,3 @@ app/build/
 build/
 vendor/bundle
 .idea/caches
-.idea/caches/build_file_checksums.ser
-.idea/caches
