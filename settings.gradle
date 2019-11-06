@@ -1,7 +1,7 @@
 
-include ':app', ':navigation', ':util', ':recordentity'
+include ':app', ':navigation', ':util'
 
-['domain', 'infra', 'entity', 'usecase', 'feature']
+['domain', 'infra', 'usecase', 'feature', "data"]
         .asList()
         .each { folderName ->
             file(folderName)
