@@ -24,7 +24,13 @@ internal class DashboardMusicListViewHolder private constructor(
         }
     }
 
-    fun bindTo(viewEntity: RecordViewEntity) {
+    fun bindTo(
+        viewEntity: RecordViewEntity,
+        onMusicListItemClickListener: OnMusicListItemClickListener?
+    ) {
         binding.viewEntity = viewEntity
+        binding.root.setOnClickListener {
+            onMusicListItemClickListener?.clicked(viewEntity)
+        }
     }
 }

@@ -42,7 +42,12 @@ internal class DashboardMusicListAdapter(
         )
     }
 
+    var onMusicListItemClickListener: OnMusicListItemClickListener? = null
+
     override fun onBindViewHolder(holder: DashboardMusicListViewHolder, position: Int) {
-        holder.bindTo(getItem(position))
+        holder.bindTo(
+            getItem(position),
+            onMusicListItemClickListener
+        )
     }
 }

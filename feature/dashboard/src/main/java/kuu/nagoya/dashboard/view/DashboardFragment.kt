@@ -10,6 +10,7 @@ import androidx.appcompat.app.AlertDialog.Builder
 import androidx.fragment.app.Fragment
 import kuu.nagoya.dashboard.R
 import kuu.nagoya.dashboard.databinding.FragmentDashboardBinding
+import kuu.nagoya.dashboard.viewentity.RecordViewEntity
 import kuu.nagoya.navigation.DashboardNavigation
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -34,6 +35,13 @@ class DashboardFragment : Fragment() {
             )
 
         val musicListAdapter = DashboardMusicListAdapter(requireContext())
+
+        musicListAdapter.onMusicListItemClickListener =
+            object : OnMusicListItemClickListener {
+                override fun clicked(musicItem: RecordViewEntity) {
+                    dashBoardViewModel.playRecordAudio(musicItem)
+                }
+            }
 
         dashBoardViewModel
             .recordListLiveData
