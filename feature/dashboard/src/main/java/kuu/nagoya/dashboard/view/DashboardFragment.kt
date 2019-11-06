@@ -66,9 +66,9 @@ class DashboardFragment : Fragment() {
                     val alertDialog = Builder(requireContext())
                         .setTitle("リセットしても大丈夫ですか？")
                         .setMessage("デバッグのために事前に設定されたものが表示されます")
-                        .setNegativeButton("キャンセル") { dialog, which ->
+                        .setNegativeButton("キャンセル") { _, _ ->
                         }
-                        .setPositiveButton("OK") { dialog, which ->
+                        .setPositiveButton("OK") { _, _ ->
                             dashBoardViewModel.reset()
                         }
                     alertDialog.show()
@@ -80,9 +80,9 @@ class DashboardFragment : Fragment() {
                 this.setOnMenuItemClickListener {
                     val alertDialog = Builder(requireContext())
                         .setTitle("全てを削除しても大丈夫ですか？")
-                        .setNegativeButton("キャンセル") { dialog, which ->
+                        .setNegativeButton("キャンセル") { _, _ ->
                         }
-                        .setPositiveButton("OK") { dialog, which ->
+                        .setPositiveButton("OK") { _, _ ->
                             dashBoardViewModel.removeAll()
                         }
                     alertDialog.show()

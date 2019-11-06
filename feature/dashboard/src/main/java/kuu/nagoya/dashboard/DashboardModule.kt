@@ -9,14 +9,13 @@ import kuu.nagoya.dashboard.usecase.impl.RemoveAllRecordListUsecaseImpl
 import kuu.nagoya.dashboard.usecase.impl.ResetRecordListUsecaseImpl
 import kuu.nagoya.dashboard.view.DashboardViewModel
 import kuu.nagoya.dashboard.view.RecordListLiveDataFactory
-import org.koin.android.ext.koin.androidApplication
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val dashBoardModule = module {
     factory { RecordListLiveDataFactory(get(), get(), get()) }
-    factory { RecordListRepositoryImpl(androidApplication()) as RecordListReadonlyRepository }
-    factory { RecordListRepositoryImpl(androidApplication()) as RecordListRepository }
+    factory { RecordListRepositoryImpl(get()) as RecordListReadonlyRepository }
+    factory { RecordListRepositoryImpl(get()) as RecordListRepository }
     factory { ResetRecordListUsecaseImpl(get()) as ResetRecordListUsecase }
     factory { RemoveAllRecordListUsecaseImpl(get()) as RemoveAllRecordListUsecase }
     viewModel { DashboardViewModel(get()) }
