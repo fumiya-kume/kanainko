@@ -8,3 +8,7 @@ interface AppNavigation {
 interface DashboardNavigation {
     fun navigateAnalyzer()
 }
+
+interface RecordNavigation {
+    fun navigateToAnalyzer()
+}
