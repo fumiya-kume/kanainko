@@ -19,13 +19,7 @@ local.properties
 proguard/
 *.ipr
 *.iws
-app/build/
-
 .idea/*.xml
-
-!.idea/gradle.xml
-!.idea/runConfigurations/*.xml
-.idea/caches
 **/build/**
 build/
 vendor/bundle
