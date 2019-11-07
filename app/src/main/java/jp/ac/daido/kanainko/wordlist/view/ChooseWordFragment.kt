@@ -12,7 +12,7 @@ import jp.ac.daido.kanainko.wordlist.view.dialog.ChooseWordDialog
 import jp.ac.daido.kanainko.wordlist.view.dialog.OnWordChooseDoneListener
 import jp.ac.daido.kanainko.wordlist.viewentity.WordGroupViewEntity
 import jp.ac.daido.kanainko.wordlist.viewentity.WordViewEntity
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 internal class ChooseWordFragment : Fragment() {
 
