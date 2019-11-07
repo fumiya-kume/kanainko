@@ -15,7 +15,7 @@ import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
-internal class RecordFragment : Fragment() {
+class RecordFragment : Fragment() {
 
     private val recordViewModel: RecordViewModel by viewModel { parametersOf(this) }
     private lateinit var binding: FragmentRecordBinding
@@ -37,7 +37,7 @@ internal class RecordFragment : Fragment() {
         val filePath = "${file?.path}/output.aac"
 
         val recorder =
-            Recorder(requireContext(), filePath)
+            Recorder(requireContext(), filePath))
         binding.fragmentRecordAudioVolumeAudioVolmeGraph.setMediaRecorder(recorder)
 
         binding
