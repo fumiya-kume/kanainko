@@ -1,8 +1,17 @@
 package kuu.nagoya.feature.record.view
 
 import androidx.lifecycle.ViewModel
-import kuu.nagoya.feature.record.domain.repository.AudioRepository
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 
 internal class RecordViewModel(
-    private val audioRepository: AudioRepository
-) : ViewModel()
+    tmpRecordLiveDataFactory: TmpRecordLiveDataFactory
+) : ViewModel() {
+    val tmpRecordLiveData = tmpRecordLiveDataFactory.create()
+
+    fun createTmpRecording() {
+        viewModelScope.launch {
+            tmpRecordLiveData.create()
+        }
+    }
+}

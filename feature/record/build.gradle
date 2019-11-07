@@ -32,6 +32,7 @@ android {
 dependencies {
 
     implementation project(path: ':navigation')
+    implementation project(path: ':util')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -54,6 +55,10 @@ dependencies {
     // ktx
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0"
     implementation "androidx.core:core-ktx:1.1.0"
+
+    // lifecycle
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0-rc01"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-rc01"
 
     // lifecycle
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0-beta01"
