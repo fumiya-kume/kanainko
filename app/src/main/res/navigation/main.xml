@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/recordFragment"
-        android:name="jp.ac.daido.kanainko.record.view.RecordFragment"
+        android:name="kuu.nagoya.feature.record.RecordFragment"
         android:label="RecordFragment">
         <argument
             android:name="recordWordEntity"

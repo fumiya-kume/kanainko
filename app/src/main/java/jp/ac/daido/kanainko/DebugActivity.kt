@@ -3,7 +3,7 @@ package jp.ac.daido.kanainko
 import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.fragment.app.FragmentActivity
-import jp.ac.daido.kanainko.record.view.RecordFragment
+import kuu.nagoya.feature.record.view.RecordFragment
 
 internal class DebugActivity : FragmentActivity() {
 
