@@ -29,8 +29,9 @@ internal class DashboardMusicListViewHolder private constructor(
         onMusicListItemClickListener: OnMusicListItemClickListener?
     ) {
         binding.viewEntity = viewEntity
-        binding.root.setOnClickListener {
-            onMusicListItemClickListener?.clicked(viewEntity)
-        }
+        binding.itemDashboardMusicListCard
+            .setOnClickListener {
+                onMusicListItemClickListener?.clicked(viewEntity)
+            }
     }
 }
