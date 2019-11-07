@@ -36,4 +36,7 @@ dependencies {
 
     // Gson
     implementation 'com.google.code.gson:gson:2.8.6'
+
+    // material componet for Android
+    implementation "com.google.android.material:material:1.1.0-beta01"
 }

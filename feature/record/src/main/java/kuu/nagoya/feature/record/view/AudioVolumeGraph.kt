@@ -6,7 +6,7 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
-import kuu.nagoya.feature.record.domain.recorder.Recorder
+import kuu.nagoya.feature.record.view.recorder.Recorder
 
 internal class AudioVolumeGraph @JvmOverloads constructor(
     context: Context,
