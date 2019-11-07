@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import kuu.nagoya.feature.record.databinding.FragmentRecordBinding
+import kuu.nagoya.feature.record.domain.recorder.OnRecorderStatusUpdateListener
+import kuu.nagoya.feature.record.domain.recorder.Recorder
+import kuu.nagoya.feature.record.domain.recorder.RecorderStatus
 import kuu.nagoya.navigation.RecordNavigation
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -33,7 +36,8 @@ class RecordFragment : Fragment() {
         val file = context?.externalMediaDirs?.first()
         val filePath = "${file?.path}/output.aac"
 
-        val recorder = Recorder(requireContext(), filePath)
+        val recorder =
+            Recorder(requireContext(), filePath)
         binding.fragmentRecordAudioVolumeAudioVolmeGraph.setMediaRecorder(recorder)
 
         binding
