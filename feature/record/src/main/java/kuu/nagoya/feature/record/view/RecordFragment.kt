@@ -1,6 +1,7 @@
 package kuu.nagoya.feature.record.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,11 +35,9 @@ class RecordFragment : Fragment() {
                 false
             )
 
-        val file = context?.externalMediaDirs?.first()
-        val filePath = "${file?.path}/output.aac"
-
         val recorder =
-            Recorder(requireContext(), filePath)
+            Recorder(requireContext())
+
         binding.fragmentRecordAudioVolumeAudioVolmeGraph.setMediaRecorder(recorder)
 
         binding
@@ -48,6 +47,7 @@ class RecordFragment : Fragment() {
                     recorder.stopRecording()
                 } else {
                     recorder.startReocrding()
+                    Log.d("audio", "record started")
                 }
             }
 

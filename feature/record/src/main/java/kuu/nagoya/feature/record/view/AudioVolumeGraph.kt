@@ -29,19 +29,22 @@ internal class AudioVolumeGraph @JvmOverloads constructor(
             strokeWidth = 10F
         }
 
-        val barPosition =
-            (height.toFloat() - (recorder?.maxAmplitude() ?: 0 * height).toFloat()) - 100
+        // 音量をシュッと取り出す
+        val audioPower = (recorder?.maxAmplitude() ?: 0).toDouble()
+        // 全体の音量の比率を取り出す
+        // 0.0 - 1.0
+        val percentOfAudioPower = audioPower / 32768
+        // 左上は0なので上からの長さに変換する
+        val barPosition = height - (height * percentOfAudioPower)
 
-        canvas?.let {
-            it.drawRect(
-                0F,
-                barPosition,
-                width.toFloat(),
-                height.toFloat(),
-                paint
-            )
-        }
+        canvas?.drawRect(
+            0F,
+            barPosition.toFloat(),
+            width.toFloat(),
+            height.toFloat(),
+            paint
+        )
 
-        postInvalidateDelayed(70)
+        postInvalidateDelayed(100)
     }
 }
