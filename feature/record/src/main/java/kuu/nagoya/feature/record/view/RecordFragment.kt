@@ -37,7 +37,6 @@ class RecordFragment : Fragment() {
                 false
             )
 
-
         binding.fragmentRecordAudioVolumeAudioVolmeGraph.setMediaRecorder(recorder)
 
         binding
@@ -47,7 +46,7 @@ class RecordFragment : Fragment() {
                     recorder.stop()
                     Log.d("audio", "record stopped")
                 } else {
-                    recorder.start()
+                    recorder.startReocrding()
                     Log.d("audio", "record started")
                 }
             }
