@@ -1,7 +1,6 @@
 package kuu.nagoya.feature.record.view.recorder
 
 sealed class RecorderStatus {
-    object starting : RecorderStatus()
     object ready : RecorderStatus()
     object recording : RecorderStatus()
     object stopping : RecorderStatus()

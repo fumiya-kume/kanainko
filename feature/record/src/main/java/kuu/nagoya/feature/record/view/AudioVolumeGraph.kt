@@ -30,10 +30,10 @@ internal class AudioVolumeGraph @JvmOverloads constructor(
         }
 
         // 音量をシュッと取り出す
-        val audioPower = (recorder?.maxAmplitude() ?: 0).toDouble()
+        val audioPower = (recorder?.getMaxAmplitude() ?: 0.0)
         // 全体の音量の比率を取り出す
         // 0.0 - 1.0
-        val percentOfAudioPower = audioPower / 32768
+        val percentOfAudioPower = audioPower / 100
         // 左上は0なので上からの長さに変換する
         val barPosition = height - (height * percentOfAudioPower)
 

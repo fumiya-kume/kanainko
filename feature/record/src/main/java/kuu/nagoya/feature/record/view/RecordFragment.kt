@@ -23,6 +23,8 @@ class RecordFragment : Fragment() {
     private lateinit var binding: FragmentRecordBinding
     private val recordNavigation: RecordNavigation by inject(parameters = { parametersOf(this) })
 
+    private val recorder: Recorder by inject()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -35,8 +37,6 @@ class RecordFragment : Fragment() {
                 false
             )
 
-        val recorder =
-            Recorder(requireContext())
 
         binding.fragmentRecordAudioVolumeAudioVolmeGraph.setMediaRecorder(recorder)
 
@@ -44,9 +44,10 @@ class RecordFragment : Fragment() {
             .fragmentRecordRecordMaterialButton
             .setOnClickListener {
                 if (recorder.recorderStatus == RecorderStatus.recording) {
-                    recorder.stopRecording()
+                    recorder.stop()
+                    Log.d("audio", "record stopped")
                 } else {
-                    recorder.startReocrding()
+                    recorder.start()
                     Log.d("audio", "record started")
                 }
             }
@@ -56,16 +57,21 @@ class RecordFragment : Fragment() {
             override fun onStatusUpdated(status: RecorderStatus) {
                 when (status) {
                     is RecorderStatus.ready -> {
-                        binding.fragmentRecordInitializationProgressBar.visibility = View.GONE
+                        Log.d("record-event", "onReady")
+
                     }
                     is RecorderStatus.recording -> {
+                        Log.d("record-event", "OnRecording")
+                        binding.fragmentRecordInitializationProgressBar.visibility = View.GONE
                         binding.fragmentRecordRecordMaterialButton.text = "録音しています"
                     }
                     is RecorderStatus.stopping -> {
+                        Log.d("record-event", "onStopping")
                         binding.fragmentRecordRecordMaterialButton.text = "録音する"
                         recordNavigation.navigateToAnalyzer()
                     }
                     is RecorderStatus.error -> {
+                        Log.d("record-event", "onError")
                         Toast.makeText(
                             requireContext(),
                             status.exception.message,
@@ -110,7 +116,6 @@ class RecordFragment : Fragment() {
         recordViewModel
             .createTmpRecording()
 
-        recorder.forceRecorderStusUpdate()
         return binding.root
     }
 }
