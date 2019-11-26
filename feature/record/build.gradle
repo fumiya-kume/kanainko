@@ -76,6 +76,5 @@ dependencies {
     implementation("edu.emory.mathcs:JTransforms:2.4")
 
     // Wave Parser Library
-    implementation "kuu.nagoya.waveparser:core:0.0.8"
-    implementation 'kuu.nagoya.waveparser:audiorecord:0.0.8'
+    implementation "com.kailashdabhi:om-recorder:1.1.5"
 }
