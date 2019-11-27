@@ -49,7 +49,7 @@
     </fragment>
     <fragment
         android:id="@+id/chooseWordFragment"
-        android:name="jp.ac.daido.kanainko.wordlist.view.ChooseWordFragment"
+        android:name="kuu.nagoya.featurewordlist.view.ChooseWordFragment"
         android:label="ChooseWordFragment">
         <action
             android:id="@+id/action_chooseWordFragment_to_recordFragment"
