@@ -13,8 +13,6 @@ val viewModule = module {
 
     factory { RecorderImpl(androidApplication()) as Recorder }
 
-    factory { RecorderImpl(androidApplication()) as Recorder }
-
     factory { TmpRecordLiveDataFactory(get()) }
     viewModel { RecordViewModel(get()) }
 }
