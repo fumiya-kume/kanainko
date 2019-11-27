@@ -12,7 +12,6 @@ import kuu.nagoya.feature.record.view.recorder.OnRecorderStatusUpdateListener
 import kuu.nagoya.feature.record.view.recorder.Recorder
 import kuu.nagoya.feature.record.view.recorder.RecorderStatus
 import kuu.nagoya.navigation.RecordNavigation
-import kuu.nagoya.util.showSnackbar
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
@@ -87,34 +86,10 @@ class RecordFragment : Fragment() {
         recordViewModel
             .tmpRecordLiveData
             .observeForever {
-                when (it) {
-                    is TmpRecordStatus.Created -> {
-                        binding.viewentity = it.tmpRecord
-                    }
-                    is TmpRecordStatus.Restarted -> {
-                        binding.viewentity = it.tmpRecord
-                    }
-                    TmpRecordStatus.Saved -> {
-                        showSnackbar("保存に成功しました")
-                    }
-                    TmpRecordStatus.StartTmpRecordFailed -> {
-                        showSnackbar("録音の開始に失敗しました")
-                    }
-                    TmpRecordStatus.RestartTmpRecordFailed -> {
-                        showSnackbar("録音の初期化に失敗しました")
-                    }
-                    TmpRecordStatus.SavedTmpRecordFailed -> {
-                        showSnackbar("録音データの保存に失敗しました")
-                    }
-                    else -> {
-                        showSnackbar("illegal State exception()")
-                    }
-                }
+                recorder.outputFilePath = it.filePath
 
+                binding.filePath = it.filePath
             }
-
-        recordViewModel
-            .createTmpRecording()
 
         return binding.root
     }

@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="viewentity"
-            type="kuu.nagoya.feature.record.view.viewentity.TmpRecorderViewEntity" />
+            name="filePath"
+            type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,7 +19,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:text="@{viewentity.recorderName}"
+            android:text="@{filePath}"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

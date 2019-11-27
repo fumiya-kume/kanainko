@@ -23,17 +23,10 @@ internal class RecorderImpl(
             )
         )
     }
-    override val outputFilePath = context.externalMediaDirs.first().absolutePath + "/output.wav"
 
+    override var outputFilePath = context.externalMediaDirs.first().absolutePath + "/output.wav"
 
-    private val outputFile = File(outputFilePath)
-    private val omRecorder = OmRecorder.wav(
-        PullTransport.Default(mic(),
-            OnAudioChunkPulledListener { audioChunk ->
-                maxAmplitube = audioChunk.maxAmplitude()
-            }),
-        outputFile
-    )
+    private var omRecorder: omrecorder.Recorder? = null
 
     override var onRecorderStatusUpdateListener: OnRecorderStatusUpdateListener? = null
 
@@ -47,13 +40,21 @@ internal class RecorderImpl(
 
     override fun start() {
 
-        omRecorder.startRecording()
+        omRecorder = OmRecorder.wav(
+            PullTransport.Default(mic(),
+                OnAudioChunkPulledListener { audioChunk ->
+                    maxAmplitube = audioChunk.maxAmplitude()
+                }),
+            File(outputFilePath)
+        )
+
+        omRecorder?.startRecording()
 
         recorderStatus = RecorderStatus.recording
     }
 
     override fun stop() {
-        omRecorder.stopRecording()
+        omRecorder?.stopRecording()
 
         recorderStatus = RecorderStatus.stopping
     }
