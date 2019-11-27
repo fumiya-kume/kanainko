@@ -1,6 +1,6 @@
 include ':app', ':navigation', ':util'
 
-['infra', 'usecase', 'feature', "data"]
+['feature', "data"]
         .asList()
         .each { folderName ->
             file(folderName)
