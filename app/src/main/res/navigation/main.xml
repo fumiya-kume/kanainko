@@ -34,17 +34,6 @@
             app:destination="@id/resultFragment" />
     </fragment>
     <fragment
-        android:id="@+id/resultFragment"
-        android:name="jp.ac.daido.kanainko.result.view.ResultFragment"
-        android:label="ResultFragment">
-        <argument
-            android:name="audioRecordNavigationModel"
-            app:argType="jp.ac.daido.kanainko.result.view.navigation.AudioRecordResultNavigationModel" />
-        <action
-            android:id="@+id/action_resultFragment_to_dashboardFragment"
-            app:destination="@id/dashboardFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/chooseWordFragment"
         android:name="kuu.nagoya.featurewordlist.view.ChooseWordFragment"
         android:label="ChooseWordFragment">
@@ -52,4 +41,8 @@
             android:id="@+id/action_chooseWordFragment_to_recordFragment"
             app:destination="@id/recordFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="kuu.nagoya.feature.result.ResultFragment"
+        android:label="ResultFragment" />
 </navigation>

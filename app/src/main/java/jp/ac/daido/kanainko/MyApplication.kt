@@ -6,6 +6,7 @@ import kuu.nagoya.dashboard.dashBoardModule
 import kuu.nagoya.data.recorddata.recordDataModule
 import kuu.nagoya.data.tmprecorddata.tmpRecordDataModule
 import kuu.nagoya.feature.record.recordModule
+import kuu.nagoya.feature.result.resultModule
 import kuu.nagoya.featurewordlist.wordListModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -15,7 +16,7 @@ internal class MyApplication : Application() {
         super.onCreate()
 
         val module =
-            recordModule + wordListModule + navigationModule + dashBoardModule + recordDataModule + tmpRecordDataModule
+            recordModule + wordListModule + navigationModule + dashBoardModule + recordDataModule + tmpRecordDataModule + resultModule
 
         startKoin {
             androidContext(this@MyApplication)
