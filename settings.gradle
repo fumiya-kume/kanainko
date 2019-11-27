@@ -1,4 +1,4 @@
-include ':app', ':navigation', ':util'
+include ':app', ':navigation', ':util', ':tmprecorddata'
 
 ['infra', 'usecase', 'feature', "data"]
         .asList()
