@@ -23,8 +23,8 @@ internal class RecorderImpl(
             )
         )
     }
-
     override val outputFilePath = context.externalMediaDirs.first().absolutePath + "/output.wav"
+
 
     private val outputFile = File(outputFilePath)
     private val omRecorder = OmRecorder.wav(
