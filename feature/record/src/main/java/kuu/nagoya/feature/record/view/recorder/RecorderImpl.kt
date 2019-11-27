@@ -15,7 +15,7 @@ internal class RecorderImpl(
     context: Context
 ) : Recorder {
 
-    private fun mic(): PullableSource? {
+    private fun mic(): PullableSource {
         return PullableSource.Default(
             AudioRecordConfig.Default(
                 MediaRecorder.AudioSource.MIC, AudioFormat.ENCODING_PCM_16BIT,
@@ -24,7 +24,7 @@ internal class RecorderImpl(
         )
     }
 
-    private val outputFilePath = context.externalMediaDirs.first().absolutePath + "/output.wav"
+    override val outputFilePath = context.externalMediaDirs.first().absolutePath + "/output.wav"
 
     private val outputFile = File(outputFilePath)
     private val omRecorder = OmRecorder.wav(

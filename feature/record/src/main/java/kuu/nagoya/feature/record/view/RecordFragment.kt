@@ -68,7 +68,7 @@ class RecordFragment : Fragment() {
                     is RecorderStatus.stopping -> {
                         Log.d("record-event", "onStopping")
                         binding.fragmentRecordRecordMaterialButton.text = "録音する"
-                        recordNavigation.navigateToAnalyzer()
+                        recordNavigation.navigateToAnalyzer(recorder.outputFilePath)
                     }
                     is RecorderStatus.error -> {
                         Log.d("record-event", "onError")
