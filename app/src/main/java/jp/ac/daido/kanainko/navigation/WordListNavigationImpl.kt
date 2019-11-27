@@ -13,5 +13,4 @@ internal class WordListNavigationImpl(
             .findNavController()
             .navigate(R.id.action_chooseWordFragment_to_recordFragment)
     }
-
 }

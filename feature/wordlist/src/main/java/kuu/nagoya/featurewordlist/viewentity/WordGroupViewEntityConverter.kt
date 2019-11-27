@@ -8,4 +8,5 @@ internal fun WordGroup.convert(): WordGroupViewEntity =
         this.displayName,
         this.wordList.map { it.convert() }
     )
+
 internal fun List<WordGroup>.convert(): List<WordGroupViewEntity> = this.map { it.convert() }

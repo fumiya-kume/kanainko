@@ -11,5 +11,5 @@ val navigationModule = module {
     factory { (fragment: Fragment) -> AppNavigationImpl(fragment) as AppNavigation }
     factory { (fragment: Fragment) -> RecordNavigationImpl(fragment) as RecordNavigation }
     factory { (fragment: Fragment) -> DashboardNavigationImpl(fragment) as DashboardNavigation }
-    factory { (fragment:Fragment) -> WordListNavigationImpl(fragment) as WordListNavigation }
+    factory { (fragment: Fragment) -> WordListNavigationImpl(fragment) as WordListNavigation }
 }
