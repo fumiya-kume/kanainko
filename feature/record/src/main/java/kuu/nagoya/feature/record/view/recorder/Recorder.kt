@@ -6,5 +6,5 @@ internal interface Recorder {
     fun start()
     fun stop()
     fun getMaxAmplitude(): Double
-    val outputFilePath: String
+    var outputFilePath: String
 }
