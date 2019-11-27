@@ -14,6 +14,7 @@
             <option value="$PROJECT_DIR$/feature/dashboard" />
             <option value="$PROJECT_DIR$/feature/record" />
             <option value="$PROJECT_DIR$/feature/result" />
+            <option value="$PROJECT_DIR$/feature/wordlist" />
             <option value="$PROJECT_DIR$/navigation" />
             <option value="$PROJECT_DIR$/util" />
           </set>

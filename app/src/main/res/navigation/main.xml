@@ -29,9 +29,6 @@
         android:id="@+id/recordFragment"
         android:name="kuu.nagoya.feature.record.view.RecordFragment"
         android:label="RecordFragment">
-        <argument
-            android:name="recordWordEntity"
-            app:argType="jp.ac.daido.kanainko.entity.RecordWordEntity" />
         <action
             android:id="@+id/action_recordFragment_to_resultFragment"
             app:destination="@id/resultFragment" />
@@ -49,7 +46,7 @@
     </fragment>
     <fragment
         android:id="@+id/chooseWordFragment"
-        android:name="jp.ac.daido.kanainko.wordlist.view.ChooseWordFragment"
+        android:name="kuu.nagoya.featurewordlist.view.ChooseWordFragment"
         android:label="ChooseWordFragment">
         <action
             android:id="@+id/action_chooseWordFragment_to_recordFragment"

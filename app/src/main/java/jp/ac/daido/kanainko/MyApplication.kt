@@ -2,11 +2,11 @@ package jp.ac.daido.kanainko
 
 import android.app.Application
 import jp.ac.daido.kanainko.navigation.navigationModule
-import jp.ac.daido.kanainko.wordlist.wordListModule
 import kuu.nagoya.dashboard.dashBoardModule
 import kuu.nagoya.data.recorddata.recordDataModule
 import kuu.nagoya.data.tmprecorddata.tmpRecordDataModule
 import kuu.nagoya.feature.record.recordModule
+import kuu.nagoya.featurewordlist.wordListModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
