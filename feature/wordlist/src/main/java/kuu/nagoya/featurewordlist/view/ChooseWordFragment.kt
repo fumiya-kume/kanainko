@@ -5,16 +5,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import kuu.nagoya.featurewordlist.WordListNavigation
 import kuu.nagoya.featurewordlist.databinding.FragmentChooseWordBinding
 import kuu.nagoya.featurewordlist.view.dialog.ChooseWordDialog
 import kuu.nagoya.featurewordlist.view.dialog.OnWordChooseDoneListener
 import kuu.nagoya.featurewordlist.viewentity.WordGroupViewEntity
 import kuu.nagoya.featurewordlist.viewentity.WordViewEntity
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 
 internal class ChooseWordFragment : Fragment() {
 
     val chooseWordViewModel: ChooseWordViewModel by viewModel()
+    private val wordListNavigation: WordListNavigation by inject(parameters = { parametersOf(this) })
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,12 +50,8 @@ internal class ChooseWordFragment : Fragment() {
                     OnWordChooseDoneListener {
                     override fun chooseDone(wordViewEntity: WordViewEntity) {
                         dialog.dismiss()
-                        //TODO 単語選択から録音画面への画面遷移を実装する
-//                        findNavController().navigate(
-//                            ChooseWordFragmentDirections.actionChooseWordFragmentToRecordFragment(
-//                                RecordWordEntity(wordGroupViewEntity.name)
-//                            )
-//                        )
+                        chooseWordViewModel.wordChoosed(wordViewEntity)
+                        wordListNavigation.navigateToRecord()
                     }
                 }
             }
