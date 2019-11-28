@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import edu.emory.mathcs.jtransforms.fft.DoubleFFT_1D
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -63,23 +62,6 @@ class ResultFragment : Fragment() {
                     audioData.chunked(500).map { it.toDoubleArray() }
                         .toTypedArray()
 
-                val power = chunkedAudioData
-                    .map { data ->
-                        val fft = DoubleFFT_1D(data.size)
-                        fft.realForward(data)
-
-                        return@map (0..data.size - 2)
-                            .filter { it % 2 != 2 }
-                            .map {
-                                Math.sqrt(
-                                    Math.pow(
-                                        data.elementAt(it),
-                                        2.0
-                                    ) + Math.pow(data.elementAt(it + 1), 2.0)
-                                )
-                            }
-                            .map { it / data.size }
-                    }
                 val data = chunkedAudioData
                 val width = data.size
                 val height: Int = data[0].size
