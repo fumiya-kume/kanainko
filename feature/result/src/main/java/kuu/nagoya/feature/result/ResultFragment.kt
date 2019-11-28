@@ -50,7 +50,7 @@ class ResultFragment : Fragment() {
                     binding.fragmentResultLoadingView.visibility = View.GONE
                 }
             },
-            TimeUnit.SECONDS.toMillis(3)
+            TimeUnit.SECONDS.toMillis(7)
         )
 
         resultFragmentViewModel
