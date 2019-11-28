@@ -6,11 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import edu.emory.mathcs.jtransforms.fft.DoubleFFT_1D
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import kuu.nagoya.feature.result.databinding.FragmentResultBinding
 import kuu.nagoya.waveparser.WaveParse
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.io.File
+import java.util.Timer
+import java.util.concurrent.TimeUnit
+import kotlin.concurrent.timerTask
 
 class ResultFragment : Fragment() {
 
@@ -28,50 +33,35 @@ class ResultFragment : Fragment() {
                 false
             )
 
+        val timer = Timer()
+        timer.schedule(timerTask {
+            GlobalScope.launch(Dispatchers.Main) {
+                binding.fragmentResultTensordlowMessageTextView.visibility = View.VISIBLE
+            }
+        }, TimeUnit.SECONDS.toMillis(1))
+        timer.schedule(timerTask {
+            GlobalScope.launch(Dispatchers.Main) {
+                binding.fragmentResultProcessingAudioMessageTextView.visibility = View.VISIBLE
+            }
+        }, TimeUnit.SECONDS.toMillis(3))
+        timer.schedule(
+            timerTask {
+                GlobalScope.launch(Dispatchers.Main) {
+                    binding.fragmentResultLoadingView.visibility = View.GONE
+                }
+            },
+            TimeUnit.SECONDS.toMillis(7)
+        )
+
         resultFragmentViewModel
             .audioFilePathLiveData
             .observeForever { it ->
                 val audioData = WaveParse.loadWaveFromFile(File(it)).data.map { it.toDouble() }
 
-//                val heightSize = audioData.size / 1000
-//                val width = 1000
-//                val sourceData = mutableListOf<List<Double>>()
-//                (0 until width - 1).forEach {
-//                    sourceData.add(audioData.take(heightSize))
-//                }
                 val chunkedAudioData =
                     audioData.chunked(500).map { it.toDoubleArray() }
                         .toTypedArray()
 
-//
-//                binding.fragmentResultUserVoiceSpectrogramView.setData(
-//                    sourceData
-//                        .map { data ->
-//                            val fft = DoubleFFT_1D(data.size - 1)
-//                            fft.realForwardFull(data.toDoubleArray())
-//                            return@map data.toList()
-//                        }
-//                )
-
-                val power = chunkedAudioData
-                    .map { data ->
-                        val fft = DoubleFFT_1D(data.size)
-                        fft.realForward(data)
-
-                        return@map (0..data.size - 2)
-                            .filter { it % 2 != 2 }
-                            .map {
-                                Math.sqrt(
-                                    Math.pow(
-                                        data.elementAt(it),
-                                        2.0
-                                    ) + Math.pow(data.elementAt(it + 1), 2.0)
-                                )
-                            }
-                            .map { it / data.size }
-                    }
-
-//                binding.fragmentResultUserVoiceSpectrogramView.setData(chunkedAudioData.map { it.toList() }.toList())
                 val data = chunkedAudioData
                 val width = data.size
                 val height: Int = data[0].size
