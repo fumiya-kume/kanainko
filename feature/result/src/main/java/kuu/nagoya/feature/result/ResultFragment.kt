@@ -59,25 +59,9 @@ class ResultFragment : Fragment() {
             .observeForever { it ->
                 val audioData = WaveParse.loadWaveFromFile(File(it)).data.map { it.toDouble() }
 
-//                val heightSize = audioData.size / 1000
-//                val width = 1000
-//                val sourceData = mutableListOf<List<Double>>()
-//                (0 until width - 1).forEach {
-//                    sourceData.add(audioData.take(heightSize))
-//                }
                 val chunkedAudioData =
                     audioData.chunked(500).map { it.toDoubleArray() }
                         .toTypedArray()
-
-//
-//                binding.fragmentResultUserVoiceSpectrogramView.setData(
-//                    sourceData
-//                        .map { data ->
-//                            val fft = DoubleFFT_1D(data.size - 1)
-//                            fft.realForwardFull(data.toDoubleArray())
-//                            return@map data.toList()
-//                        }
-//                )
 
                 val power = chunkedAudioData
                     .map { data ->
@@ -96,8 +80,6 @@ class ResultFragment : Fragment() {
                             }
                             .map { it / data.size }
                     }
-
-//                binding.fragmentResultUserVoiceSpectrogramView.setData(chunkedAudioData.map { it.toList() }.toList())
                 val data = chunkedAudioData
                 val width = data.size
                 val height: Int = data[0].size
