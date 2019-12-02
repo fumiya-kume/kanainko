@@ -19,7 +19,8 @@ internal class RecorderImpl(
         return PullableSource.Default(
             AudioRecordConfig.Default(
                 MediaRecorder.AudioSource.MIC, AudioFormat.ENCODING_PCM_16BIT,
-                AudioFormat.CHANNEL_IN_MONO, 44100
+                AudioFormat.CHANNEL_IN_MONO,
+                16000
             )
         )
     }
