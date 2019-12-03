@@ -71,4 +71,7 @@ dependencies {
 
     // for FFT
     implementation("edu.emory.mathcs:JTransforms:2.4")
+
+    // TensorFlow
+    implementation "org.tensorflow:tensorflow-android:1.13.1"
 }

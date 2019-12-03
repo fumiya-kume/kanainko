@@ -32,6 +32,11 @@ class MainFragment : Fragment() {
             appNavigation.navigateToWordChoose()
         }
 
+        binding.fragmentMainNavigateResultDemoButton
+            .setOnClickListener {
+                appNavigation.navigateToResultDemo()
+            }
+
         return binding.root
     }
 }
