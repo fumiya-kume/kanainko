@@ -6,11 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import edu.emory.mathcs.jtransforms.fft.DoubleFFT_1D
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import kuu.nagoya.feature.result.databinding.FragmentResultBinding
 import kuu.nagoya.waveparser.WaveParse
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.io.File
+import java.util.Timer
+import java.util.concurrent.TimeUnit
+import kotlin.concurrent.timerTask
 
 class ResultFragment : Fragment() {
 
@@ -28,6 +33,26 @@ class ResultFragment : Fragment() {
                 false
             )
 
+        val timer = Timer()
+        timer.schedule(timerTask {
+            GlobalScope.launch(Dispatchers.Main) {
+                binding.fragmentResultTensordlowMessageTextView.visibility = View.VISIBLE
+            }
+        }, TimeUnit.SECONDS.toMillis(1))
+        timer.schedule(timerTask {
+            GlobalScope.launch(Dispatchers.Main) {
+                binding.fragmentResultProcessingAudioMessageTextView.visibility = View.VISIBLE
+            }
+        }, TimeUnit.SECONDS.toMillis(3))
+        timer.schedule(
+            timerTask {
+                GlobalScope.launch(Dispatchers.Main) {
+                    binding.fragmentResultLoadingView.visibility = View.GONE
+                }
+            },
+            TimeUnit.SECONDS.toMillis(7)
+        )
+
         resultFragmentViewModel
             .audioFilePathLiveData
             .observeForever { it ->
@@ -36,25 +61,6 @@ class ResultFragment : Fragment() {
                 val chunkedAudioData =
                     audioData.chunked(500).map { it.toDoubleArray() }
                         .toTypedArray()
-
-
-                val power = chunkedAudioData
-                    .map { data ->
-                        val fft = DoubleFFT_1D(data.size)
-                        fft.realForward(data)
-
-                        return@map (0..data.size - 2)
-                            .filter { it % 2 != 2 }
-                            .map {
-                                Math.sqrt(
-                                    Math.pow(
-                                        data.elementAt(it),
-                                        2.0
-                                    ) + Math.pow(data.elementAt(it + 1), 2.0)
-                                )
-                            }
-                            .map { it / data.size }
-                    }
 
                 val data = chunkedAudioData
                 val width = data.size
