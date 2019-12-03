@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_mainFragment_to_chooseWordFragment"
             app:destination="@id/chooseWordFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_resultDemoFragment"
+            app:destination="@id/resultDemoFragment" />
     </fragment>
     <fragment
         android:id="@+id/dashboardFragment"
@@ -45,4 +48,8 @@
         android:id="@+id/resultFragment"
         android:name="kuu.nagoya.feature.result.ResultFragment"
         android:label="ResultFragment" />
+    <fragment
+        android:id="@+id/resultDemoFragment"
+        android:name="kuu.nagoya.feature.result.ResultDemoFragment"
+        android:label="ResultDemoFragment" />
 </navigation>

@@ -14,6 +14,12 @@ internal class AppNavigationImpl(
             .navigate(R.id.action_mainFragment_to_chooseWordFragment)
     }
 
+    override fun navigateToResultDemo() {
+        fragment
+            .findNavController()
+            .navigate(R.id.action_mainFragment_to_resultDemoFragment)
+    }
+
     override fun navigateToDashboard() {
         fragment
             .findNavController()
