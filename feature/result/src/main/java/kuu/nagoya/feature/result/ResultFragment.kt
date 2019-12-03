@@ -80,7 +80,6 @@ class ResultFragment : Fragment() {
                 }
                 val bitmap = Bitmap.createBitmap(arrayCol, width, height, Bitmap.Config.ARGB_8888)
                 binding.fragmentResultUserVoiceSpectrogramView.setImageBitmap(bitmap)
-
             }
 
         resultFragmentViewModel
