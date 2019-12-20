@@ -12,6 +12,7 @@ import kuu.nagoya.feature.result.databinding.FragmentDemoResultBinding
 import kuu.nagoya.feature.result.usecase.PredictAudioStatus
 import kuu.nagoya.feature.result.usecase.PredictAudioUsecase
 import org.koin.android.ext.android.inject
+import java.io.FileInputStream
 import java.util.LinkedList
 import java.util.Queue
 
@@ -83,6 +84,16 @@ internal class ResultDemoFragment : Fragment() {
         })
 
         audioRecord.startRecording()
+
+        binding
+            .fragmentDemoResultPickFileButton
+            .setOnClickListener {
+                val mediaFilePath = requireContext().externalMediaDirs.first().absolutePath
+                val localDemoWaveFilepath = mediaFilePath + "dog.wav"
+
+                val fileStream = FileInputStream(localDemoWaveFilepath)
+
+            }
 
         return binding.root
     }
