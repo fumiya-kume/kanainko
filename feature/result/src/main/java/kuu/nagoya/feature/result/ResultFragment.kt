@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import edu.emory.mathcs.jtransforms.fft.DoubleFFT_1D
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -53,16 +54,24 @@ class ResultFragment : Fragment() {
             TimeUnit.SECONDS.toMillis(7)
         )
 
+
         resultFragmentViewModel
             .audioFilePathLiveData
             .observeForever { it ->
-                val audioData = WaveParse.loadWaveFromFile(File(it)).data.map { it.toDouble() }
+                val audioData = WaveParse.loadWaveFromFile(File(it)).data
 
-                val chunkedAudioData =
-                    audioData.chunked(500).map { it.toDoubleArray() }
-                        .toTypedArray()
+                val data =
+                    audioData
+                        .chunked(500)
+                        .map {
+                            val data = DoubleArray(it.size)
+                            val fft = DoubleFFT_1D(it.size)
+                            fft.realForward(data)
+                            data
 
-                val data = chunkedAudioData
+//                            data.filterIndexed { index, d -> index % 2 == 0 }
+                        }
+
                 val width = data.size
                 val height: Int = data[0].size
                 val arrayCol = IntArray(width * height)
@@ -75,7 +84,6 @@ class ResultFragment : Fragment() {
                             arrayCol[counter] = color
                             counter++
                         }
-
                     }
                 }
                 val bitmap = Bitmap.createBitmap(arrayCol, width, height, Bitmap.Config.ARGB_8888)
