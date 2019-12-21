@@ -88,7 +88,7 @@ class RecordFragment : Fragment() {
             .observeForever {
                 recorder.outputFilePath = it.filePath
 
-                binding.filePath = it.filePath
+                binding.filePath = it.filePath.takeLast(20)
             }
 
         return binding.root
