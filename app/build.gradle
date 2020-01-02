@@ -7,6 +7,8 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'org.jlleitschuh.gradle.ktlint'
 apply plugin: "androidx.navigation.safeargs.kotlin"
 
+apply from: '../module_reference_data.gradle'
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
