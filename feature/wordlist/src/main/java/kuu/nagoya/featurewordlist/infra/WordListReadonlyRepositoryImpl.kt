@@ -75,26 +75,26 @@ internal class WordListReadonlyRepositoryImpl :
                     Word(
                         0,
                         "さ",
-                        "ka"
+                        "sa"
                     ),
                     Word(
                         1,
                         "し",
-                        "ki"
+                        "shi"
                     ),
                     Word(
                         2,
                         "す",
-                        "ku"
+                        "su"
                     ), Word(
                         3,
                         "せ",
-                        "ke"
+                        "se"
                     ),
                     Word(
                         4,
                         "そ",
-                        "ko"
+                        "so"
                     )
                 )
             ),
@@ -123,8 +123,8 @@ internal class WordListReadonlyRepositoryImpl :
                     ),
                     Word(
                         4,
-                        "こ",
-                        "ko"
+                        "と",
+                        "to"
                     )
                 )
             ),
@@ -134,27 +134,27 @@ internal class WordListReadonlyRepositoryImpl :
                 listOf(
                     Word(
                         0,
-                        "か",
-                        "ka"
+                        "な",
+                        "na"
                     ),
                     Word(
                         1,
-                        "き",
-                        "ki"
+                        "に",
+                        "ni"
                     ),
                     Word(
                         2,
                         "く",
-                        "ku"
+                        "nu"
                     ), Word(
                         3,
                         "け",
-                        "ke"
+                        "ne"
                     ),
                     Word(
                         4,
                         "こ",
-                        "ko"
+                        "no"
                     )
                 )
             ),
@@ -164,27 +164,27 @@ internal class WordListReadonlyRepositoryImpl :
                 listOf(
                     Word(
                         0,
-                        "か",
-                        "ka"
+                        "は",
+                        "ha"
                     ),
                     Word(
                         1,
-                        "き",
-                        "ki"
+                        "ひ",
+                        "hi"
                     ),
                     Word(
                         2,
-                        "く",
-                        "ku"
+                        "ふ",
+                        "hu"
                     ), Word(
                         3,
-                        "け",
-                        "ke"
+                        "へ",
+                        "he"
                     ),
                     Word(
                         4,
-                        "こ",
-                        "ko"
+                        "ほ",
+                        "ho"
                     )
                 )
             ),
@@ -194,27 +194,27 @@ internal class WordListReadonlyRepositoryImpl :
                 listOf(
                     Word(
                         0,
-                        "か",
-                        "ka"
+                        "ま",
+                        "ma"
                     ),
                     Word(
                         1,
-                        "き",
-                        "ki"
+                        "み",
+                        "mi"
                     ),
                     Word(
                         2,
-                        "く",
-                        "ku"
+                        "む",
+                        "mu"
                     ), Word(
                         3,
-                        "け",
-                        "ke"
+                        "め",
+                        "me"
                     ),
                     Word(
                         4,
-                        "こ",
-                        "ko"
+                        "も",
+                        "mo"
                     )
                 )
             ),
@@ -224,27 +224,48 @@ internal class WordListReadonlyRepositoryImpl :
                 listOf(
                     Word(
                         0,
-                        "か",
-                        "ka"
+                        "や",
+                        "ya"
                     ),
                     Word(
                         1,
-                        "き",
-                        "ki"
+                        "ゆ",
+                        "yu"
                     ),
                     Word(
                         2,
-                        "く",
-                        "ku"
+                        "よ",
+                        "yo"
+                    )
+                )
+            ),
+            WordGroup(
+                0,
+                "らりるれろ",
+                listOf(
+                    Word(
+                        0,
+                        "ら",
+                        "ra"
+                    ),
+                    Word(
+                        1,
+                        "り",
+                        "ri"
+                    ),
+                    Word(
+                        2,
+                        "る",
+                        "ru"
                     ), Word(
                         3,
-                        "け",
-                        "ke"
+                        "れ",
+                        "re"
                     ),
                     Word(
                         4,
-                        "こ",
-                        "ko"
+                        "ろ",
+                        "ro"
                     )
                 )
             ),
@@ -254,27 +275,18 @@ internal class WordListReadonlyRepositoryImpl :
                 listOf(
                     Word(
                         0,
-                        "か",
-                        "ka"
+                        "わ",
+                        "wa"
                     ),
                     Word(
                         1,
-                        "き",
-                        "ki"
+                        "を",
+                        "wo"
                     ),
                     Word(
                         2,
-                        "く",
-                        "ku"
-                    ), Word(
-                        3,
-                        "け",
-                        "ke"
-                    ),
-                    Word(
-                        4,
-                        "こ",
-                        "ko"
+                        "ん",
+                        "n"
                     )
                 )
             )
