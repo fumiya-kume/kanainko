@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kuu.nagoya.featurewordlist.databinding.ItemWordChooseGroupListBinding
-
 import kuu.nagoya.featurewordlist.viewentity.WordGroupViewEntity
 
 internal class WordGroupListViewHolder private constructor(

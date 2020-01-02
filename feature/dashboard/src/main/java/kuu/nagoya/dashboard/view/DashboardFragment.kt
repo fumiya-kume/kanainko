@@ -22,7 +22,6 @@ class DashboardFragment : Fragment() {
     private val dashboardNavigation: DashboardNavigation by inject(parameters = { parametersOf(this) })
     private val dashBoardViewModel: DashboardViewModel by viewModel()
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -42,7 +41,6 @@ class DashboardFragment : Fragment() {
                 override fun clicked(musicItem: RecordViewEntity) {
                     val dialog = RecordDetailDialog.create(musicItem)
                     fragmentManager?.let { dialog.show(it, "tag") }
-
                 }
             }
 
@@ -65,7 +63,6 @@ class DashboardFragment : Fragment() {
 
         return binding.root
     }
-
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
@@ -100,8 +97,5 @@ class DashboardFragment : Fragment() {
                     true
                 }
             }
-
     }
-
-
 }

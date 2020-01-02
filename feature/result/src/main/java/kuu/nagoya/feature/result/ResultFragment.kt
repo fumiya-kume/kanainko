@@ -7,16 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import edu.emory.mathcs.jtransforms.fft.DoubleFFT_1D
+import java.io.File
+import java.util.Timer
+import java.util.concurrent.TimeUnit
+import kotlin.concurrent.timerTask
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kuu.nagoya.feature.result.databinding.FragmentResultBinding
 import kuu.nagoya.waveparser.WaveParse
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import java.io.File
-import java.util.Timer
-import java.util.concurrent.TimeUnit
-import kotlin.concurrent.timerTask
 
 class ResultFragment : Fragment() {
 
@@ -53,7 +53,6 @@ class ResultFragment : Fragment() {
             },
             TimeUnit.SECONDS.toMillis(3)
         )
-
 
         resultFragmentViewModel
             .audioFilePathLiveData

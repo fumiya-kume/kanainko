@@ -8,13 +8,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import java.io.FileInputStream
+import java.util.LinkedList
+import java.util.Queue
 import kuu.nagoya.feature.result.databinding.FragmentDemoResultBinding
 import kuu.nagoya.feature.result.usecase.PredictAudioStatus
 import kuu.nagoya.feature.result.usecase.PredictAudioUsecase
 import org.koin.android.ext.android.inject
-import java.io.FileInputStream
-import java.util.LinkedList
-import java.util.Queue
 
 internal class ResultDemoFragment : Fragment() {
 
@@ -54,7 +54,7 @@ internal class ResultDemoFragment : Fragment() {
         audioRecord.setRecordPositionUpdateListener(object :
             AudioRecord.OnRecordPositionUpdateListener {
             override fun onMarkerReached(recorder: AudioRecord?) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                TODO("not implemented") // To change body of created functions use File | Settings | File Templates.
             }
 
             override fun onPeriodicNotification(recorder: AudioRecord?) {
@@ -92,7 +92,6 @@ internal class ResultDemoFragment : Fragment() {
                 val localDemoWaveFilepath = mediaFilePath + "dog.wav"
 
                 val fileStream = FileInputStream(localDemoWaveFilepath)
-
             }
 
         return binding.root

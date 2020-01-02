@@ -5,4 +5,3 @@ data class Record(
     val filePath: kuu.nagoya.dashboard.entity.FilePath,
     val recordName: kuu.nagoya.dashboard.entity.RecordName
 )
-

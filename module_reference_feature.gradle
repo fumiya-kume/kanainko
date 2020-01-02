@@ -1,5 +1,5 @@
 dependencies{
-    file("$rootDir/data").eachDir { dir ->
+    file("$rootDir/feature").eachDir { dir ->
         implementation project(path: ":$dir.name")
     }
 }

@@ -1,36 +1,7 @@
-import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
+apply from: "$rootDir/app.gradle"
 
-
-apply plugin: 'com.android.application'
-
-apply from: '../module_reference_data.gradle'
-apply from: '../base.gradle'
-apply from: "$rootDir/module_reference_core.gradle"
-
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    implementation project(path: ':dashboard')
-    implementation project(path: ':navigation')
-    implementation project(path: ':record')
-    implementation project(path: ':recorddata')
-    implementation project(path: ':tmprecorddata')
-    implementation project(path: ':wordlist')
-    implementation project(path: ':result')
-
-    ktlint {
-        version.set("0.34.2")
-        android.set(true)
-        outputToConsole.set(true)
-        ignoreFailures.set(true)
-        disabledRules.set(["final-newline", "max-line-length"])
-        reporters {
-            reporter(ReporterType.CHECKSTYLE)
-        }
-
-        filter {
-            exclude("**/generated/**")
-            exclude("**/build/**")
-        }
+android {
+    defaultConfig {
+        applicationId "jp.ac.daido.kanainko"
     }
 }

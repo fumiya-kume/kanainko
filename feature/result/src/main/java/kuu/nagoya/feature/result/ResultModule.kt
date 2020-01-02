@@ -5,7 +5,7 @@ import kuu.nagoya.feature.result.usecase.PredictAudioUsecase
 import kuu.nagoya.feature.result.usecase.impl.LoadRecordResultUsecaseImpl
 import kuu.nagoya.feature.result.usecase.impl.PredictAudioUsecaseImpl
 import org.koin.android.ext.koin.androidApplication
-import org.koin.android.viewmodel.dsl.viewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val resultModule = module {

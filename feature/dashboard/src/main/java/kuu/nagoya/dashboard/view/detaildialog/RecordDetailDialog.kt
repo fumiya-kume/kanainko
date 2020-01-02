@@ -44,7 +44,6 @@ internal class RecordDetailDialog private constructor(
             GlobalScope.launch {
                 playAudioUsecase.execute(recordViewEntity.convertBack())
             }
-
         }
         binding.viewEntity = recordViewEntity.convert()
 

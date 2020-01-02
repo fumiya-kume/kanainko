@@ -1,11 +1,11 @@
 package kuu.nagoya.feature.result.usecase.impl
 
 import android.content.Context
+import java.io.BufferedReader
+import java.io.InputStreamReader
 import kuu.nagoya.feature.result.usecase.PredictAudioStatus
 import kuu.nagoya.feature.result.usecase.PredictAudioUsecase
 import org.tensorflow.contrib.android.TensorFlowInferenceInterface
-import java.io.BufferedReader
-import java.io.InputStreamReader
 
 internal class PredictAudioUsecaseImpl(
     context: Context

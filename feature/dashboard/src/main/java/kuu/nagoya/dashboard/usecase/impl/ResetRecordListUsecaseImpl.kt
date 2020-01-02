@@ -7,10 +7,9 @@ import kuu.nagoya.dashboard.entity.toRecordName
 import kuu.nagoya.dashboard.usecase.RecordListRepository
 import kuu.nagoya.dashboard.usecase.ResetRecordListUsecase
 
-
 internal class ResetRecordListUsecaseImpl(
     private val recordListRepository: RecordListRepository,
-    private val context:Context
+    private val context: Context
 ) : ResetRecordListUsecase {
     override suspend fun execite() {
 
