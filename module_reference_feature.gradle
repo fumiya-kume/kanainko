@@ -1,6 +1,5 @@
 dependencies{
-    implementation project(path: ":dashboard")
-    implementation project(path: ":record")
-    implementation project(path: ":result")
-    implementation project(path: ":wordlist")
+    file("$rootDir/feature").eachDir { dir ->
+        implementation project(path: ":$dir.name")
+    }
 }
