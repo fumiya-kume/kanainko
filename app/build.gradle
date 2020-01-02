@@ -1,4 +1,4 @@
-apply from: "$rootDir/app.gradle"
+apply from: "$rootDir/app.gradle.kts"
 
 android {
     defaultConfig {

@@ -1,1 +1,1 @@
-apply from: "$rootDir/core.gradle"
+apply from: "$rootDir/core.gradle.kts"
