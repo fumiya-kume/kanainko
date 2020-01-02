@@ -33,5 +33,12 @@ internal class ChooseWordListViewHolder private constructor(
         binding.root.setOnClickListener {
             onWordChooseListener?.choose(wordViewEntity)
         }
+        binding
+            .itemWordChooseDialogCheckBox
+            .setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    onWordChooseListener?.choose(wordViewEntity)
+                }
+            }
     }
 }
