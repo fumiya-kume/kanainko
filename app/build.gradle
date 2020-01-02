@@ -7,6 +7,12 @@ apply from: "$rootDir/module_reference_data.gradle"
 apply from: "$rootDir/base.gradle"
 apply from: "$rootDir/module_reference_core.gradle"
 
+android {
+    defaultConfig {
+        applicationId "jp.ac.daido.kanainko"
+    }
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
