@@ -3,6 +3,7 @@ import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 
 apply plugin: 'com.android.application'
 
+apply from: '../module_reference_data.gradle'
 apply from: '../base.gradle'
 apply from: "$rootDir/module_reference_core.gradle"
 
