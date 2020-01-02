@@ -1,8 +1,10 @@
 import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 
+
 apply plugin: 'com.android.application'
 
 apply from: '../base.gradle'
+apply from: "$rootDir/module_reference_core.gradle"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
