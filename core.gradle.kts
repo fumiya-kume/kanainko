@@ -1,4 +1,4 @@
 apply {
     plugin("com.android.library")
-    from("$rootDir/base.gradle.kts")
+    from("$rootDir/base.gradle")
 }
