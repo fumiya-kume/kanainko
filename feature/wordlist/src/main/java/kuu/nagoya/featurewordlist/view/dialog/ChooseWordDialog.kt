@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kuu.nagoya.featurewordlist.databinding.DialogWordChooseBinding
-
 import kuu.nagoya.featurewordlist.viewentity.WordViewEntity
 
 internal class ChooseWordDialog private constructor(

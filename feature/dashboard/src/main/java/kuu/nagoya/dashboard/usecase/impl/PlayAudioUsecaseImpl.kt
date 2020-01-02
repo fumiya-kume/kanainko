@@ -23,8 +23,8 @@ internal class PlayAudioUsecaseImpl(
 
         try {
             mediaPlayer.prepare()
-        }catch (e: Exception){
-            Log.d("hello",e.toString())
+        } catch (e: Exception) {
+            Log.d("hello", e.toString())
         }
     }
 }

@@ -36,7 +36,6 @@ class RecordFragment : Fragment() {
                 false
             )
 
-
         binding.fragmentRecordAudioVolumeAudioVolmeGraph.setMediaRecorder(recorder)
 
         binding
@@ -57,7 +56,6 @@ class RecordFragment : Fragment() {
                 when (status) {
                     is RecorderStatus.ready -> {
                         Log.d("record-event", "onReady")
-
                     }
                     is RecorderStatus.recording -> {
                         Log.d("record-event", "OnRecording")

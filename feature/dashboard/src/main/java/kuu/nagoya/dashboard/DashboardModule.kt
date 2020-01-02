@@ -12,7 +12,7 @@ import kuu.nagoya.dashboard.usecase.impl.ResetRecordListUsecaseImpl
 import kuu.nagoya.dashboard.view.DashboardViewModel
 import kuu.nagoya.dashboard.view.RecordListLiveDataFactory
 import org.koin.android.ext.koin.androidApplication
-import org.koin.android.viewmodel.dsl.viewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val dashBoardModule = module {
