@@ -11,14 +11,6 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation project(path: ':dashboard')
-    implementation project(path: ':navigation')
-    implementation project(path: ':record')
-    implementation project(path: ':recorddata')
-    implementation project(path: ':tmprecorddata')
-    implementation project(path: ':wordlist')
-    implementation project(path: ':result')
-
     ktlint {
         version.set("0.34.2")
         android.set(true)
