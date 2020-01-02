@@ -44,14 +44,14 @@ class ResultFragment : Fragment() {
             GlobalScope.launch(Dispatchers.Main) {
                 binding.fragmentResultProcessingAudioMessageTextView.visibility = View.VISIBLE
             }
-        }, TimeUnit.SECONDS.toMillis(3))
+        }, TimeUnit.SECONDS.toMillis(2))
         timer.schedule(
             timerTask {
                 GlobalScope.launch(Dispatchers.Main) {
                     binding.fragmentResultLoadingView.visibility = View.GONE
                 }
             },
-            TimeUnit.SECONDS.toMillis(7)
+            TimeUnit.SECONDS.toMillis(3)
         )
 
 
