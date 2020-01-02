@@ -1,6 +1,6 @@
-include ':app', ':navigation', ':util'
+include ':app'
 
-['feature', "data"]
+['feature', "data","core"]
         .asList()
         .each { folderName ->
             file(folderName)
