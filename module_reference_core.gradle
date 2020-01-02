@@ -1,0 +1,4 @@
+dependencies {
+    implementation project(path: ':navigation')
+    implementation project(path: ':util')
+}

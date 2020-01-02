@@ -1,11 +1,14 @@
 import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'org.jlleitschuh.gradle.ktlint'
 apply plugin: "androidx.navigation.safeargs.kotlin"
+
+apply from: "$rootDir/module_reference_core.gradle"
 
 android {
     compileSdkVersion 29
