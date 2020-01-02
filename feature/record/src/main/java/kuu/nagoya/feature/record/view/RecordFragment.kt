@@ -62,11 +62,11 @@ class RecordFragment : Fragment() {
                     is RecorderStatus.recording -> {
                         Log.d("record-event", "OnRecording")
                         binding.fragmentRecordInitializationProgressBar.visibility = View.GONE
-                        binding.fragmentRecordRecordMaterialButton.text = "録音しています"
+                        binding.fragmentRecordRecordMaterialButton.text = "録音停止"
                     }
                     is RecorderStatus.stopping -> {
                         Log.d("record-event", "onStopping")
-                        binding.fragmentRecordRecordMaterialButton.text = "録音する"
+                        binding.fragmentRecordRecordMaterialButton.text = "録音開始"
                         recordNavigation.navigateToAnalyzer()
                     }
                     is RecorderStatus.error -> {
