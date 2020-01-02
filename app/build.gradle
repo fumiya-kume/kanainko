@@ -114,6 +114,8 @@ dependencies {
 
     testImplementation("androidx.benchmark:benchmark-junit4:1.0.0-beta01")
 
+    implementation "kuu.nagoya.waveparser:core:0.0.10"
+
 
     ktlint {
         version.set("0.34.2")
