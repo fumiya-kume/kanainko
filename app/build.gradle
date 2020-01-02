@@ -1,29 +1,7 @@
-import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
-
 apply from: "$rootDir/app.gradle"
 
 android {
     defaultConfig {
         applicationId "jp.ac.daido.kanainko"
-    }
-}
-
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    ktlint {
-        version.set("0.34.2")
-        android.set(true)
-        outputToConsole.set(true)
-        ignoreFailures.set(true)
-        disabledRules.set(["final-newline", "max-line-length"])
-        reporters {
-            reporter(ReporterType.CHECKSTYLE)
-        }
-
-        filter {
-            exclude("**/generated/**")
-            exclude("**/build/**")
-        }
     }
 }
