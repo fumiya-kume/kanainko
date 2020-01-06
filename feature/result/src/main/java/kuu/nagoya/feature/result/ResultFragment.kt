@@ -16,11 +16,13 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kuu.nagoya.feature.result.databinding.FragmentResultBinding
 import kuu.nagoya.waveparser.WaveParse
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ResultFragment : Fragment() {
 
     private val resultFragmentViewModel: ResultFragmentViewModel by viewModel()
+    private val resultNavigation: ResultNavigation by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -96,6 +98,18 @@ class ResultFragment : Fragment() {
             }
 
         resultFragmentViewModel.load()
+
+        binding
+            .fragmentResultNavigateHomeButton
+            .setOnClickListener {
+                resultNavigation.navigateToHome(this)
+            }
+
+        binding
+            .fragmentResultLearningMoreButton
+            .setOnClickListener {
+                resultNavigation.navigateWordChooseScreen(this)
+            }
 
         return binding.root
     }
