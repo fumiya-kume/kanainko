@@ -45,12 +45,12 @@
             app:layout_constraintTop_toBottomOf="@id/fragment_main_navigate_dashboard_fragment_button" />
 
         <Button
-            android:id="@+id/fragment_main_navigate_result_demo_button"
+            android:id="@+id/fragment_main_navigate_debug_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:padding="16dp"
-            android:text="推論デモ画面へ遷移する"
+            android:text="navigate to debug"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import jp.ac.daido.kanainko.databinding.FragmentMainBinding
 import kuu.nagoya.navigation.AppNavigation
 import org.koin.android.ext.android.inject
@@ -32,9 +33,9 @@ class MainFragment : Fragment() {
             appNavigation.navigateToWordChoose()
         }
 
-        binding.fragmentMainNavigateResultDemoButton
+        binding.fragmentMainNavigateDebugButton
             .setOnClickListener {
-                appNavigation.navigateToResultDemo()
+                findNavController().navigate(R.id.action_mainFragment_to_debugActivity)
             }
 
         return binding.root
