@@ -16,7 +16,6 @@
             android:layout_height="match_parent">
 
             <ScrollView
-
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:labelFor="@id/fragment_result_predict_text_view"
@@ -68,6 +67,24 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragment_result_navigate_home_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="navigate to home"
+                app:layout_constraintEnd_toStartOf="@id/fragment_result_learning_more_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_result_predict_text_view" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragment_result_learning_more_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="learning more"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/fragment_result_navigate_home_button"
+                app:layout_constraintTop_toTopOf="@id/fragment_result_navigate_home_button" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

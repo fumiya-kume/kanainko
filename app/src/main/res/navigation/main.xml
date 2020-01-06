@@ -47,7 +47,14 @@
     <fragment
         android:id="@+id/resultFragment"
         android:name="kuu.nagoya.feature.result.ResultFragment"
-        android:label="ResultFragment" />
+        android:label="ResultFragment" >
+        <action
+            android:id="@+id/action_resultFragment_to_chooseWordFragment"
+            app:destination="@id/chooseWordFragment" />
+        <action
+            android:id="@+id/action_resultFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+    </fragment>
     <fragment
         android:id="@+id/resultDemoFragment"
         android:name="kuu.nagoya.feature.result.ResultDemoFragment"
