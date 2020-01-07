@@ -1,13 +1,10 @@
 package kuu.nagoya.feature.result
 
-import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import edu.emory.mathcs.jtransforms.fft.DoubleFFT_1D
-import java.io.File
 import java.util.Timer
 import java.util.concurrent.TimeUnit
 import kotlin.concurrent.timerTask
@@ -15,7 +12,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kuu.nagoya.feature.result.databinding.FragmentResultBinding
-import kuu.nagoya.waveparser.WaveParse
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -57,26 +53,9 @@ class ResultFragment : Fragment() {
         )
 
         resultFragmentViewModel
-            .audioFilePathLiveData
+            .recordSpectrogramBitmapLivedata
             .observeForever { it ->
-                val audioData = WaveParse.loadWaveFromFile(File(it)).data
-
-                val heightSize = 500
-                val data =
-                    audioData
-                        .chunked(heightSize)
-                        .map {
-                            val data = it.map { it.toDouble() }.toDoubleArray()
-                            val fft = DoubleFFT_1D(it.size)
-                            fft.realForward(data)
-                            data.filterIndexed { index, _ -> index % 2 == 0 }
-                        }
-
-                val width = (audioData.size / heightSize - 1)
-                val height: Int = heightSize / 2
-                val imageData = data.flatten().map { 200 - it }.map { it.toInt() }.toIntArray()
-                val bitmap = Bitmap.createBitmap(imageData, width, height, Bitmap.Config.ARGB_8888)
-                binding.fragmentResultUserVoiceSpectrogramView.setImageBitmap(bitmap)
+                binding.fragmentResultUserVoiceSpectrogramView.setImageBitmap(it)
             }
 
         resultFragmentViewModel
