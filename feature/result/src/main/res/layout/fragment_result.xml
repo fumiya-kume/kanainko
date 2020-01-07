@@ -30,7 +30,7 @@
                     android:id="@+id/fragment_result_user_voice_spectrogram_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="fitCenter"
+                    android:scaleType="fitStart"
                     tools:src="@tools:sample/backgrounds/scenic" />
             </ScrollView>
 
