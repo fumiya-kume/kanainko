@@ -99,6 +99,12 @@ class ResultFragment : Fragment() {
                 resultNavigation.navigateWordChooseScreen(this)
             }
 
+        binding
+            .fragmentResultPlayRecordAudioButton
+            .setOnClickListener {
+                resultFragmentViewModel.playRecordAudio()
+            }
+
         return binding.root
     }
 }

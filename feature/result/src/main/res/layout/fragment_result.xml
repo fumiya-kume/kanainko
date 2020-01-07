@@ -69,13 +69,22 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragment_result_play_record_audio_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="play record audio"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_result_predict_text_view" />
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/fragment_result_navigate_home_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="navigate to home"
                 app:layout_constraintEnd_toStartOf="@id/fragment_result_learning_more_button"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/fragment_result_predict_text_view" />
+                app:layout_constraintTop_toBottomOf="@id/fragment_result_play_record_audio_button" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/fragment_result_learning_more_button"

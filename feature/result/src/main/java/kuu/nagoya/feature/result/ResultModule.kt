@@ -1,5 +1,7 @@
 package kuu.nagoya.feature.result
 
+import kuu.nagoya.feature.result.service.PlayAudioService
+import kuu.nagoya.feature.result.service.PlayAudioServiceImpl
 import kuu.nagoya.feature.result.usecase.LoadRecordResultUsecase
 import kuu.nagoya.feature.result.usecase.PredictAudioUsecase
 import kuu.nagoya.feature.result.usecase.impl.LoadRecordResultUsecaseImpl
@@ -11,7 +13,8 @@ import org.koin.dsl.module
 val resultModule = module {
     factory { LoadRecordResultUsecaseImpl(get()) as LoadRecordResultUsecase }
     factory { PredictAudioUsecaseImpl(androidApplication()) as PredictAudioUsecase }
+    factory { PlayAudioServiceImpl() as PlayAudioService }
 
     // Viewmodel
-    viewModel { ResultFragmentViewModel(get()) }
+    viewModel { ResultFragmentViewModel(get(), get()) }
 }
