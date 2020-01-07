@@ -61,33 +61,21 @@ class ResultFragment : Fragment() {
             .observeForever { it ->
                 val audioData = WaveParse.loadWaveFromFile(File(it)).data
 
+                val heightSize = 500
                 val data =
                     audioData
-                        .chunked(500)
+                        .chunked(heightSize)
                         .map {
-                            val data = DoubleArray(it.size)
+                            val data = it.map { it.toDouble() }.toDoubleArray()
                             val fft = DoubleFFT_1D(it.size)
                             fft.realForward(data)
-                            data
-
-//                            data.filterIndexed { index, d -> index % 2 == 0 }
+                            data.filterIndexed { index, _ -> index % 2 == 0 }
                         }
 
-                val width = data.size
-                val height: Int = data[0].size
-                val arrayCol = IntArray(width * height)
-                var counter = 0
-                (0 until height).forEach { i ->
-                    (0 until width).forEach { j ->
-                        if (data.size > j && data.elementAt(j).size > i) {
-                            val value = 255 - (data.elementAt(j).elementAt(i) * 255).toInt()
-                            val color = value
-                            arrayCol[counter] = color
-                            counter++
-                        }
-                    }
-                }
-                val bitmap = Bitmap.createBitmap(arrayCol, width, height, Bitmap.Config.ARGB_8888)
+                val width = (audioData.size / heightSize - 1)
+                val height: Int = heightSize / 2
+                val imageData = data.flatten().map { 200 - it }.map { it.toInt() }.toIntArray()
+                val bitmap = Bitmap.createBitmap(imageData, width, height, Bitmap.Config.ARGB_8888)
                 binding.fragmentResultUserVoiceSpectrogramView.setImageBitmap(bitmap)
             }
 
