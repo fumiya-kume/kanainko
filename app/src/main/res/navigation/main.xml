@@ -37,7 +37,8 @@
         android:label="RecordFragment">
         <action
             android:id="@+id/action_recordFragment_to_resultFragment"
-            app:destination="@id/resultFragment" />
+            app:destination="@id/resultFragment"
+            app:launchSingleTop="true" />
     </fragment>
     <fragment
         android:id="@+id/chooseWordFragment"
@@ -45,18 +46,21 @@
         android:label="ChooseWordFragment">
         <action
             android:id="@+id/action_chooseWordFragment_to_recordFragment"
-            app:destination="@id/recordFragment" />
+            app:destination="@id/recordFragment"
+            app:launchSingleTop="true" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
         android:name="kuu.nagoya.feature.result.ResultFragment"
-        android:label="ResultFragment" >
+        android:label="ResultFragment">
         <action
             android:id="@+id/action_resultFragment_to_chooseWordFragment"
-            app:destination="@id/chooseWordFragment" />
+            app:destination="@id/chooseWordFragment"
+            app:launchSingleTop="true" />
         <action
             android:id="@+id/action_resultFragment_to_dashboardFragment"
-            app:destination="@id/dashboardFragment" />
+            app:destination="@id/dashboardFragment"
+            app:launchSingleTop="true" />
     </fragment>
     <fragment
         android:id="@+id/resultDemoFragment"
