@@ -19,5 +19,5 @@ val resultModule = module {
     factory { PlayAudioServiceImpl() as PlayAudioService }
 
     // Viewmodel
-    viewModel { ResultFragmentViewModel(get(), get()) }
+    viewModel { ResultFragmentViewModel(get(), get(), get()) }
 }

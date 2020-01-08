@@ -15,7 +15,7 @@ import kuu.nagoya.waveparser.WaveParse
 
 internal class ResultFragmentViewModel(
     private val loadRecordResultUsecase: LoadRecordResultUsecase,
-    private val fourieService: FourieService
+    private val fourieService: FourieService,
     private val audioService: PlayAudioService
 ) : ViewModel() {
 
