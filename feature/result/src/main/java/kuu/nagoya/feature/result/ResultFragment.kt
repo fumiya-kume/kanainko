@@ -84,6 +84,12 @@ class ResultFragment : Fragment() {
                 resultFragmentViewModel.playRecordAudio()
             }
 
+        binding
+            .fragmentResultPlayModelAudioButton
+            .setOnClickListener {
+                resultFragmentViewModel.playModelAudio()
+            }
+
         return binding.root
     }
 }
