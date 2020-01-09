@@ -5,18 +5,20 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import java.io.File
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kuu.nagoya.feature.result.service.AssetsService
 import kuu.nagoya.feature.result.service.FourieService
 import kuu.nagoya.feature.result.service.PlayAudioService
 import kuu.nagoya.feature.result.usecase.LoadRecordResultUsecase
 import kuu.nagoya.waveparser.WaveParse
+import java.io.File
 
 internal class ResultFragmentViewModel(
     private val loadRecordResultUsecase: LoadRecordResultUsecase,
     private val fourieService: FourieService,
-    private val audioService: PlayAudioService
+    private val audioService: PlayAudioService,
+    private val assetsService: AssetsService
 ) : ViewModel() {
 
     private val chooseWordMutableLiveData: MutableLiveData<Char> = MutableLiveData()
@@ -53,6 +55,13 @@ internal class ResultFragmentViewModel(
         }
         viewModelScope.launch {
             audioService.playAudio(audioFilePathLiveData.value!!)
+        }
+    }
+
+    fun playModelAudio() {
+        viewModelScope.launch {
+            val modelAudioPath = assetsService.assetFileDescriptor("model_1.wav")
+            audioService.playAudio(modelAudioPath)
         }
     }
 }
