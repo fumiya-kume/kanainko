@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.prevent.voice_data.domain.AssetsInitUsecase
 import jp.ac.daido.kanainko.databinding.FragmentMainBinding
 import kuu.nagoya.navigation.AppNavigation
 import org.koin.android.ext.android.inject
@@ -14,6 +15,7 @@ import org.koin.core.parameter.parametersOf
 class MainFragment : Fragment() {
 
     val appNavigation: AppNavigation by inject(parameters = { parametersOf(this) })
+    private val assetsInitUsecase: AssetsInitUsecase by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,6 +27,8 @@ class MainFragment : Fragment() {
             container,
             false
         )
+
+        assetsInitUsecase.execute()
 
         binding.fragmentMainNavigateDashboardFragmentButton.setOnClickListener {
             appNavigation.navigateToDashboard()

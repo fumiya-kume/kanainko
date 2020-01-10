@@ -1,0 +1,1 @@
+apply from: "$rootDir/data.gradle.kts"
