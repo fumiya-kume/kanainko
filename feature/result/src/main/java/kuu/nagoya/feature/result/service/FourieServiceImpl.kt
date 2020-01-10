@@ -7,13 +7,12 @@ import kotlin.math.absoluteValue
 
 internal class FourieServiceImpl : FourieService {
     override suspend fun audioDataToImage(data: List<Short>): Bitmap {
-        val sliceSize = 8
-        val windowSize = 320
+        val sliceSize = 2
+        val windowSize = 160
+        val maxSize = ((16000 - windowSize) / sliceSize) - 1
         val heightSize = windowSize
-        val width = data.size / heightSize
-        val height: Int = heightSize / 2
 
-        val imageData =
+        var imageData =
             (0 until ((data.size - windowSize) / sliceSize))
                 .map {
                     val audioData = data
@@ -25,13 +24,22 @@ internal class FourieServiceImpl : FourieService {
 
                     audioData
                         .filterIndexed { index, _ -> index % 2 == 0 }
-                        .map { 255 - it.absoluteValue }
+                        .map { 255 - (it.absoluteValue * 200) }
                         .map { it.toInt() }
                         .map { Color.argb(it, 0, 0, 0) }
                 }
                 .flatten()
                 .toIntArray()
 
-        return Bitmap.createBitmap(imageData, width, height, Bitmap.Config.ARGB_8888)
+        if (imageData.size > maxSize) {
+            imageData = imageData.take(maxSize).toIntArray()
+        }
+
+        return Bitmap.createBitmap(
+            imageData,
+            imageData.size / heightSize,
+            heightSize / 2,
+            Bitmap.Config.ARGB_8888
+        )
     }
 }
