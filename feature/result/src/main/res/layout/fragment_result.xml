@@ -7,166 +7,181 @@
 
     </data>
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/fragment_result_result_card_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <ScrollView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:labelFor="@id/fragment_result_predict_text_view"
-                app:layout_constraintBottom_toTopOf="@id/fragment_result_title_of_user_voice_analytics_result_text_view"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
 
-                <ImageView
-                    android:id="@+id/fragment_result_user_voice_spectrogram_view"
+                <TextView
+                    android:id="@+id/fragment_result_title_text_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:scaleType="fitStart"
-                    tools:src="@tools:sample/backgrounds/scenic" />
-            </ScrollView>
+                    android:text="Talk Result"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/fragment_result_title_of_user_voice_analytics_result_text_view"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/fragment_result_model_voice_label_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="model voice label"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toStartOf="@id/fragment_result_user_voice_label_text_view"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_result_title_text_view" />
+
+                <TextView
+                    android:id="@+id/fragment_result_user_voice_label_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="user voice label"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/fragment_result_model_voice_label_text_view"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_result_title_text_view" />
+
+                <TextView
+                    android:id="@+id/fragment_result_choose_text_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="24dp"
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="@id/fragment_result_model_voice_label_text_view"
+                    app:layout_constraintStart_toStartOf="@id/fragment_result_model_voice_label_text_view"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_result_model_voice_label_text_view"
+                    tools:text="あ" />
+
+                <TextView
+                    android:id="@+id/fragment_result_user_predict_text_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="24dp"
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="@id/fragment_result_user_voice_label_text_view"
+                    app:layout_constraintStart_toStartOf="@id/fragment_result_user_voice_label_text_view"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_result_user_voice_label_text_view"
+                    tools:text="い" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/fragment_result_play_model_voice_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="試聴する"
+                    app:layout_constraintEnd_toEndOf="@id/fragment_result_choose_text_view"
+                    app:layout_constraintStart_toStartOf="@id/fragment_result_choose_text_view"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_result_choose_text_view" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/fragment_result_play_user_voice_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="試聴する"
+                    app:layout_constraintEnd_toEndOf="@id/fragment_result_user_predict_text_view"
+                    app:layout_constraintStart_toStartOf="@id/fragment_result_user_predict_text_view"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_result_user_predict_text_view" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/fragment_result_spectrogram_card_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_result_result_card_view">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="18dp"
-                android:text="Your Voice Analytics result 👆👆👆"
-                app:layout_constraintBottom_toTopOf="@id/fragment_result_predict_helper_text_view"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:padding="8dp">
 
-            <TextView
-                android:id="@+id/fragment_result_predict_helper_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="Your result is..."
-                android:textSize="24sp"
-                app:layout_constraintBottom_toTopOf="@id/fragment_result_predict_text_view"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                <TextView
+                    android:id="@+id/fragment_result_spectrogram_title_text_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="スペクトログラム"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/fragment_result_predict_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:padding="8dp"
-                android:text="Your Result"
-                android:textSize="48sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/fragment_result_model_spectrogram_title_text_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="model voice"
+                    app:layout_constraintEnd_toStartOf="@id/fragment_result_user_spectrogram_title_text_view"
+                    app:layout_constraintStart_toStartOf="@id/fragment_result_spectrogram_title_text_view"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_result_spectrogram_title_text_view" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/fragment_result_play_record_audio_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="play record audio"
-                app:layout_constraintEnd_toStartOf="@+id/fragment_result_play_model_audio_button"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/fragment_result_predict_text_view" />
+                <TextView
+                    android:id="@+id/fragment_result_user_spectrogram_title_text_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="user voice"
+                    app:layout_constraintEnd_toEndOf="@id/fragment_result_spectrogram_title_text_view"
+                    app:layout_constraintStart_toEndOf="@id/fragment_result_model_spectrogram_title_text_view"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_result_spectrogram_title_text_view" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/fragment_result_play_model_audio_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="play model audio"
-                app:layout_constraintBottom_toBottomOf="@id/fragment_result_play_record_audio_button"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/fragment_result_play_record_audio_button"
-                app:layout_constraintTop_toTopOf="@id/fragment_result_play_record_audio_button" />
+                <ImageView
+                    android:id="@+id/fragment_result_model_voice_spectrogram_image_view"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    app:layout_constraintEnd_toEndOf="@id/fragment_result_model_spectrogram_title_text_view"
+                    app:layout_constraintStart_toStartOf="@id/fragment_result_model_spectrogram_title_text_view"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_result_model_spectrogram_title_text_view"
+                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/fragment_result_navigate_home_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="navigate to home"
-                app:layout_constraintEnd_toStartOf="@id/fragment_result_learning_more_button"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/fragment_result_play_record_audio_button" />
+                <ImageView
+                    android:id="@+id/fragment_result_user_voice_spectrogram_image_view"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    app:layout_constraintEnd_toEndOf="@id/fragment_result_user_spectrogram_title_text_view"
+                    app:layout_constraintStart_toStartOf="@id/fragment_result_user_spectrogram_title_text_view"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_result_user_spectrogram_title_text_view"
+                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/fragment_result_learning_more_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="learning more"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/fragment_result_navigate_home_button"
-                app:layout_constraintTop_toTopOf="@id/fragment_result_navigate_home_button" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/fragment_result_go_back_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:padding="16dp"
+            android:text="GO BACK HOME"
+            android:textSize="24sp"
+            app:cornerRadius="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_result_spectrogram_card_view" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/fragment_result_loading_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/design_default_color_on_secondary"
-            tools:visibility="gone">
-
-            <TextView
-                android:id="@+id/fragment_result_loading_style_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Now Predicting..."
-                android:textAlignment="center"
-                android:textColor="@color/design_default_color_on_primary"
-                android:textSize="48sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ProgressBar
-                android:id="@+id/fragment_result_progress_bar"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="30dp"
-                android:indeterminate="true"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/fragment_result_loading_style_text_view" />
-
-            <TextView
-                android:id="@+id/fragment_result_tensordlow_message_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="18dp"
-                android:text="Init Tensorflow, load ML Model"
-                android:textAlignment="center"
-                android:textColor="@color/design_default_color_on_primary"
-                android:textSize="24sp"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/fragment_result_progress_bar" />
-
-            <TextView
-                android:id="@+id/fragment_result_processing_audio_message_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="18dp"
-                android:text="Processing your audio..."
-                android:textAlignment="center"
-                android:textColor="@color/design_default_color_on_primary"
-                android:textSize="24sp"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/fragment_result_tensordlow_message_text_view" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

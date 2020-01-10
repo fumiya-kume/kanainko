@@ -1,67 +1,53 @@
 package kuu.nagoya.feature.result
 
 import android.graphics.Bitmap
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kuu.nagoya.feature.result.service.AssetsService
-import kuu.nagoya.feature.result.service.FourieService
-import kuu.nagoya.feature.result.service.PlayAudioService
-import kuu.nagoya.feature.result.usecase.LoadRecordResultUsecase
-import kuu.nagoya.waveparser.WaveParse
-import java.io.File
+import kuu.nagoya.feature.result.usecase.PlayModelVoiceUsecase
+import kuu.nagoya.feature.result.usecase.PlayUserVoiceUsecase
 
 internal class ResultFragmentViewModel(
-    private val loadRecordResultUsecase: LoadRecordResultUsecase,
-    private val fourieService: FourieService,
-    private val audioService: PlayAudioService,
-    private val assetsService: AssetsService
+    userChooseWordLiveDataFactory: UserChooseWordLiveDataFactory,
+    PredictWordLiveDataFactory: PredictWordLiveDataFactory,
+    modelVoiceSpectrogramLiveDataFactory: ModelVoiceSpectrogramLiveDataFactory,
+    userVoiceSpectrogramLiveDataFactory: UserVoiceSpectrogramLiveDataFactory,
+    private val playModelVoiceUsecase: PlayModelVoiceUsecase,
+    private val playUserVoiceUsecase: PlayUserVoiceUsecase,
+    private val resultNavigation: ResultNavigation
 ) : ViewModel() {
 
-    private val chooseWordMutableLiveData: MutableLiveData<Char> = MutableLiveData()
-    val chooseWordLiveData = chooseWordMutableLiveData
+    private var userChooseWordLiveData: UserChooseWordLiveData =
+        userChooseWordLiveDataFactory.create()
+    val userChooseWord: LiveData<String> = userChooseWordLiveData
 
-    private val audioFilePathMutableLiveData: MutableLiveData<String> = MutableLiveData()
-    val audioFilePathLiveData = audioFilePathMutableLiveData
+    private val predictWordLiveData: PredictWordLiveData =
+        PredictWordLiveDataFactory.create(viewModelScope)
+    val predictWord: LiveData<String> = predictWordLiveData
 
-    private val recordSpectrogramBitmapMutableLiveData: MutableLiveData<Bitmap> = MutableLiveData()
-    val recordSpectrogramBitmapLivedata: LiveData<Bitmap> = recordSpectrogramBitmapMutableLiveData
+    private val modelVoiceSpectrogramLiveData: ModelVoiceSpectrogramLiveData =
+        modelVoiceSpectrogramLiveDataFactory.create(viewModelScope)
+    val modelVoiceSpectrogramBitmap: LiveData<Bitmap> = modelVoiceSpectrogramLiveData
 
-    init {
-        audioFilePathLiveData
-            .observeForever {
-                viewModelScope.launch(Dispatchers.IO) {
-                    val audioData = WaveParse.loadWaveFromFile(File(it)).data
-                    val bitmap = fourieService.audioDataToImage(audioData)
-                    recordSpectrogramBitmapMutableLiveData.postValue(bitmap)
-                }
-            }
-    }
+    private val userVoiceSpectrogramLiveData: UserVoiceSpectrogramLiveData =
+        userVoiceSpectrogramLiveDataFactory.create(viewModelScope)
+    val userVoiceSpectrogramBitmap: LiveData<Bitmap> = userVoiceSpectrogramLiveData
 
-    fun load() {
+    fun playModelVoice() {
         viewModelScope.launch {
-            val result = loadRecordResultUsecase.execute()
-            chooseWordMutableLiveData.postValue(result.choosedWord)
-            audioFilePathMutableLiveData.postValue(result.audioFilePath)
+            playModelVoiceUsecase.execute()
         }
     }
 
-    fun playRecordAudio() {
-        if (audioFilePathLiveData.value.isNullOrEmpty()) {
-            return
-        }
+    fun playUSerVoice() {
         viewModelScope.launch {
-            audioService.playAudio(audioFilePathLiveData.value!!)
+            playUserVoiceUsecase.exeute()
         }
     }
 
-    fun playModelAudio() {
-        viewModelScope.launch {
-            val modelAudioPath = assetsService.assetFileDescriptor("model_1.wav")
-            audioService.playAudio(modelAudioPath)
-        }
+    fun goBackHomeScreen(fragment: Fragment) {
+        resultNavigation.navigateToHome(fragment)
     }
 }

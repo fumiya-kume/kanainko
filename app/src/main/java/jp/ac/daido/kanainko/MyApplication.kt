@@ -1,6 +1,7 @@
 package jp.ac.daido.kanainko
 
 import android.app.Application
+import com.prevent.voice_data.voiceDataModule
 import jp.ac.daido.kanainko.navigation.navigationModule
 import kuu.nagoya.dashboard.dashBoardModule
 import kuu.nagoya.data.recorddata.recordDataModule
@@ -16,7 +17,7 @@ internal class MyApplication : Application() {
         super.onCreate()
 
         val module =
-            recordModule + wordListModule + navigationModule + dashBoardModule + recordDataModule + tmpRecordDataModule + resultModule
+            recordModule + wordListModule + navigationModule + dashBoardModule + recordDataModule + tmpRecordDataModule + resultModule + voiceDataModule
 
         startKoin {
             androidContext(this@MyApplication)
