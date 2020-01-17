@@ -4,12 +4,15 @@ import androidx.lifecycle.LiveData
 import kuu.nagoya.data.tmprecorddata.TmpRecordDataReadonlyRepository
 
 internal class UserChooseWordLiveData(
-    private val tmpRecordDataReadonlyRepository: TmpRecordDataReadonlyRepository
+    tmpRecordDataReadonlyRepository: TmpRecordDataReadonlyRepository
 ) : LiveData<String>() {
     init {
-        val tmpRecordData = tmpRecordDataReadonlyRepository.loadTmpRecordData()
-        postValue(
-            tmpRecordData.chooseCharacter.toString()
-        )
+        kotlin.runCatching {
+            tmpRecordDataReadonlyRepository.loadTmpRecordData()
+        }.onSuccess {
+            postValue(it.chooseCharacter.toString())
+        }.onFailure {
+            postValue("Can not read string")
+        }
     }
 }
