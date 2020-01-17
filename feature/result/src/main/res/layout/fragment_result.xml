@@ -107,7 +107,7 @@
             android:id="@+id/fragment_result_spectrogram_card_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fragment_result_result_card_view">
