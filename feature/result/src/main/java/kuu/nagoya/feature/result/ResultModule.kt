@@ -28,11 +28,14 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val resultModule = module {
-    factory { LoadRecordResultUsecaseImpl(get()) as LoadRecordResultUsecase }
-    factory { PredictAudioUsecaseImpl(androidApplication()) as PredictAudioUsecase }
+
     factory { FourieServiceImpl() as FourieService }
     factory { PlayAudioServiceImpl(get()) as PlayAudioService }
     factory { AssetsServiceImpl(androidContext()) as AssetsService }
+
+    // Usecase
+    factory { LoadRecordResultUsecaseImpl(get()) as LoadRecordResultUsecase }
+    factory { PredictAudioUsecaseImpl(androidApplication()) as PredictAudioUsecase }
     factory { PlayModelVoiceUsecaseImpl(get(), get(), get()) as PlayModelVoiceUsecase }
     factory { PlayUserVoiceUsecaseImpl(get(), get()) as PlayUserVoiceUsecase }
     factory { PredictVoiceUsecaseImpl() as PredictVoiceUsecase }
