@@ -13,7 +13,7 @@ internal class ModelVoiceSpectrogramLiveData(
     private val tmpRecordDataReadonlyRepository: TmpRecordDataReadonlyRepository,
     private val fourieService: FourieService,
     private val recordDataToModelVoiceDataUsecase: RecordDataToModelVoiceDataUsecase,
-    private val coroutineScope: CoroutineScope
+    coroutineScope: CoroutineScope
 ) : LiveData<Bitmap>() {
     init {
         coroutineScope.launch(Dispatchers.IO) {

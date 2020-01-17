@@ -9,7 +9,7 @@ import kuu.nagoya.feature.result.usecase.PredictVoiceUsecase
 internal class PredictWordLiveData(
     private val predictVoiceUsecase: PredictVoiceUsecase,
     private val tmpRecordDataReadonlyRepository: TmpRecordDataReadonlyRepository,
-    private val coroutineScope: CoroutineScope
+    coroutineScope: CoroutineScope
 ) : LiveData<String>() {
     init {
         coroutineScope.launch {
