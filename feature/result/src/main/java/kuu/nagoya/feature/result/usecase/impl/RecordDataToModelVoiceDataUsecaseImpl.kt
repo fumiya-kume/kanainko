@@ -8,7 +8,7 @@ import kuu.nagoya.waveparser.WaveParse
 class RecordDataToModelVoiceDataUsecaseImpl(
     private val voiceDataRepository: VoiceDataRepository
 ) : RecordDataToModelVoiceDataUsecase {
-    override suspend fun execite(recordData: TmpRecordDataEntity): List<Short> {
+    override suspend fun execute(recordData: TmpRecordDataEntity): List<Short> {
         val voiceFile = voiceDataRepository.loadModelVoiceByName("model_1.wav")
         return WaveParse.loadWaveFromFile(voiceFile).data
     }

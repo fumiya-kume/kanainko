@@ -18,7 +18,7 @@ internal class ModelVoiceSpectrogramLiveData(
     init {
         coroutineScope.launch(Dispatchers.IO) {
             val recordData = tmpRecordDataReadonlyRepository.loadTmpRecordData()
-            val voice = recordDataToModelVoiceDataUsecase.execite(recordData)
+            val voice = recordDataToModelVoiceDataUsecase.execute(recordData)
             postValue(
                 fourieService.audioDataToImage(voice)
             )
