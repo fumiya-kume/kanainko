@@ -12,9 +12,6 @@ internal class PlayAudioUsecaseImpl(
 ) : PlayAudioUsecase {
     override suspend fun execute(record: Record) {
 
-        val file = context.externalMediaDirs?.first()!!.list().elementAt(1).toUri()
-        val filePath = "${file?.path}/output.wav"
-
         val mediaPlayer = MediaPlayer()
         mediaPlayer.setDataSource(context, "file:///${record.filePath.path.toUri()}".toUri())
         mediaPlayer.setOnPreparedListener {

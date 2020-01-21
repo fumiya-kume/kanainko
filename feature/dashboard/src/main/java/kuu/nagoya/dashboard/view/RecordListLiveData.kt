@@ -32,7 +32,7 @@ internal class RecordListLiveData(
     fun reset() {
         coroutineScope.launch {
             recordListUsecase
-                .execite()
+                .execute()
             refreshRecordList()
         }
     }
