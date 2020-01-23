@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DividerItemDecoration
 import kuu.nagoya.featurewordlist.WordListNavigation
 import kuu.nagoya.featurewordlist.databinding.FragmentChooseWordBinding
 import kuu.nagoya.featurewordlist.view.dialog.ChooseWordDialog
@@ -58,6 +59,13 @@ internal class ChooseWordFragment : Fragment() {
         }
 
         binding.fragmentChooseWordWordGroupListRecyclerView.adapter = wordGroupListAdapter
+
+        binding.fragmentChooseWordWordGroupListRecyclerView.addItemDecoration(
+            DividerItemDecoration(
+                context,
+                DividerItemDecoration.VERTICAL
+            )
+        )
 
         return binding.root
     }
