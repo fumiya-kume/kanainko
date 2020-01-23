@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kuu.nagoya.featurewordlist.databinding.DialogWordChooseBinding
@@ -69,6 +70,12 @@ internal class ChooseWordDialog private constructor(
         }
 
         binding.dialogWordChooseWordListRecyclerView.adapter = chooseWordListAdapter
+        binding.dialogWordChooseWordListRecyclerView.addItemDecoration(
+            DividerItemDecoration(
+                context,
+                DividerItemDecoration.VERTICAL
+            )
+        )
 
         return binding.root
     }
