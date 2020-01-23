@@ -29,7 +29,7 @@
                     android:id="@+id/fragment_result_title_text_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Talk Result"
+                    android:text="Result"
                     android:textSize="24sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -38,9 +38,10 @@
 
                 <TextView
                     android:id="@+id/fragment_result_model_voice_label_text_view"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="model voice label"
+                    android:gravity="center"
+                    android:text="Selected Result"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toStartOf="@id/fragment_result_user_voice_label_text_view"
                     app:layout_constraintStart_toStartOf="parent"
@@ -48,13 +49,15 @@
 
                 <TextView
                     android:id="@+id/fragment_result_user_voice_label_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="user voice label"
-                    android:textSize="18sp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:text="Speech Recognition Result "
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/fragment_result_model_voice_label_text_view"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/fragment_result_model_voice_label_text_view"
-                    app:layout_constraintTop_toBottomOf="@id/fragment_result_title_text_view" />
+                    app:layout_constraintTop_toTopOf="@id/fragment_result_model_voice_label_text_view" />
 
                 <TextView
                     android:id="@+id/fragment_result_choose_text_view"
@@ -86,7 +89,8 @@
                     android:id="@+id/fragment_result_play_model_voice_button"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="試聴する"
+                    android:layout_margin="8dp"
+                    android:text="Play"
                     app:layout_constraintEnd_toEndOf="@id/fragment_result_choose_text_view"
                     app:layout_constraintStart_toStartOf="@id/fragment_result_choose_text_view"
                     app:layout_constraintTop_toBottomOf="@id/fragment_result_choose_text_view" />
@@ -95,7 +99,8 @@
                     android:id="@+id/fragment_result_play_user_voice_button"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="試聴する"
+                    android:text="Play"
+                    android:layout_margin="8dp"
                     app:layout_constraintEnd_toEndOf="@id/fragment_result_user_predict_text_view"
                     app:layout_constraintStart_toStartOf="@id/fragment_result_user_predict_text_view"
                     app:layout_constraintTop_toBottomOf="@id/fragment_result_user_predict_text_view" />
@@ -122,7 +127,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="スペクトログラム"
+                    android:text="Spectrogram"
                     android:textSize="24sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -134,7 +139,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="model voice"
+                    android:text="selected voice"
                     app:layout_constraintEnd_toStartOf="@id/fragment_result_user_spectrogram_title_text_view"
                     app:layout_constraintStart_toStartOf="@id/fragment_result_spectrogram_title_text_view"
                     app:layout_constraintTop_toBottomOf="@id/fragment_result_spectrogram_title_text_view" />
@@ -144,7 +149,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="user voice"
+                    android:text="recorded voice"
                     app:layout_constraintEnd_toEndOf="@id/fragment_result_spectrogram_title_text_view"
                     app:layout_constraintStart_toEndOf="@id/fragment_result_model_spectrogram_title_text_view"
                     app:layout_constraintTop_toBottomOf="@id/fragment_result_spectrogram_title_text_view" />
@@ -178,7 +183,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:padding="16dp"
-            android:text="GO BACK HOME"
+            android:text="BACK TO HOME"
             android:textSize="24sp"
             app:cornerRadius="8dp"
             app:layout_constraintEnd_toEndOf="parent"
