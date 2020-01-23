@@ -9,16 +9,18 @@ class PlayAudioServiceImpl(
     private val context: Context
 ) : PlayAudioService {
     override suspend fun playAudio(path: String) {
-        val mediaPlater = MediaPlayer()
-        mediaPlater.setDataSource(context, Uri.parse(path))
-        mediaPlater.prepare()
-        mediaPlater.start()
+        val mediaPlater = MediaPlayer().apply {
+            this.setDataSource(context, Uri.parse(path))
+            this.prepare()
+            start()
+        }
     }
 
     override suspend fun playAudio(fileDescriptor: AssetFileDescriptor) {
-        val mediaPlater = MediaPlayer()
-        mediaPlater.setDataSource(fileDescriptor)
-        mediaPlater.prepare()
-        mediaPlater.start()
+        val mediaPlater = MediaPlayer().apply {
+            setDataSource(fileDescriptor)
+            prepare()
+            start()
+        }
     }
 }

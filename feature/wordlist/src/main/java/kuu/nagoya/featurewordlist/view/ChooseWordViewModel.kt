@@ -12,6 +12,6 @@ internal class ChooseWordViewModel(
     val wordLisLiveData = wordListLiveDataFactory.create(viewModelScope)
 
     fun wordChoosed(wordViewEntity: WordViewEntity) {
-        storeChoosedWordUsecase.storeWord(wordViewEntity.name.toCharArray().first())
+        storeChoosedWordUsecase.storeWord(wordViewEntity)
     }
 }

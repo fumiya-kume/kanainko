@@ -9,7 +9,10 @@ class RecordDataToModelVoiceDataUsecaseImpl(
     private val voiceDataRepository: VoiceDataRepository
 ) : RecordDataToModelVoiceDataUsecase {
     override suspend fun execute(recordData: TmpRecordDataEntity): List<Short> {
-        val voiceFile = voiceDataRepository.loadModelVoiceByName("model_1.wav")
+        val voiceFile = voiceDataRepository.loadModelVoiceByName("P${recordData.id.toString().padStart(
+            3,
+            '0'
+        )}.wav")
         return WaveParse.loadWaveFromFile(voiceFile).data
     }
 }
