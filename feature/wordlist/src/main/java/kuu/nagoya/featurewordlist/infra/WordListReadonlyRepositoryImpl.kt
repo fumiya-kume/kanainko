@@ -13,26 +13,26 @@ internal class WordListReadonlyRepositoryImpl :
                 "あいうえお",
                 listOf(
                     Word(
-                        0,
+                        1,
                         "あ",
                         "a"
                     ),
                     Word(
-                        1,
+                        2,
                         "い",
                         "i"
                     ),
                     Word(
-                        2,
+                        3,
                         "う",
                         "u"
                     ), Word(
-                        3,
+                        4,
                         "え",
                         "e"
                     ),
                     Word(
-                        4,
+                        5,
                         "お",
                         "o"
                     )
@@ -43,26 +43,26 @@ internal class WordListReadonlyRepositoryImpl :
                 "かきくけこ",
                 listOf(
                     Word(
-                        0,
+                        6,
                         "か",
                         "ka"
                     ),
                     Word(
-                        1,
+                        7,
                         "き",
                         "ki"
                     ),
                     Word(
-                        2,
+                        8,
                         "く",
                         "ku"
                     ), Word(
-                        3,
+                        9,
                         "け",
                         "ke"
                     ),
                     Word(
-                        4,
+                        10,
                         "こ",
                         "ko"
                     )
@@ -73,26 +73,26 @@ internal class WordListReadonlyRepositoryImpl :
                 "さしすせそ",
                 listOf(
                     Word(
-                        0,
+                        11,
                         "さ",
                         "sa"
                     ),
                     Word(
-                        1,
+                        12,
                         "し",
                         "shi"
                     ),
                     Word(
-                        2,
+                        13,
                         "す",
                         "su"
                     ), Word(
-                        3,
+                        14,
                         "せ",
                         "se"
                     ),
                     Word(
-                        4,
+                        15,
                         "そ",
                         "so"
                     )
@@ -103,26 +103,26 @@ internal class WordListReadonlyRepositoryImpl :
                 "たちつてと",
                 listOf(
                     Word(
-                        0,
+                        16,
                         "た",
                         "ta"
                     ),
                     Word(
-                        1,
+                        17,
                         "ち",
                         "ti"
                     ),
                     Word(
-                        2,
+                        18,
                         "つ",
                         "tsu"
                     ), Word(
-                        3,
+                        19,
                         "て",
                         "te"
                     ),
                     Word(
-                        4,
+                        20,
                         "と",
                         "to"
                     )
@@ -133,26 +133,26 @@ internal class WordListReadonlyRepositoryImpl :
                 "なにぬねの",
                 listOf(
                     Word(
-                        0,
+                        21,
                         "な",
                         "na"
                     ),
                     Word(
-                        1,
+                        22,
                         "に",
                         "ni"
                     ),
                     Word(
-                        2,
+                        23,
                         "く",
                         "nu"
                     ), Word(
-                        3,
+                        24,
                         "け",
                         "ne"
                     ),
                     Word(
-                        4,
+                        25,
                         "こ",
                         "no"
                     )
@@ -163,26 +163,26 @@ internal class WordListReadonlyRepositoryImpl :
                 "はひふへほ",
                 listOf(
                     Word(
-                        0,
+                        26,
                         "は",
                         "ha"
                     ),
                     Word(
-                        1,
+                        27,
                         "ひ",
                         "hi"
                     ),
                     Word(
-                        2,
+                        28,
                         "ふ",
                         "hu"
                     ), Word(
-                        3,
+                        29,
                         "へ",
                         "he"
                     ),
                     Word(
-                        4,
+                        30,
                         "ほ",
                         "ho"
                     )
@@ -193,26 +193,26 @@ internal class WordListReadonlyRepositoryImpl :
                 "まみむめも",
                 listOf(
                     Word(
-                        0,
+                        31,
                         "ま",
                         "ma"
                     ),
                     Word(
-                        1,
+                        32,
                         "み",
                         "mi"
                     ),
                     Word(
-                        2,
+                        33,
                         "む",
                         "mu"
                     ), Word(
-                        3,
+                        34,
                         "め",
                         "me"
                     ),
                     Word(
-                        4,
+                        35,
                         "も",
                         "mo"
                     )
@@ -223,17 +223,17 @@ internal class WordListReadonlyRepositoryImpl :
                 "やゆよ",
                 listOf(
                     Word(
-                        0,
+                        36,
                         "や",
                         "ya"
                     ),
                     Word(
-                        1,
+                        38,
                         "ゆ",
                         "yu"
                     ),
                     Word(
-                        2,
+                        39,
                         "よ",
                         "yo"
                     )
@@ -244,26 +244,26 @@ internal class WordListReadonlyRepositoryImpl :
                 "らりるれろ",
                 listOf(
                     Word(
-                        0,
+                        40,
                         "ら",
                         "ra"
                     ),
                     Word(
-                        1,
+                        41,
                         "り",
                         "ri"
                     ),
                     Word(
-                        2,
+                        42,
                         "る",
                         "ru"
                     ), Word(
-                        3,
+                        43,
                         "れ",
                         "re"
                     ),
                     Word(
-                        4,
+                        44,
                         "ろ",
                         "ro"
                     )
@@ -274,17 +274,17 @@ internal class WordListReadonlyRepositoryImpl :
                 "わをん",
                 listOf(
                     Word(
-                        0,
+                        45,
                         "わ",
                         "wa"
                     ),
                     Word(
-                        1,
+                        46,
                         "を",
                         "wo"
                     ),
                     Word(
-                        2,
+                        47,
                         "ん",
                         "n"
                     )

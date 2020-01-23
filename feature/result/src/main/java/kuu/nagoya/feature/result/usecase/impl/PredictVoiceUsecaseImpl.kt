@@ -6,6 +6,7 @@ import kuu.nagoya.feature.result.usecase.PredictVoiceUsecase
 class PredictVoiceUsecaseImpl :
     PredictVoiceUsecase {
     override suspend fun execute(tmpRecordDataEntity: TmpRecordDataEntity): String {
-        return tmpRecordDataEntity.chooseCharacter.toString()
+//        return tmpRecordDataEntity.chooseCharacter.toString()
+        return "あ"
     }
 }

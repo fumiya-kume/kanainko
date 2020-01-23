@@ -13,6 +13,8 @@ class PlayModelVoiceUsecaseImpl(
     override suspend fun execute() {
         val recordData = tmpRecordDataReadonlyRepository.loadTmpRecordData()
         val voice = recordDataToModelVoiceFileUsecase.execute(recordData)
-        playAudioService.playAudio(voice.absolutePath)
+        if (voice.exists()) {
+            playAudioService.playAudio(voice.absolutePath)
+        }
     }
 }
