@@ -1,4 +1,4 @@
-package nagoya.kuu.learning_data
+package nagoya.kuu.resources
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
@@ -17,6 +17,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("nagoya.kuu.learning_data.test", appContext.packageName)
+        assertEquals("nagoya.kuu.resources.test", appContext.packageName)
     }
 }

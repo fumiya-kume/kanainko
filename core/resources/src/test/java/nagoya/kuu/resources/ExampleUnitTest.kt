@@ -1,4 +1,4 @@
-package nagoya.kuu.learning_data
+package nagoya.kuu.resources
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

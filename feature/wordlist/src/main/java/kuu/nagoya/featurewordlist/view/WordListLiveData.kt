@@ -7,18 +7,31 @@ import kotlinx.coroutines.launch
 import kuu.nagoya.featurewordlist.usecase.WordListReadonlyRepository
 import kuu.nagoya.featurewordlist.viewentity.WordGroupViewEntity
 import kuu.nagoya.featurewordlist.viewentity.convert
+import nagoya.kuu.learning_data.LearningDataRepository
 
 internal class WordListLiveData(
     private val coroutineScope: CoroutineScope,
-    private val wordListReadonlyUsecase: WordListReadonlyRepository
+    private val wordListReadonlyUsecase: WordListReadonlyRepository,
+    private val learningDataRepository: LearningDataRepository
 ) : LiveData<List<WordGroupViewEntity>>() {
     init {
         coroutineScope
             .launch(Dispatchers.IO) {
+                val wordList = wordListReadonlyUsecase
+                    .loadWordGroup()
+                    .convert()
+
                 postValue(
-                    wordListReadonlyUsecase
-                        .loadWordGroup()
-                        .convert()
+                    wordList.map {
+                        it.copy(
+                            wordList =
+                            it.wordList.map {
+                                it.copy(
+                                    isLearned = learningDataRepository.isLearnined(it.id)
+                                )
+                            }
+                        )
+                    }
                 )
             }
     }

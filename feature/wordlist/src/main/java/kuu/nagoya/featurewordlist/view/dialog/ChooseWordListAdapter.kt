@@ -13,15 +13,16 @@ internal class ChooseWordListAdapter(
 ) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChooseWordListViewHolder {
         return ChooseWordListViewHolder.create(
-            context,
-            parent
+            context = context,
+            parent = parent
         )
     }
 
     override fun onBindViewHolder(holder: ChooseWordListViewHolder, position: Int) {
         return holder.bindTo(
-            getItem(position),
-            onWordChooseListener
+            wordViewEntity = getItem(position),
+            context = context,
+            onWordChooseListener = onWordChooseListener
         )
     }
 

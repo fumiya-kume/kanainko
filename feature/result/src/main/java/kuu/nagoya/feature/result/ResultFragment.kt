@@ -6,12 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kuu.nagoya.feature.result.databinding.FragmentResultBinding
+import nagoya.kuu.learning_data.LearningDataRepository
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ResultFragment : Fragment() {
 
     private val resultFragmentViewModel: ResultFragmentViewModel by viewModel()
     private lateinit var binding: FragmentResultBinding
+
+    private val learningDataRepository: LearningDataRepository by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,6 +28,7 @@ class ResultFragment : Fragment() {
                 container,
                 false
             )
+
         return binding.root
     }
 
@@ -63,7 +68,7 @@ class ResultFragment : Fragment() {
         binding
             .fragmentResultGoBackButton
             .setOnClickListener {
-                resultFragmentViewModel.goBackHomeScreen(this)
+                resultFragmentViewModel.navigateWordList(this)
             }
 
         binding

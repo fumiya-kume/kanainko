@@ -6,6 +6,7 @@ import kuu.nagoya.feature.result.service.FourieService
 import kuu.nagoya.feature.result.service.FourieServiceImpl
 import kuu.nagoya.feature.result.service.PlayAudioService
 import kuu.nagoya.feature.result.service.PlayAudioServiceImpl
+import kuu.nagoya.feature.result.usecase.LearningedUsecase
 import kuu.nagoya.feature.result.usecase.LoadRecordResultUsecase
 import kuu.nagoya.feature.result.usecase.PlayModelVoiceUsecase
 import kuu.nagoya.feature.result.usecase.PlayUserVoiceUsecase
@@ -14,6 +15,7 @@ import kuu.nagoya.feature.result.usecase.PredictVoiceUsecase
 import kuu.nagoya.feature.result.usecase.RecordDataToModelVoiceDataUsecase
 import kuu.nagoya.feature.result.usecase.RecordDataToModelVoiceFileUsecase
 import kuu.nagoya.feature.result.usecase.RecordDataToUserVoiceDataUsecase
+import kuu.nagoya.feature.result.usecase.impl.LearningedUsecaseImpl
 import kuu.nagoya.feature.result.usecase.impl.LoadRecordResultUsecaseImpl
 import kuu.nagoya.feature.result.usecase.impl.PlayModelVoiceUsecaseImpl
 import kuu.nagoya.feature.result.usecase.impl.PlayUserVoiceUsecaseImpl
@@ -42,6 +44,7 @@ val resultModule = module {
     factory { RecordDataToModelVoiceDataUsecaseImpl(get()) as RecordDataToModelVoiceDataUsecase }
     factory { RecordDataToModelVoiceFileUsecaseImpl(get()) as RecordDataToModelVoiceFileUsecase }
     factory { RecordDataToUserVoiceDataUsecaseImpl() as RecordDataToUserVoiceDataUsecase }
+    factory { LearningedUsecaseImpl(get(), get()) as LearningedUsecase }
 
     // LiveData
     factory { ModelVoiceSpectrogramLiveDataFactory(get(), get(), get()) }
@@ -50,5 +53,5 @@ val resultModule = module {
     factory { UserVoiceSpectrogramLiveDataFactory(get(), get(), get()) }
 
     // Viewmodel
-    viewModel { ResultFragmentViewModel(get(), get(), get(), get(), get(), get(), get()) }
+    viewModel { ResultFragmentViewModel(get(), get(), get(), get(), get(), get(), get(), get()) }
 }
