@@ -1,4 +1,4 @@
-include ':app', ':voice-data'
+include ':app'
 
 ['feature', "data","core"]
         .asList()

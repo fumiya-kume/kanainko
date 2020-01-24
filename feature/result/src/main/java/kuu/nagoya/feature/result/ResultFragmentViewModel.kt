@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+import kuu.nagoya.feature.result.usecase.LearningedUsecase
 import kuu.nagoya.feature.result.usecase.PlayModelVoiceUsecase
 import kuu.nagoya.feature.result.usecase.PlayUserVoiceUsecase
 
@@ -16,7 +17,8 @@ internal class ResultFragmentViewModel(
     userVoiceSpectrogramLiveDataFactory: UserVoiceSpectrogramLiveDataFactory,
     private val playModelVoiceUsecase: PlayModelVoiceUsecase,
     private val playUserVoiceUsecase: PlayUserVoiceUsecase,
-    private val resultNavigation: ResultNavigation
+    private val resultNavigation: ResultNavigation,
+    private val learningedUsecase: LearningedUsecase
 ) : ViewModel() {
 
     private var userChooseWordLiveData: UserChooseWordLiveData =
@@ -35,6 +37,10 @@ internal class ResultFragmentViewModel(
         userVoiceSpectrogramLiveDataFactory.create(viewModelScope)
     val userVoiceSpectrogramBitmap: LiveData<Bitmap> = userVoiceSpectrogramLiveData
 
+    init {
+        learningedUsecase.execute()
+    }
+
     fun playModelVoice() {
         viewModelScope.launch {
             playModelVoiceUsecase.execute()
@@ -47,7 +53,7 @@ internal class ResultFragmentViewModel(
         }
     }
 
-    fun goBackHomeScreen(fragment: Fragment) {
-        resultNavigation.navigateToHome(fragment)
+    fun navigateWordList(fragment: Fragment) {
+        resultNavigation.navigateWordChooseScreen(fragment)
     }
 }

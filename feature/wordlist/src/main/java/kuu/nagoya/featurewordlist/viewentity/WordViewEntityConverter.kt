@@ -4,7 +4,9 @@ import kuu.nagoya.featurewordlist.entity.Word
 
 internal fun Word.convert(): WordViewEntity =
     WordViewEntity(
-        this.id,
-        this.name,
-        this.alphabet
+        id = this.id,
+        name = this.name,
+        alphabetName = this.alphabet,
+        isChoose = false,
+        isLearned = false
     )

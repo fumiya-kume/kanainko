@@ -31,28 +31,37 @@
 
         <TextView
             android:id="@+id/item_word_choose_dialog_word_text_view"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{viewentity.name}"
             android:textAlignment="center"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/learnined_check_icon_image_view"
             app:layout_constraintStart_toEndOf="@id/item_word_choose_dialog_check_box"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="あ" />
 
         <TextView
             android:id="@+id/item_word_choose_dialog_alphabet_word_text_view"
-            app:layout_constraintTop_toBottomOf="@id/item_word_choose_dialog_word_text_view"
-            app:layout_constraintStart_toEndOf="@id/item_word_choose_dialog_check_box"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="ka"
-            android:textAlignment="center"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{viewentity.alphabetName}"
-            />
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@id/learnined_check_icon_image_view"
+            app:layout_constraintStart_toEndOf="@id/item_word_choose_dialog_check_box"
+            app:layout_constraintTop_toBottomOf="@id/item_word_choose_dialog_word_text_view"
+            tools:text="ka" />
+
+        <ImageView
+            android:id="@+id/learnined_check_icon_image_view"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_margin="18dp"
+            android:src="@drawable/ic_check_circle_outline_24px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,4 +1,4 @@
-package com.prevent.feature.debug
+package nagoya.kuu.learning_data
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

@@ -18,6 +18,6 @@ val wordListModule =
         // Usecase
         factory { StoreChoosedWordUsecaseImpl(get(), get()) as StoreChoosedWordUsecase }
 
-        factory { WordListLiveDataFactory(get()) }
+        factory { WordListLiveDataFactory(get(), get()) }
         viewModel { ChooseWordViewModel(get(), get()) }
     }
