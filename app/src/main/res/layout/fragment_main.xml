@@ -11,50 +11,30 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/fragment_main_sample_text_view"
+            android:id="@+id/title_text_view"
+            style="@style/MaterialAlertDialog.MaterialComponents.Title.Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello Fragment"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="次世代型日本語学習システム"
+            app:layout_constraintBottom_toTopOf="@id/fragment_main_navigate_word_choose_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/fragment_main_navigate_dashboard_fragment_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:padding="16dp"
-            android:text="ダッシュボード画面を開く"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fragment_main_sample_text_view" />
 
         <Button
             android:id="@+id/fragment_main_navigate_word_choose_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
+            android:background="@color/primaryColor"
             android:padding="16dp"
             android:text="単語選択画面を開く"
+            android:textColor="@color/primaryTextColor"
             android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fragment_main_navigate_dashboard_fragment_button" />
-
-        <Button
-            android:id="@+id/fragment_main_navigate_debug_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:padding="16dp"
-            android:text="navigate to debug"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fragment_main_navigate_word_choose_button" />
+            app:layout_constraintTop_toBottomOf="@id/title_text_view" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
