@@ -12,8 +12,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
         <CheckBox
             android:id="@+id/item_word_choose_dialog_check_box"
@@ -35,6 +34,7 @@
             android:layout_height="wrap_content"
             android:text="@{viewentity.name}"
             android:textAlignment="center"
+            android:textColor="@color/grayColor"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/learnined_check_icon_image_view"
@@ -48,6 +48,7 @@
             android:layout_height="wrap_content"
             android:text="@{viewentity.alphabetName}"
             android:textAlignment="center"
+            android:textColor="@color/grayColor"
             app:layout_constraintEnd_toStartOf="@id/learnined_check_icon_image_view"
             app:layout_constraintStart_toEndOf="@id/item_word_choose_dialog_check_box"
             app:layout_constraintTop_toBottomOf="@id/item_word_choose_dialog_word_text_view"
@@ -61,7 +62,7 @@
             android:src="@drawable/ic_check_circle_outline_24px"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
