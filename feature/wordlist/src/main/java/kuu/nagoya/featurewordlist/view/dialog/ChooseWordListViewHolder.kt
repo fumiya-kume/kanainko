@@ -47,7 +47,7 @@ internal class ChooseWordListViewHolder private constructor(
         binding.learninedCheckIconImageView.imageTintList = if (wordViewEntity.isLearned) {
             ContextCompat.getColorStateList(context, R.color.secondaryColor)
         } else {
-            ContextCompat.getColorStateList(context, R.color.grayColor)
+            ContextCompat.getColorStateList(context, R.color.grayColor800)
         }
     }
 }
