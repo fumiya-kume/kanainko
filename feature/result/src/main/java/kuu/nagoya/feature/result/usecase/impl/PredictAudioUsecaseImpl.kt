@@ -12,27 +12,27 @@ internal class PredictAudioUsecaseImpl(
 ) : PredictAudioUsecase {
 
     companion object {
-        private val sampleRate = 16000
-        private val sample_duration_ms = 1000
+        private const val sampleRate = 16000
+        private const val sample_duration_ms = 1000
 
         val recordingLength = sampleRate * sample_duration_ms / 1000
     }
 
-    val labelFilePath = "labels.txt"
-    val modelFilePath = "file:///android_asset/voice_command.pb"
+    private val labelFilePath = "labels.txt"
+    private val modelFilePath = "file:///android_asset/voice_command.pb"
 
-    val sampleRateName = "decoded_sample_data:1"
-    val inputDataName = "decoded_sample_data:0"
-    val outputScoreName = "labels_softmax"
+    private val sampleRateName = "decoded_sample_data:1"
+    private val inputDataName = "decoded_sample_data:0"
+    private val outputScoreName = "labels_softmax"
 
-    val labels: List<String> =
+    private val labels: List<String> =
         BufferedReader(
             InputStreamReader(
                 context.assets.open(labelFilePath)
             )
         ).readLines()
 
-    val tensorFlowInferenceInterface = TensorFlowInferenceInterface(
+    private val tensorFlowInferenceInterface = TensorFlowInferenceInterface(
         context.assets,
         modelFilePath
     )
