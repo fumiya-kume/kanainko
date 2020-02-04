@@ -2,12 +2,12 @@ package kuu.nagoya.feature.result
 
 import kotlinx.coroutines.CoroutineScope
 import kuu.nagoya.data.tmprecorddata.TmpRecordDataReadonlyRepository
-import kuu.nagoya.feature.result.service.FourieService
+import kuu.nagoya.feature.result.service.FourierService
 import kuu.nagoya.feature.result.usecase.RecordDataToModelVoiceDataUsecase
 
 internal class ModelVoiceSpectrogramLiveDataFactory(
     private val tmpRecordDataReadonlyRepository: TmpRecordDataReadonlyRepository,
-    private val fourieService: FourieService,
+    private val fourierService: FourierService,
     private val recordDataToModelVoiceDataUsecase: RecordDataToModelVoiceDataUsecase
 ) {
     fun create(
@@ -15,7 +15,7 @@ internal class ModelVoiceSpectrogramLiveDataFactory(
     ): ModelVoiceSpectrogramLiveData {
         return ModelVoiceSpectrogramLiveData(
             tmpRecordDataReadonlyRepository,
-            fourieService,
+            fourierService,
             recordDataToModelVoiceDataUsecase,
             coroutineScope
         )
