@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.prevent.voice_data.domain.AssetsInitUsecase
 import jp.ac.daido.kanainko.databinding.FragmentMainBinding
 import kuu.nagoya.navigation.AppNavigation
@@ -30,17 +29,9 @@ class MainFragment : Fragment() {
 
         assetsInitUsecase.execute()
 
-        binding.fragmentMainNavigateDashboardFragmentButton.setOnClickListener {
-            appNavigation.navigateToDashboard()
-        }
         binding.fragmentMainNavigateWordChooseButton.setOnClickListener {
             appNavigation.navigateToWordChoose()
         }
-
-        binding.fragmentMainNavigateDebugButton
-            .setOnClickListener {
-                findNavController().navigate(R.id.action_mainFragment_to_debugActivity)
-            }
 
         return binding.root
     }
