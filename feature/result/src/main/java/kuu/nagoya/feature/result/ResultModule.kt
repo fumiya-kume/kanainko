@@ -2,8 +2,8 @@ package kuu.nagoya.feature.result
 
 import kuu.nagoya.feature.result.service.AssetsService
 import kuu.nagoya.feature.result.service.AssetsServiceImpl
-import kuu.nagoya.feature.result.service.FourieService
-import kuu.nagoya.feature.result.service.FourieServiceImpl
+import kuu.nagoya.feature.result.service.FourierService
+import kuu.nagoya.feature.result.service.FourierServiceImpl
 import kuu.nagoya.feature.result.service.PlayAudioService
 import kuu.nagoya.feature.result.service.PlayAudioServiceImpl
 import kuu.nagoya.feature.result.usecase.LearningedUsecase
@@ -31,7 +31,7 @@ import org.koin.dsl.module
 
 val resultModule = module {
 
-    factory { FourieServiceImpl() as FourieService }
+    factory { FourierServiceImpl() as FourierService }
     factory { PlayAudioServiceImpl(get()) as PlayAudioService }
     factory { AssetsServiceImpl(androidContext()) as AssetsService }
 

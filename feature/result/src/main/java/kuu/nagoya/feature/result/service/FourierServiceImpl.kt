@@ -5,7 +5,7 @@ import android.graphics.Color
 import edu.emory.mathcs.jtransforms.fft.DoubleFFT_1D
 import kotlin.math.absoluteValue
 
-internal class FourieServiceImpl : FourieService {
+internal class FourierServiceImpl : FourierService {
     override suspend fun audioDataToImage(data: List<Short>): Bitmap {
         val sliceSize = 2
         val windowSize = 160
